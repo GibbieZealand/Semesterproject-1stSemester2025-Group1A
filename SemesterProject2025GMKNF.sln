@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrederikTest", "FrederikTes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NecatiTest", "NecatiTest\NecatiTest.csproj", "{8508F28D-F47D-404E-A456-9F4FA08209C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GibbieTest", "GibbieTest\GibbieTest.csproj", "{877638B9-4F83-4A5F-B78C-466A22F31057}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PersonalTests", "PersonalTests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,9 +55,20 @@ Global
 		{8508F28D-F47D-404E-A456-9F4FA08209C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8508F28D-F47D-404E-A456-9F4FA08209C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8508F28D-F47D-404E-A456-9F4FA08209C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{877638B9-4F83-4A5F-B78C-466A22F31057}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{877638B9-4F83-4A5F-B78C-466A22F31057}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{877638B9-4F83-4A5F-B78C-466A22F31057}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{877638B9-4F83-4A5F-B78C-466A22F31057}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{725AA111-904B-4482-A74A-CDB0EB2C2787} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E6CD16E0-ABF2-4439-AC46-7B801729F907} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B87E163C-2158-4396-88C9-1C597D72A945} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{8508F28D-F47D-404E-A456-9F4FA08209C3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{877638B9-4F83-4A5F-B78C-466A22F31057} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B98865D8-C955-4013-BA96-5B1802EEB77B}
