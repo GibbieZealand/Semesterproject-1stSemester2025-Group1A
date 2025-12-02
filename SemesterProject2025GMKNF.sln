@@ -18,6 +18,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NecatiTest", "NecatiTest\NecatiTest.csproj", "{8508F28D-F47D-404E-A456-9F4FA08209C3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GibbieTest", "GibbieTest\GibbieTest.csproj", "{877638B9-4F83-4A5F-B78C-466A22F31057}"
+	ProjectSection(ProjectDependencies) = postProject
+		{222BFEC3-D47E-4219-A153-57FA797506DD} = {222BFEC3-D47E-4219-A153-57FA797506DD}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PersonalTests", "PersonalTests", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
