@@ -10,7 +10,7 @@ namespace ProjectClassLibrary.Models
     public class Member : IMember
     {
         /// <summary>
-        /// Represents a static counter used to track the number of instances or operations.
+        /// Dette er en statisk counter, hvilket vil sige at den tilhører hele klassen, og dermed bruges til at give hver objekt et unikt nummer
         /// </summary>
         #region Instance Fields
         private static int _counter = 0;
