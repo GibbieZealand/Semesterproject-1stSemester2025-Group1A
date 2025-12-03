@@ -26,11 +26,10 @@ namespace ProjectClassLibrary.Services
         #endregion
        
         #region Methods
-        /// <summary>
-        /// AddMember metoden: Hvis det givende arguments telefonnummer for Member ikke eksistere: Så tilføjes Member til MemberRepository
-        /// </summary>
-        /// <param name="member"></param>
-        
+        // Formål:
+        // Tilføje Member
+        // if-statement:
+        // 
         public void AddMember(IMember member)
         {
             if (!_members.ContainsKey(member.PhoneNumber))
