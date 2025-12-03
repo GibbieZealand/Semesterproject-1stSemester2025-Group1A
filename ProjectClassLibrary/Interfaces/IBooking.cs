@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
-    public interface IEvent
+    public interface IBooking
     {
-        string Name { get; set; }
-        string Description { get; set; }
         DateTime StartDate { get; set; }
         DateTime EndDate { get; set; }
+        bool IsBooked { get; set; }
+        string Destination { get; set; }
     }
 }
