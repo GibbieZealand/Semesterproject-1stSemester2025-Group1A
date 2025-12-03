@@ -1,4 +1,5 @@
 ﻿using ProjectClassLibrary.Interfaces;
+using ProjectClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,16 +10,28 @@ namespace ProjectClassLibrary.Services
 {
     public class BlogRepository : IBlogRepository
     {
-        private List<IBlog> _blogs;
+        private List<IBlog> _blogs = [];
 
-        public void AddBlog(IBlog b)
+        public void AddBlog(IBlog blog)
         {
-            _blogs.Add(b);
+            foreach (IBlog b in _blogs)
+            {
+                if (b.Id == blog.Id)
+                {
+                    return;
+                }
+            }
+            _blogs.Add(blog);
+        }
+
+        public List<IBlog> GetAllBlogs()
+        {
+            return _blogs;
         }
 
         public override string ToString()
         {
-            return "";
+            return $"Blogs {_blogs}";
         }
     }
 }

@@ -8,6 +8,7 @@ namespace ProjectClassLibrary.Interfaces
 {
     public interface IBlog
     {
+        int Id { get; set; }
         string Headline { get; set; }
         string Description { get; set; }
         DateTime Date { get; set; }

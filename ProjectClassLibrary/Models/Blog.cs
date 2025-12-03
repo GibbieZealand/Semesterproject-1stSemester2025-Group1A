@@ -30,7 +30,7 @@ namespace ProjectClassLibrary.Models
 
         public override string ToString()
         {
-            return "";
+            return $"Id: {Id}, Headline: {Headline}, Description: {Description}, Date: {Date}, Author: {Author}, Picture: {Picture}";
         }
     }
 }

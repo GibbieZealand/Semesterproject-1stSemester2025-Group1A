@@ -8,6 +8,7 @@ namespace ProjectClassLibrary.Interfaces
 {
     public interface IBooking
     {
+        int Id { get; set; }
         DateTime StartDate { get; set; }
         DateTime EndDate { get; set; }
         bool IsBooked { get; set; }
