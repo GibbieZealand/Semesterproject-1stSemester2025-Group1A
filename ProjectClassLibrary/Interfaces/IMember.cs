@@ -10,7 +10,7 @@ namespace ProjectClassLibrary.Interfaces
     
     public interface IMember
     {
-        #region Properties
+        
         string Name { get; set; }   
         string SurName { get; set; }
         string PhoneNumber { get; set; }
@@ -19,6 +19,6 @@ namespace ProjectClassLibrary.Interfaces
         string Mail { get; set; }
         MemberType TheMemberType { get; set; }
         MemberRole TheMemberRole { get; set; }
-        #endregion
+       
     }
 }
