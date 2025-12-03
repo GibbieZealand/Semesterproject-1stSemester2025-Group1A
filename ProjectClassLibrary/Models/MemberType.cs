@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 namespace ProjectClassLibrary.Models
 {
     public enum MemberType
+    #region Enum
     {
         Junior, Adult, Senior
     }
+    #endregion
 }

@@ -10,6 +10,10 @@ namespace ProjectClassLibrary.Interfaces
     
     public interface IMember
     {
+        /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
+        #region Properties
         string Name { get; set; }   
         string SurName { get; set; }
         string PhoneNumber { get; set; }
@@ -18,5 +22,6 @@ namespace ProjectClassLibrary.Interfaces
         string Mail { get; set; }
         MemberType TheMemberType { get; set; }
         MemberRole TheMemberRole { get; set; }
+        #endregion
     }
 }
