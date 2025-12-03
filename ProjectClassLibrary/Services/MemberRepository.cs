@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// - Lavet af Kasper - 
 namespace ProjectClassLibrary.Services
 {
     public class MemberRepository : IMemberRepository
     {
-    
+        
         #region Instance Fields
         private Dictionary<string, IMember> _members;
         #endregion
@@ -26,6 +26,11 @@ namespace ProjectClassLibrary.Services
         #endregion
        
         #region Methods
+        /// <summary>
+        /// AddMember metoden: Hvis det givende arguments telefonnummer for Member ikke eksistere: Så tilføjes Member til MemberRepository
+        /// </summary>
+        /// <param name="member"></param>
+        
         public void AddMember(IMember member)
         {
             if (!_members.ContainsKey(member.PhoneNumber))

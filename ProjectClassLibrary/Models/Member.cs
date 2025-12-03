@@ -4,20 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+// - Lavet af Kasper - 
 namespace ProjectClassLibrary.Models
-{
+{ 
     public class Member : IMember
     {
-        /// <summary>
-        /// Dette er en statisk counter, hvilket vil sige at den tilhører hele klassen, og dermed bruges til at give hver objekt et unikt nummer
-        /// </summary>
+        
         #region Instance Fields
         private static int _counter = 0;
         #endregion
-        /// <summary>
-        /// Gets or sets the name associated with the object.
-        /// </summary>
+      
         #region Properties
         public string Name { get; set; }
         public string SurName { get; set; }
@@ -29,9 +25,7 @@ namespace ProjectClassLibrary.Models
         public MemberRole TheMemberRole { get; set; }
         public int Id { get; set; }
         #endregion
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Member"/> class with the specified details.
-        /// </summary>
+        
         #region Constructor
         public Member(string name, string surName, string phoneNumber, string address, string city, string mail, MemberType theMemberType, MemberRole theMemberRole)
         {
@@ -48,16 +42,13 @@ namespace ProjectClassLibrary.Models
            
         }
         #endregion
-        /// <summary>
-        /// Returns a string representation of the member, including key details such as ID, name, contact information,
-        /// and role.
-        /// </summary>
+       
         #region Methods
         public override string ToString()
         {
             return $"Medlem nummer: {Id}\nFornavn: {Name}\nEfternavn: {SurName}\nTelefonnummer: {PhoneNumber}\n" +
                 $"Adresse: {Address}\nBy: {City}\nEmail: {Mail}\nType: {TheMemberType}\n" +
-                $"Rolle: {TheMemberRole}";
+                $"Rolle: {TheMemberRole}\n";
         }
         #endregion 
     }

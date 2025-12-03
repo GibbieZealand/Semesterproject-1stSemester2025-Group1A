@@ -38,14 +38,22 @@ Console.WriteLine("Printer den opdaterede member1 ud");
 Console.WriteLine(member1.ToString());
 Console.WriteLine();
 
+Console.WriteLine("Kalder RemoveMember metoden og sletter objektet fra Repo");
+memberRepo.RemoveMember(member1);
+Console.WriteLine();
 
+Console.WriteLine("Tilføjer to nye medlemmer");
+IMember member2 = new Member("Maria", "Strauss", "12123445", "Vej 34", "Glostrup", "Maria@gmail.com", MemberType.Adult, MemberRole.Admin);
+IMember member3 = new Member("Frederik", "Carlsen", "34958272", "Fredevej 23", "Roskilde", "Frederik@gmail.com", MemberType.Adult, MemberRole.Member);
+memberRepo.AddMember(member2);
+memberRepo.AddMember(member3);
 
+Console.WriteLine("Kalder GetAllMembers metoden og for printet dem ud på en liste i konsollen");
+List<IMember> allmembers = memberRepo.GetAllMembers();
+foreach(IMember m in allmembers)
+{
+    Console.WriteLine(m.ToString());
+}
 
-
-
-
-
-
-
-
+//-------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------
