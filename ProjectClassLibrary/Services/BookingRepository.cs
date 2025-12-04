@@ -34,9 +34,12 @@ namespace ProjectClassLibrary.Services
             return _bookings;
         }
 
-        public override string ToString()
+        public void PrintAll()
         {
-            return $"Bookings: {_bookings}";
+            foreach(IBooking b in _bookings)
+            {
+                Console.WriteLine(b);
+            }
         }
     }
 }

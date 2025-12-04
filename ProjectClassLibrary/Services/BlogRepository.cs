@@ -34,9 +34,12 @@ namespace ProjectClassLibrary.Services
             return _blogs;
         }
 
-        public override string ToString()
+        public void PrintAll()
         {
-            return $"Blogs {_blogs}";
+            foreach (IBlog b in _blogs)
+            {
+                Console.WriteLine(b);
+            }
         }
     }
 }
