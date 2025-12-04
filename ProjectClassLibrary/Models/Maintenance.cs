@@ -20,7 +20,7 @@ namespace ProjectClassLibrary.Models
         public int Id { get; set; }
         public string Description { get; set; }
         public DateTime TimeOfMaintenance { get; set; }
-        public bool IsFixed { get; set; }
+        public bool IsFixed { get; private set; }
         #endregion
 
         #region Constructor
