@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+// -- Lavet af: Gibbie --
+namespace ProjectClassLibrary.Models
+{
+    /// <summary>
+    /// Enum to Delegate the Type of Boat
+    /// </summary>
+    public enum BoatType
+    {
+        TERA, FEVA, LASERJOLLE, EUROPAJOLLE, SNIPEJOLLE, WAYFARER, LYNÆS
+    }
+}
