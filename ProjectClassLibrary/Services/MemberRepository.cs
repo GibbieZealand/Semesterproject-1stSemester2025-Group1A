@@ -1,4 +1,5 @@
 ﻿using ProjectClassLibrary.Interfaces;
+using ProjectClassLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,6 +75,15 @@ namespace ProjectClassLibrary.Services
                 existingMember.TheMemberRole = updatedMember.TheMemberRole;
             }
 
+        }
+        public void PrintAll() 
+        {
+            foreach (IMember member in _members.Values)
+            {
+                Console.WriteLine(member);
+                Console.WriteLine();
+            }
+            
         }
         #endregion
     }

@@ -13,5 +13,6 @@ namespace ProjectClassLibrary.Interfaces
         void RemoveMember(IMember member);
         void UpdateMember(IMember member);
         List<IMember> GetAllMembers();
+        void PrintAll();
     }
 }

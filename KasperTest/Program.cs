@@ -74,5 +74,9 @@ foreach (IMember m in allmembers2)
     Console.WriteLine(m.ToString());
 }
 #endregion
+#region PrintAll Metode
+Console.WriteLine();
+memberRepo.PrintAll();
+#endregion
 //-------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------
