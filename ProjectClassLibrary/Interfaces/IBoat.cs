@@ -15,6 +15,7 @@ namespace ProjectClassLibrary.Interfaces
     {
         #region Properties
         BoatType TheBoatType { get; set; }
+        int Id { get; set; }
         string Model { get; set; }
         string SailNumber { get; set; }
         string EngineInfo { get; set; }
