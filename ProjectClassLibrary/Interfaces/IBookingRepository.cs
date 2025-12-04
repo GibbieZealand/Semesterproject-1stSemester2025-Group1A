@@ -11,5 +11,6 @@ namespace ProjectClassLibrary.Interfaces
         void AddBooking(IBooking b);
         void RemoveBooking(IBooking b);
         List<IBooking> GetAllBookings();
+        void PrintAll();
     }
 }
