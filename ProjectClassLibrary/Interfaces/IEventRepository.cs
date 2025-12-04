@@ -7,15 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
-    public interface IEventRepositoryList
+    public interface IEventRepository
     {
-        List<IEvent> GetAllEvents(); //Vi har skrevet IEvent i vores Klassediagram?
+        List<IEvent> GetAllEvents();
         void AddEvent(IEvent theEvent);
-
         void RemoveEvent(IEvent theEvent);
-
         void PrintAll();
-
-
     }
 }
