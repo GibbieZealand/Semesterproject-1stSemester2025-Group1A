@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ProjectClassLibrary.Exceptions;
 using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
@@ -42,5 +43,21 @@ Console.WriteLine("Printing Boat1...");
 Console.WriteLine(Jolle1.ToString());
 Console.WriteLine();
 #endregion
-
+#region Boat Exception Test
+IBoat Jolle5 = new Boat(BoatType.TERA, "Model 3", "16-6666", "Is very good!", 7, 30, 30, "2000");
+IBoat Jolle6 = new Boat(BoatType.TERA, "Model 4", "16-6666", "Is very good!", 7, 30, 30, "2000");
+    repository.AddBoat(Jolle5);
+try
+{
+    repository.AddBoat(Jolle6);
+}
+catch (BoatSailnumberExistsException bex)
+{
+    Console.WriteLine(bex.Message);
+}
+catch (Exception epx)
+{
+    Console.WriteLine(epx.Message);
+}
+#endregion
 Console.WriteLine("----Test End----");

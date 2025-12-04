@@ -10,7 +10,6 @@ namespace ProjectClassLibrary.Interfaces
     
     public interface IMember
     {
-        
         string Name { get; set; }   
         string SurName { get; set; }
         string PhoneNumber { get; set; }

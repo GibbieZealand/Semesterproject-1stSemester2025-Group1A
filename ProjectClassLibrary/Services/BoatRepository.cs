@@ -1,4 +1,5 @@
-﻿using ProjectClassLibrary.Interfaces;
+﻿using ProjectClassLibrary.Exceptions;
+using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -30,16 +31,16 @@ namespace ProjectClassLibrary.Services
 
         #region Methods
         /// <summary>
-        /// Adds a Boat Object to the Dictionary
+        /// Adds a Boat Object to the Dictionary. 
         /// </summary>
         public void AddBoat(IBoat boat)
         {
             if (!_boats.ContainsKey(boat.SailNumber))
             {
                 _boats[boat.SailNumber] = boat;
+                return;
             }
-            return;
-            // Kan bruge en Exception her
+            throw new BoatSailnumberExistsException($"Båden med sejlnummeret {boat.SailNumber} findes allerede.");
         }
 
         /// <summary>

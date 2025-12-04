@@ -10,7 +10,6 @@ namespace ProjectClassLibrary.Services
 {
     public class MemberRepository : IMemberRepository
     {
-        
         #region Instance Fields
         private Dictionary<string, IMember> _members;
         #endregion
