@@ -60,5 +60,9 @@ catch (BoatSailnumberExistsException bex)
 {
     Console.WriteLine(bex.Message);
 }
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
 #endregion
 Console.WriteLine("----Test End----");
