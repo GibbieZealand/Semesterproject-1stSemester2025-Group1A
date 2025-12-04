@@ -48,8 +48,12 @@ namespace ProjectClassLibrary.Models
         #region Methods
         public override string ToString()
         {
-            return ($"Båd Nr.{Id}: {YearOfConstruction} {Model} {TheBoatType} {SailNumber} - " +
-                $"Motorinfo: {EngineInfo} - Dimensioner.. Dybgang: {Draft}, Bredde: {Width}, Længde: {Length}");
+            return ($"\nBåd Nr.{Id}: " +
+                $"\nBådinfo..." +
+                $"\n{YearOfConstruction} {Model} {TheBoatType} {SailNumber} " +
+                $"\nMotorinfo: {EngineInfo} " +
+                $"\nDimensioner... " +
+                $"\nDybgang: {Draft}, Bredde: {Width}, Længde: {Length}");
         }
         #endregion
 

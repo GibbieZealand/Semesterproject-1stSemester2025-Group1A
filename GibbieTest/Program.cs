@@ -1,20 +1,46 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
 
-Console.WriteLine("Hello, World!");
+//Console.WriteLine("Hello, World!");
 
-Boat Jolle1 = new Boat(BoatType.TERA, "Model", "12", "Is very good :3", 32, 23, 33, "1982");
-Boat Jolle2 = new Boat(BoatType.FEVA, "Model", "21", "Is very bad :c", 32, 33, 23, "1985");
+#region Object Creation Test
+Console.WriteLine("----Boat Object Creation Test Start----");
+Boat Jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
+Boat Jolle2 = new Boat(BoatType.FEVA, "Model", "19-2225", "Is very bad :c", 32, 33, 23, "1985");
 
 Console.WriteLine(Jolle1);
 Console.WriteLine(Jolle2);
-
+Console.WriteLine();
+#endregion
+#region Repository AddBoat Test
+Console.WriteLine("----Repository AddBoat Test Start");
 BoatRepository repository = new BoatRepository();
 
 repository.AddBoat(Jolle1);
 repository.AddBoat(Jolle2);
 repository.PrintAllBoats();
-
+Console.WriteLine();
+#endregion
+#region Repository RemoveBoat Test
+Console.WriteLine("----RemoveBoat Test Start----");
 repository.RemoveBoat("21");
 repository.PrintAllBoats();
+Console.WriteLine();
+#endregion
+#region UpdateBoat Test
+Console.WriteLine("----UpdateBoat Test Start----");
+Console.WriteLine("Creating Updated Boat..");
+IBoat updatedJolle1 = new Boat(BoatType.LASERJOLLE, "Model2", "16-3335", "Is not as good as before :/", 12, 32, 45, "1892");
+
+Console.WriteLine("Updating Boat...");
+repository.UpdateBoat(updatedJolle1);
+Console.WriteLine();
+
+Console.WriteLine("Printing Boat1...");
+Console.WriteLine(Jolle1.ToString());
+Console.WriteLine();
+#endregion
+
+Console.WriteLine("----Test End----");

@@ -12,16 +12,20 @@ namespace ProjectClassLibrary.Services
 {
     public class BoatRepository : IBoatRepository
     {
-        #region Properties
+        #region Instance Field
         private Dictionary<string, IBoat> _boats;
         #endregion
+
+        #region Properties
+        public int Count { get { return _boats.Count; } }
+        #endregion  
 
         #region Constructor
         public BoatRepository()
         {
-            _boats = new Dictionary<string, IBoat>();
+            _boats = [];
         }
-        public int Count { get { return _boats.Count; } }
+        
         #endregion
 
         #region Methods
@@ -30,9 +34,12 @@ namespace ProjectClassLibrary.Services
         /// </summary>
         public void AddBoat(IBoat boat)
         {
-            _boats[boat.SailNumber] = boat;
+            if (!_boats.ContainsKey(boat.SailNumber))
+            {
+                _boats[boat.SailNumber] = boat;
+            }
+            return;
             // Kan bruge en Exception her
-            // Skal vi bruge ID eller Sailnumber? -Gibbie
         }
 
         /// <summary>
@@ -62,14 +69,22 @@ namespace ProjectClassLibrary.Services
         }
 
         /// <summary>
-        /// Updates the info of a Boat Object found by parameter
+        /// Updates the info of a Boat Object found by parameter with input info
         /// </summary>
-        public void UpdateBoat(IBoat boat)
+        public void UpdateBoat(IBoat updatedBoat)
         {
-            //TODO - Implement Update Boat
-                //Which parameters are needed? Are we changing just a single value or rewriting the whole
-                //Object through command line?
-            throw new NotImplementedException();
+            if(_boats.ContainsKey(updatedBoat.SailNumber))
+            {
+                IBoat existingBoat = _boats[updatedBoat.SailNumber];
+
+                existingBoat.TheBoatType = updatedBoat.TheBoatType;
+                existingBoat.Model = updatedBoat.Model;
+                existingBoat.EngineInfo = updatedBoat.EngineInfo;
+                existingBoat.Draft = updatedBoat.Draft;
+                existingBoat.Width = updatedBoat.Width;
+                existingBoat.Length = updatedBoat.Length;
+                existingBoat.YearOfConstruction = updatedBoat.YearOfConstruction;
+            }
         }
         /// <summary>
         /// Runs through the list and calls the toString() method of every index
