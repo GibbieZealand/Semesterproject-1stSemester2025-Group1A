@@ -8,14 +8,26 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Services
 {
-    public class EventRepositoryList : IEventRepositoryList
+    public class EventRepository : IEventRepository
     {
+        #region Instance field
         private List<IEvent> _events; //Vi laver et nyt instansfelt _orders, som skal være en List af typen Event
-        public EventRepositoryList() //Vi laver en konstruktor til at lave en ny liste af events, som kaldes _events
+
+        #endregion
+
+        #region Constructor
+        public EventRepository() //Vi laver en konstruktor til at lave en ny liste af events, som kaldes _events
         {
             _events = new List<IEvent>();
         }
 
+        #endregion
+
+        #region Methods
+
+        /// <summary>
+        /// Method for adding new events. 
+        /// </summary>
         public void AddEvent(IEvent theEvent)
         {
             for (int i = 0; i < _events.Count; i++) //Løber igennem listen fra index 0 og plusser 1 op, indtil den når slutningen/det maksimale antal objekter
@@ -29,6 +41,11 @@ namespace ProjectClassLibrary.Services
             }
             _events.Add(theEvent); //Hvis ordren IKKE findes, tilføjes den.
         }
+
+        /// <summary>
+        /// GetAll met
+        /// </summary>
+        /// <returns></returns>
 
         public List<IEvent> GetAllEvents()
         {
@@ -63,5 +80,6 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine();
             }
         }
+        #endregion
     }
 }

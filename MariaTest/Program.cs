@@ -16,7 +16,7 @@ Console.WriteLine("-----------------------Test af AddEvent og PrintAll metoderne
 Console.WriteLine("");
 
 //Vi laver en ny EventRepositoryList kaldet eventList1
-IEventRepositoryList eventList1 = new EventRepositoryList();
+IEventRepository eventList1 = new EventRepository();
 
 //Vi tilføjer events til vores eventList1
 eventList1.AddEvent(e1);
