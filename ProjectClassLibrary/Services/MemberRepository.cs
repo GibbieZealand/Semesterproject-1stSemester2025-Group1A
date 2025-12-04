@@ -1,4 +1,5 @@
-﻿using ProjectClassLibrary.Interfaces;
+﻿using ProjectClassLibrary.Exceptions;
+using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,9 @@ namespace ProjectClassLibrary.Services
             if (!_members.ContainsKey(member.PhoneNumber))
             {
                 _members.Add(member.PhoneNumber, member);
+                return;
             }
-            return;
+            throw new MemberPhoneNumberExistsException($"Medlemstelefonnummeret {member.PhoneNumber} findes allerede.");
         }
         // Formål:
         // At få fat på en list med alle medlemmer/objekter

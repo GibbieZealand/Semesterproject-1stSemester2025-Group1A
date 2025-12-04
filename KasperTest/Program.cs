@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ProjectClassLibrary.Exceptions;
 using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
@@ -77,6 +78,21 @@ foreach (IMember m in allmembers2)
 #region PrintAll Metode
 Console.WriteLine();
 memberRepo.PrintAll();
+#endregion
+#region Exception MemberPhoneNumberExistsException Test
+try
+{
+    memberRepo.AddMember(new Member("Poul", "Henriksen", "11111111", "Roskildevej 2", "Roskilde", "roskilde@mail.dk", MemberType.Adult, MemberRole.Member));
+    memberRepo.AddMember(new Member("Poul", "Henriksen", "11111111", "Roskildevej 2", "Roskilde", "roskilde@mail.dk", MemberType.Adult, MemberRole.Member));
+}
+catch (MemberPhoneNumberExistsException mex)
+{
+    Console.WriteLine(mex.Message);
+}
+catch(Exception ex)
+{
+    Console.WriteLine(ex.Message);
+}
 #endregion
 //-------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------
