@@ -14,7 +14,9 @@ namespace ProjectClassLibrary.Services
     {
         #region Properties
         private Dictionary<string, IBoat> _boats;
+        #endregion
 
+        #region Constructor
         public BoatRepository()
         {
             _boats = new Dictionary<string, IBoat>();
@@ -29,10 +31,13 @@ namespace ProjectClassLibrary.Services
         public void AddBoat(IBoat boat)
         {
             _boats[boat.SailNumber] = boat;
-            ;
+            // Kan bruge en Exception her
+            // Skal vi bruge ID eller Sailnumber? -Gibbie
         }
 
-        //
+        /// <summary>
+        /// 
+        /// </summary>
         public void BookBoat()
         {
             //TODO - Implement Booking Method
@@ -66,6 +71,9 @@ namespace ProjectClassLibrary.Services
                 //Object through command line?
             throw new NotImplementedException();
         }
+        /// <summary>
+        /// Runs through the list and calls the toString() method of every index
+        /// </summary>
         public void PrintAllBoats()
         {
             foreach (var boat in _boats)

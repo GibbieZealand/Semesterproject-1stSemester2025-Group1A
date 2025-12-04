@@ -13,9 +13,12 @@ namespace ProjectClassLibrary.Models
     /// </summary>
     public class Boat : IBoat
     {
+        #region Instance Fields
+        private static int _counter = 0;
+        #endregion
+
         #region Properties
         public int Id { get; set; }
-        private static int _counter = 0;
         public BoatType TheBoatType { get; set; }
         public string Model { get; set; }
         public string SailNumber { get; set; }
