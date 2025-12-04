@@ -12,5 +12,6 @@ namespace ProjectClassLibrary.Interfaces
         string Description { get; set; }
         DateTime TimeOfMaintenance { get; set; }
         bool IsFixed { get; }
+        int Id { get; set; }
     }
 }
