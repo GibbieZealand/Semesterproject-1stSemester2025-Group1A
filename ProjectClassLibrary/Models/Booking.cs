@@ -28,7 +28,7 @@ namespace ProjectClassLibrary.Models
 
         public override string ToString()
         {
-            return $"Id: {Id}, StartDate: {StartDate}, EndDate: {EndDate}, IsBooked: {IsBooked}, Destination: {Destination}";
+            return $"Id: {Id}, \nStartDate: {StartDate}, \nEndDate: {EndDate}, \nIsBooked: {IsBooked}, \nDestination: {Destination}";
         }
     }
 }
