@@ -38,6 +38,7 @@ namespace ProjectClassLibrary.Services
             if (!_boats.ContainsKey(boat.SailNumber))
             {
                 _boats[boat.SailNumber] = boat;
+                Console.WriteLine($"Båden med sejlnummeret {boat.SailNumber} er blevet tilføjet til listen");
                 return;
             }
             throw new BoatSailnumberExistsException($"Båden med sejlnummeret {boat.SailNumber} findes allerede.");
