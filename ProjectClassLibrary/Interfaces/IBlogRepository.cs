@@ -9,6 +9,7 @@ namespace ProjectClassLibrary.Interfaces
     public interface IBlogRepository
     {
         void AddBlog(IBlog b);
+        void RemoveBlog(IBlog b);
         List<IBlog> GetAllBlogs();
     }
 }

@@ -24,6 +24,11 @@ namespace ProjectClassLibrary.Services
             _bookings.Add(booking);
         }
 
+        public void RemoveBooking(IBooking booking)
+        {
+            _bookings.Remove(booking);
+        }
+
         public List<IBooking> GetAllBookings()
         {
             return _bookings;

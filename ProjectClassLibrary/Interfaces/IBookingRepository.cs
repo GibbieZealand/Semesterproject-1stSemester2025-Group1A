@@ -9,6 +9,7 @@ namespace ProjectClassLibrary.Interfaces
     public interface IBookingRepository
     {
         void AddBooking(IBooking b);
+        void RemoveBooking(IBooking b);
         List<IBooking> GetAllBookings();
     }
 }

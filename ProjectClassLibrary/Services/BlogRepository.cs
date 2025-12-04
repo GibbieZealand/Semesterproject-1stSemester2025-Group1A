@@ -24,6 +24,11 @@ namespace ProjectClassLibrary.Services
             _blogs.Add(blog);
         }
 
+        public void RemoveBlog(IBlog blog)
+        {
+            _blogs.Remove(blog);
+        }
+
         public List<IBlog> GetAllBlogs()
         {
             return _blogs;
