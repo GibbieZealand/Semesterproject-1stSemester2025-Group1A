@@ -10,13 +10,13 @@ namespace ProjectClassLibrary.Services
 {
     public class EventRepositoryList : IEventRepositoryList
     {
-        private List<Event> _events; //Vi laver et nyt instansfelt _orders, som skal være en List af typen Event
+        private List<IEvent> _events; //Vi laver et nyt instansfelt _orders, som skal være en List af typen Event
         public EventRepositoryList() //Vi laver en konstruktor til at lave en ny liste af events, som kaldes _events
         {
-            _events = new List<Event>();
+            _events = new List<IEvent>();
         }
 
-        public void AddEvent(Event theEvent)
+        public void AddEvent(IEvent theEvent)
         {
             for (int i = 0; i < _events.Count; i++) //Løber igennem listen fra index 0 og plusser 1 op, indtil den når slutningen/det maksimale antal objekter
             {
@@ -30,17 +30,19 @@ namespace ProjectClassLibrary.Services
             _events.Add(theEvent); //Hvis ordren IKKE findes, tilføjes den.
         }
 
-        public List<Event> GetAllEvents()
+        public List<IEvent> GetAllEvents()
         {
-            List<Event> returnEventList = new List<Event>();
-            foreach (Event e in _events)
+            List<IEvent> returnEventList = new List<IEvent>();
+            foreach (IEvent e in _events)
             {
                 returnEventList.Add(e);
             }
             return returnEventList;
+
+            //return _events;
         }
 
-        public void RemoveEvent(Event theEvent)
+        public void RemoveEvent(IEvent theEvent)
         {
             for (int i = 0; i < _events.Count; i++) //Vi løber vores liste igennem
             {
@@ -55,9 +57,10 @@ namespace ProjectClassLibrary.Services
 
         public void PrintAll() //Jeg lavede en PrintAll metode for at teste, at min Add metode virkede (kan det testes uden en print all?)
         {
-            foreach (Event e in _events)
+            foreach (IEvent e in _events)
             {
                 Console.WriteLine(e);
+                Console.WriteLine();
             }
         }
     }

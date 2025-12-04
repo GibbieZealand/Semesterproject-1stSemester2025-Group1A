@@ -9,8 +9,13 @@ namespace ProjectClassLibrary.Interfaces
 {
     public interface IEventRepositoryList
     {
-        List<Event> GetAllEvents(); //Vi har skrevet IEvent i vores Klassediagram?
-        void AddEvent(Event theEvent);
+        List<IEvent> GetAllEvents(); //Vi har skrevet IEvent i vores Klassediagram?
+        void AddEvent(IEvent theEvent);
+
+        void RemoveEvent(IEvent theEvent);
+
+        void PrintAll();
+
 
     }
 }
