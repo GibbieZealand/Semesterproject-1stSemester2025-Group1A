@@ -9,7 +9,6 @@ namespace ProjectClassLibrary.Models
 { 
     public class Member : IMember
     {
-        
         #region Instance Fields
         private static int _counter = 0;
         #endregion
