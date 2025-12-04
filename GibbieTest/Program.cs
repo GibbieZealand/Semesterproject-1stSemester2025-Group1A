@@ -44,9 +44,14 @@ Console.WriteLine(Jolle1.ToString());
 Console.WriteLine();
 #endregion
 #region Boat Exception Test
+Console.WriteLine("----Boat Exception Test Start----");
+Console.WriteLine("Creating 2 New Boat Objects..");
 IBoat Jolle5 = new Boat(BoatType.TERA, "Model 3", "16-6666", "Is very good!", 7, 30, 30, "2000");
 IBoat Jolle6 = new Boat(BoatType.TERA, "Model 4", "16-6666", "Is very good!", 7, 30, 30, "2000");
-    repository.AddBoat(Jolle5);
+Console.WriteLine("Created Jolle 5 & 6\n");
+Console.WriteLine("Adding Jolle5 to Repository...");
+repository.AddBoat(Jolle5);
+Console.WriteLine("\nAdding Jolle6 to Repository...");
 try
 {
     repository.AddBoat(Jolle6);
