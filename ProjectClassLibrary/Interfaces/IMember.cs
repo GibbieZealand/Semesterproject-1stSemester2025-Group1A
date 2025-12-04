@@ -19,6 +19,6 @@ namespace ProjectClassLibrary.Interfaces
         string Mail { get; set; }
         MemberType TheMemberType { get; set; }
         MemberRole TheMemberRole { get; set; }
-       
+        int Id { get; set; }
     }
 }
