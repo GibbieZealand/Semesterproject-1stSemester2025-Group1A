@@ -12,7 +12,7 @@ namespace ProjectClassLibrary.Services
     public class MaintenanceRepository : IMaintenanceRepository
     {
         #region Instance fields
-        private List<Maintenance> _maintenanceTasks;
+        private List<IMaintenance> _maintenanceTasks;
         #endregion
 
         #region Constructor
@@ -25,7 +25,7 @@ namespace ProjectClassLibrary.Services
 
         #region Methods
         // Adds a maintenance object to the list
-        public void AddMaintenance(Maintenance maintenance)
+        public void AddMaintenance(IMaintenance maintenance)
         {
             _maintenanceTasks.Add(maintenance);
         }
@@ -45,16 +45,16 @@ namespace ProjectClassLibrary.Services
         // Prints all maintenance objects in the list 
         public void PrintAll()
         {
-            foreach(Maintenance m in _maintenanceTasks)
+            foreach(IMaintenance m in _maintenanceTasks)
             {
                 Console.WriteLine(m+"\n");
             }
         }
         
         // Returns a maintenance object by Id 
-        public Maintenance GetMaintenanceById(int id)
+        public IMaintenance GetMaintenanceById(int id)
         {
-            foreach (Maintenance m in _maintenanceTasks)
+            foreach (IMaintenance m in _maintenanceTasks)
             {
                 if(m.Id == id)
                 {
@@ -66,10 +66,10 @@ namespace ProjectClassLibrary.Services
 
 
         // Returns a list of pending maintenance tasks 
-        public List<Maintenance> GetPendingMaintenanceTasks()
+        public List<IMaintenance> GetPendingMaintenanceTasks()
         {
-            List<Maintenance> pendingList = [];
-            foreach(Maintenance m in _maintenanceTasks)
+            List<IMaintenance> pendingList = [];
+            foreach(IMaintenance m in _maintenanceTasks)
             {
                 if(!m.IsFixed)
                 {
@@ -80,10 +80,10 @@ namespace ProjectClassLibrary.Services
         }
 
         // Returns a list of completed maintenance tasks 
-        public List<Maintenance> GetCompletedMaintenanceTasks()
+        public List<IMaintenance> GetCompletedMaintenanceTasks()
         {
-            List<Maintenance> completedList = [];
-            foreach(Maintenance m in _maintenanceTasks)
+            List<IMaintenance> completedList = [];
+            foreach(IMaintenance m in _maintenanceTasks)
             {
                 if (m.IsFixed)
                 {
@@ -94,7 +94,7 @@ namespace ProjectClassLibrary.Services
         }
 
         // Returns the list of all maintenance tasks 
-        public List<Maintenance> GetAll()
+        public List<IMaintenance> GetAll()
         {
             return _maintenanceTasks;
         }

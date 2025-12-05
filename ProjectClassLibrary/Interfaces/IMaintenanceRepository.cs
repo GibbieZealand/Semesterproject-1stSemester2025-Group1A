@@ -12,13 +12,13 @@ namespace ProjectClassLibrary.Interfaces
     public interface IMaintenanceRepository
     {
          
-        void AddMaintenance(Maintenance maintenance);
+        void AddMaintenance(IMaintenance maintenance);
         void RemoveMaintenance(int id);
         void PrintAll();
-        Maintenance GetMaintenanceById(int id);
-        List<Maintenance> GetPendingMaintenanceTasks();
-        List<Maintenance> GetCompletedMaintenanceTasks();
-        List<Maintenance> GetAll();
+        IMaintenance GetMaintenanceById(int id);
+        List<IMaintenance> GetPendingMaintenanceTasks();
+        List<IMaintenance> GetCompletedMaintenanceTasks();
+        List<IMaintenance> GetAll();
         
         
     }
