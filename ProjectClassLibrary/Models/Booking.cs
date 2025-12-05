@@ -9,6 +9,8 @@ namespace ProjectClassLibrary.Models
 {
     public class Booking : IBooking
     {
+        private IMember _member;
+        private IBoat _boat;
         private static int _counter;
 
         public int Id { get; set; }
@@ -16,19 +18,22 @@ namespace ProjectClassLibrary.Models
         public DateTime EndDate { get; set; }
         public bool IsBooked { get; set; }
         public string Destination { get; set; }
+       
 
-        public Booking(DateTime startDate, DateTime endDate, bool isBooked, string destination)
+        public Booking(DateTime startDate, DateTime endDate, bool isBooked, string destination,IMember member,IBoat boat)
         {
             StartDate = startDate;
             EndDate = endDate;
             IsBooked = isBooked;
             Destination = destination;
             Id = _counter++;
+            _member = member;
+            _boat = boat;
         }
 
         public override string ToString()
         {
-            return $"Id: {Id}, \nStartDate: {StartDate}, \nEndDate: {EndDate}, \nIsBooked: {IsBooked}, \nDestination: {Destination}";
+            return $"Id: {Id} \nStartDate: {StartDate} \nEndDate: {EndDate} \nIsBooked: {IsBooked} \nDestination: {Destination} \n{_member} \n{_boat}";
         }
     }
 }

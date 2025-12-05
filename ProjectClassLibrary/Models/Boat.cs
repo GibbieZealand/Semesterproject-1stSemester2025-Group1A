@@ -15,6 +15,9 @@ namespace ProjectClassLibrary.Models
     {
         #region Instance Fields
         private static int _counter = 0;
+        private IMaintenance _maintenance;
+
+
         #endregion
 
         #region Properties
@@ -27,6 +30,7 @@ namespace ProjectClassLibrary.Models
         public double Width { get; set; }
         public double Length { get; set; }
         public string YearOfConstruction { get; set; }
+        public IMaintenance Maintenance { get; set; }   
         #endregion
 
         #region Constructor
@@ -42,7 +46,9 @@ namespace ProjectClassLibrary.Models
             Width = width;
             Length = length;
             YearOfConstruction = yearOfConstruction;
+         
         }
+       
         #endregion
 
         #region Methods
@@ -53,7 +59,8 @@ namespace ProjectClassLibrary.Models
                 $"\n{YearOfConstruction} {Model} {TheBoatType} {SailNumber} " +
                 $"\nMotorinfo: {EngineInfo} " +
                 $"\nDimensioner... " +
-                $"\nDybgang: {Draft}, Bredde: {Width}, Længde: {Length}");
+                $"\nDybgang: {Draft}, Bredde: {Width}, Længde: {Length}," +
+                $"\n {Maintenance}");
         }
         #endregion
 

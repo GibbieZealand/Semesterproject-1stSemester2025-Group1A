@@ -14,6 +14,8 @@ namespace ProjectClassLibrary.Models
         private int _count = 0;
         private int _id;
         private static int _nextId = 1;
+        private IBoat _boat;
+        private IMember _member;
         #endregion
 
         #region Properties
@@ -24,7 +26,7 @@ namespace ProjectClassLibrary.Models
         #endregion
 
         #region Constructor
-        public Maintenance(string description, DateTime time)
+        public Maintenance(string description, DateTime time, IBoat boat, IMember member)
         {
             Description = description;
             TimeOfMaintenance = time;
@@ -33,6 +35,8 @@ namespace ProjectClassLibrary.Models
             _id = _nextId;
             Id = _id;
             _nextId++;
+            _boat = boat;
+            _member = member;
         }
         #endregion
 
@@ -48,7 +52,9 @@ namespace ProjectClassLibrary.Models
             return "ID: " + Id +
                 "\nDescription: " + Description +
                 "\nTime: " + TimeOfMaintenance +
-                "\nIsFixed: " + (IsFixed ? "Completed" : "Pending");
+                "\nIsFixed: " + (IsFixed ? "Completed" : "Pending")+
+                "\nBoat: "+_boat.SailNumber + 
+                "\nMember: " +_member.Name + " " + _member.SurName + " " + _member.PhoneNumber ;
         }
 
         #endregion
