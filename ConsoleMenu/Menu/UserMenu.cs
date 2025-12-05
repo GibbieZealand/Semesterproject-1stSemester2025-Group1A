@@ -11,7 +11,15 @@ namespace ConsoleMenu.Menu
     public class UserMenu
     {
 
-        private static string mainMenuChoices = "\t1.Vis Medlemmer\n\t2.Vis Både\n\t3.Vis Blogs\n\t4.Vis Bookinger\n\t5.Vis Events\n\t6.Vis Vedligehold\n\tQ.Afslut\n\n\tIndtast valg:";
+        private static string mainMenuChoices = 
+            "\t1.Vis Medlemmer" +
+            "\n\t2.Vis Både" +
+            "\n\t3.Vis Blogs" +
+            "\n\t4.Vis Bookinger" +
+            "\n\t5.Vis Events" +
+            "\n\t6.Vis Vedligehold" +
+            "\n\tQ.Afslut" +
+            "\n\n\tIndtast valg:";
 
         private MemberRepository _memberRepository = new MemberRepository();
         private BoatRepository _boatRepository = new BoatRepository();
@@ -41,7 +49,7 @@ namespace ConsoleMenu.Menu
                         Console.ReadLine();
                         break;
                     case "2":
-                        //_boatRepository.PrintAll();
+                        _boatRepository.PrintAllBoats();
                         break;
                     case "3":
                         _blogRepository.PrintAll();
