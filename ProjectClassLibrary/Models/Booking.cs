@@ -9,17 +9,19 @@ namespace ProjectClassLibrary.Models
 {
     public class Booking : IBooking
     {
+        #region Instance Fields
         private IMember _member;
         private IBoat _boat;
         private static int _counter;
-
+        #endregion
+        #region Properties
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public bool IsBooked { get; set; }
         public string Destination { get; set; }
-       
-
+        #endregion
+        #region Constructor
         public Booking(DateTime startDate, DateTime endDate, bool isBooked, string destination,IMember member,IBoat boat)
         {
             StartDate = startDate;
@@ -30,10 +32,12 @@ namespace ProjectClassLibrary.Models
             _member = member;
             _boat = boat;
         }
-
+        #endregion
+        #region Methods
         public override string ToString()
         {
             return $"Id: {Id} \nStartDate: {StartDate} \nEndDate: {EndDate} \nIsBooked: {IsBooked} \nDestination: {Destination} \n{_member} \n{_boat}";
         }
+        #endregion
     }
 }
