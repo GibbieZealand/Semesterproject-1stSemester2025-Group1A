@@ -46,7 +46,6 @@ namespace ProjectClassLibrary.Services
         /// GetAll met
         /// </summary>
         /// <returns></returns>
-
         public List<IEvent> GetAllEvents()
         {
             List<IEvent> returnEventList = new List<IEvent>();

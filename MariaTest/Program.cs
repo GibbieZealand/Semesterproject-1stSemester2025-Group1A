@@ -33,3 +33,12 @@ Console.WriteLine("");
 eventList1.RemoveEvent(e2);
 eventList1.PrintAll();
 
+Console.WriteLine("");
+Console.WriteLine("-----------------------Test af AssignMember metoden---------------------");
+Console.WriteLine("");
+IMember member1 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
+IMember member2 = new Member("Gibbie", "Mølgaard", "53764901", "Kildehusvej 2E", "Roskilde", "Gibbie@gmail.com", MemberType.Adult, MemberRole.Member);
+e1.AssignMember(member1);
+e1.AssignMember(member2);
+e1.AssignMember(member1);
+Console.WriteLine(e1);

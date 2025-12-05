@@ -13,6 +13,8 @@ namespace ProjectClassLibrary.Interfaces
         string Description { get; set; }
         DateTime StartDate { get; set; }
         DateTime EndDate { get; set; }
+
+        void AssignMember(IMember member);
         string ToString();
     }
 }
