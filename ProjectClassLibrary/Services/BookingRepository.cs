@@ -10,8 +10,18 @@ namespace ProjectClassLibrary.Services
 {
     public class BookingRepository : IBookingRepository
     {
-        private List<IBooking> _bookings = [];
+        #region Fields
+        private List<IBooking> _bookings;
+        #endregion
 
+        #region Constructors
+        public BookingRepository()
+        {
+            _bookings = [];
+        }
+        #endregion
+
+        #region Methods
         public void AddBooking(IBooking booking)
         {
             foreach (IBooking b in _bookings)
@@ -41,5 +51,6 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(b);
             }
         }
+        #endregion
     }
 }
