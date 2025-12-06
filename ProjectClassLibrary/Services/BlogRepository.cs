@@ -10,8 +10,18 @@ namespace ProjectClassLibrary.Services
 {
     public class BlogRepository : IBlogRepository
     {
-        private List<IBlog> _blogs = [];
+        #region Fields
+        private List<IBlog> _blogs;
+        #endregion
 
+        #region Constructors
+        public BlogRepository()
+        {
+            _blogs = [];
+        }
+        #endregion
+
+        #region Methods
         public void AddBlog(IBlog blog)
         {
             foreach (IBlog b in _blogs)
@@ -41,5 +51,6 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(b);
             }
         }
+        #endregion
     }
 }
