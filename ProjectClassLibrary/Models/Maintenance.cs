@@ -42,19 +42,22 @@ namespace ProjectClassLibrary.Models
 
         #region Methods
 
-        //Sets IsFixed to true
+        /// <summary>
+        /// Sets IsFixed to true
+        /// </summary
         public void Fixed()
         {
             IsFixed = true;
         }
+
         public override string ToString()
         {
             return "ID: " + Id +
                 "\nDescription: " + Description +
                 "\nTime: " + TimeOfMaintenance +
                 "\nIsFixed: " + (IsFixed ? "Completed" : "Pending")+
-                "\nBoat: "+_boat.SailNumber + 
-                "\nMember: " +_member.Name + " " + _member.SurName + " " + _member.PhoneNumber ;
+                "\nBoat: " + _boat.SailNumber + 
+                "\nMember: " + _member.Name + " " + _member.SurName + " " + _member.PhoneNumber ;
         }
 
         #endregion

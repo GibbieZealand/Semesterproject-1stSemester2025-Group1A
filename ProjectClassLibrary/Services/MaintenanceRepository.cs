@@ -24,12 +24,19 @@ namespace ProjectClassLibrary.Services
         #endregion
 
         #region Methods
-        // Adds a maintenance object to the list
+        /// <summary>
+        /// Adds a maintenance object to the list
+        /// </summary>
+        /// <param name="maintenance"></param>
         public void AddMaintenance(IMaintenance maintenance)
         {
             _maintenanceTasks.Add(maintenance);
         }
-        // Removes a maintenance object by Id 
+
+        /// <summary>
+        /// Removes a maintenance object by Id 
+        /// </summary>
+        /// <param name="id"></param>
         public void RemoveMaintenance(int id)
         {
             for(int i=0; i <= _maintenanceTasks.Count - 1; i++)
@@ -42,7 +49,10 @@ namespace ProjectClassLibrary.Services
             }
         }
 
-        // Prints all maintenance objects in the list 
+
+        /// <summary>
+        /// Prints all maintenance objects in the list 
+        /// </summary>
         public void PrintAll()
         {
             foreach(IMaintenance m in _maintenanceTasks)
@@ -50,8 +60,11 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(m+"\n");
             }
         }
-        
-        // Returns a maintenance object by Id 
+
+        /// <summary>
+        /// Returns a maintenance object by Id 
+        /// </summary>
+        /// <param name="id"></param>
         public IMaintenance GetMaintenanceById(int id)
         {
             foreach (IMaintenance m in _maintenanceTasks)
@@ -65,7 +78,9 @@ namespace ProjectClassLibrary.Services
         }
 
 
-        // Returns a list of pending maintenance tasks 
+        /// <summary>
+        /// Returns a list of pending maintenance tasks 
+        /// </summary>
         public List<IMaintenance> GetPendingMaintenanceTasks()
         {
             List<IMaintenance> pendingList = [];
@@ -79,7 +94,9 @@ namespace ProjectClassLibrary.Services
             return pendingList;
         }
 
-        // Returns a list of completed maintenance tasks 
+        /// <summary>
+        /// Returns a list of completed maintenance tasks 
+        /// </summary>
         public List<IMaintenance> GetCompletedMaintenanceTasks()
         {
             List<IMaintenance> completedList = [];
@@ -93,7 +110,10 @@ namespace ProjectClassLibrary.Services
             return completedList;
         }
 
-        // Returns the list of all maintenance tasks 
+
+        /// <summary>
+        /// Returns the list of all maintenance tasks
+        /// </summary
         public List<IMaintenance> GetAll()
         {
             return _maintenanceTasks;
