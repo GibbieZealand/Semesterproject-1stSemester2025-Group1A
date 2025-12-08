@@ -44,7 +44,7 @@ namespace ProjectClassLibrary.Models
 
         /// <summary>
         /// Sets IsFixed to true
-        /// </summary
+        /// </summary>
         public void Fixed()
         {
             IsFixed = true;

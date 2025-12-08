@@ -113,7 +113,7 @@ namespace ProjectClassLibrary.Services
 
         /// <summary>
         /// Returns the list of all maintenance tasks
-        /// </summary
+        /// </summary>
         public List<IMaintenance> GetAll()
         {
             return _maintenanceTasks;
