@@ -26,7 +26,6 @@ namespace ProjectClassLibrary.Services
         {
             _boats = [];
         }
-        
         #endregion
 
         #region Methods
