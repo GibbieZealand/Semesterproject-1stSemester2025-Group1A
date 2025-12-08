@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 // - Lavet af Kasper - 
 namespace ProjectClassLibrary.Models
 { 
+    /// <summary>
+    /// Member klassen implementere alle properties fra interfacet IMember
+    /// </summary>
     public class Member : IMember
     {
         #region Instance Fields
@@ -28,6 +31,17 @@ namespace ProjectClassLibrary.Models
         #endregion
         
         #region Constructor
+        /// <summary>
+        /// Konstruktøren bruges til at oprette nye objekter af Memberklassen
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="surName"></param>
+        /// <param name="phoneNumber"></param>
+        /// <param name="address"></param>
+        /// <param name="city"></param>
+        /// <param name="mail"></param>
+        /// <param name="theMemberType"></param>
+        /// <param name="theMemberRole"></param>
         public Member(string name, string surName, string phoneNumber, string address, string city, string mail, MemberType theMemberType, MemberRole theMemberRole)
         {
             Name = name;
@@ -45,6 +59,9 @@ namespace ProjectClassLibrary.Models
         #endregion
        
         #region Methods
+        /// <summary>
+        /// Metoden printer et instance af typen member 
+        /// </summary>
         public override string ToString()
         {
             return $"Medlem nummer: {Id}\nFornavn: {Name}\nEfternavn: {SurName}\nTelefonnummer: {PhoneNumber}\n" +
