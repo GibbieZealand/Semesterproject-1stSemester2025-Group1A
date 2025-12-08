@@ -14,6 +14,10 @@ IBookingRepository bookingRepository = new BookingRepository();
 bookingRepository.AddBooking(booking);
 
 Blog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, "AuthorA", "Picture.png");
-Console.WriteLine("Blog: " + blog);
+//Console.WriteLine("Blog: " + blog);
 IBlogRepository blogRepository = new BlogRepository();
 blogRepository.AddBlog(blog);
+blogRepository.PrintAll();
+Blog blog2 = new Blog("HeaderB", "DescriptionB", DateTime.Now, "AuthorB", "Picture2.png");
+blogRepository.UpdateBlog(blog.Id, blog2);
+blogRepository.PrintAll();
