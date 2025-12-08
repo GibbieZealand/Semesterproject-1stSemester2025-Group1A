@@ -12,6 +12,10 @@ IBooking booking = new Booking(now, now.AddHours(8), isBooked: true, "Destinatio
 Console.WriteLine("Booking: " + booking);
 IBookingRepository bookingRepository = new BookingRepository();
 bookingRepository.AddBooking(booking);
+bookingRepository.PrintAll();
+IBooking booking2 = new Booking(now, now.AddHours(12), isBooked: true, "DestinationB", member1, jolle1);
+bookingRepository.UpdateBooking(booking.Id, booking2);
+bookingRepository.PrintAll();
 
 Blog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, "AuthorA", "Picture.png");
 //Console.WriteLine("Blog: " + blog);
