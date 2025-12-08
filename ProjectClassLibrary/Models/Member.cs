@@ -13,9 +13,8 @@ namespace ProjectClassLibrary.Models
         private static int _counter = 0;
         private List<IBooking> _bookings;
         private List<IEvent> _events;
-     
         #endregion
-      
+     
         #region Properties
         public string Name { get; set; }
         public string SurName { get; set; }
@@ -31,7 +30,6 @@ namespace ProjectClassLibrary.Models
         #region Constructor
         public Member(string name, string surName, string phoneNumber, string address, string city, string mail, MemberType theMemberType, MemberRole theMemberRole)
         {
-            
             Name = name;
             SurName = surName;
             PhoneNumber = phoneNumber;
@@ -43,8 +41,6 @@ namespace ProjectClassLibrary.Models
             Id = _counter++;
             _bookings = new List<IBooking>();
             _events = new List<IEvent>();
-            
-           
         }
         #endregion
        

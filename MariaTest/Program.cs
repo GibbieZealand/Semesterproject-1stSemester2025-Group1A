@@ -42,3 +42,15 @@ e1.AssignMember(member1);
 e1.AssignMember(member2);
 e1.AssignMember(member1);
 Console.WriteLine(e1);
+
+Console.WriteLine("");
+Console.WriteLine("-----------------------Test af UpdateEvent metoden---------------------");
+Console.WriteLine("--Vi ændrer tidspunktet for event e3 ved at erstatte det med et nyt event e4--");
+Console.WriteLine("");
+IEvent e3 = new Event("Standerhejsning", "Flaget bliver hejst og der åbnes for sejlads.", new DateTime(2025, 12, 05, 10, 00, 00), new DateTime(2025, 12, 05, 10, 00, 00));
+IEvent e4 = new Event("Standerhejsning", "Flaget bliver hejst og der åbnes for sejlads.", new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00));
+eventList1.AddEvent(e3);
+eventList1.AddEvent(e4);
+eventList1.UpdateEvent(2, e4);
+Console.WriteLine(e4);
+

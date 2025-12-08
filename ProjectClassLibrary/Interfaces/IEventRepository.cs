@@ -11,6 +11,7 @@ namespace ProjectClassLibrary.Interfaces
     {
         List<IEvent> GetAllEvents();
         void AddEvent(IEvent theEvent);
+        void UpdateEvent(int Id, IEvent upDatedEvent);
         void RemoveEvent(IEvent theEvent);
         void PrintAll();
     }

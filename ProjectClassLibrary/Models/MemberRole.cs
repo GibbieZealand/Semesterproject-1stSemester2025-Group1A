@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 namespace ProjectClassLibrary.Models
 {
     public enum MemberRole 
-    #region Enum
     {
         Admin, Member, Chairman
     }
-    #endregion
-    
 }

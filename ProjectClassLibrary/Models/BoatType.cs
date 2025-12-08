@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 // -- Lavet af: Gibbie --
 namespace ProjectClassLibrary.Models
 {
+    #region Enum
     /// <summary>
     /// Enum to Delegate the Type of Boat
     /// </summary>
@@ -14,4 +15,5 @@ namespace ProjectClassLibrary.Models
     {
         TERA, FEVA, LASERJOLLE, EUROPAJOLLE, SNIPEJOLLE, WAYFARER, LYNÆS
     }
+    #endregion
 }
