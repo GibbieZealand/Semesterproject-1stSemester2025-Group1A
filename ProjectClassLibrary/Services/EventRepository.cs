@@ -6,15 +6,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//---Lavet af Maria---//
+
 namespace ProjectClassLibrary.Services
 {
     public class EventRepository : IEventRepository
     {
+        /// <summary>
+        /// New instance field _events
+        /// </summary>
         #region Instance field
-        private List<IEvent> _events; //Vi laver et nyt instansfelt _orders, som skal være en List af typen Event
+        private List<IEvent> _events; //Vi laver et nyt instansfelt _events, som skal være en List af typen Event
 
         #endregion
 
+        /// <summary>
+        /// Constructor for making a new list of events
+        /// </summary>
         #region Constructor
         public EventRepository() //Vi laver en konstruktor til at lave en ny liste af events, som kaldes _events
         {
@@ -26,7 +34,7 @@ namespace ProjectClassLibrary.Services
         #region Methods
 
         /// <summary>
-        /// Method for adding new events. 
+        /// Method for adding new events
         /// </summary>
         public void AddEvent(IEvent theEvent)
         {
@@ -43,7 +51,7 @@ namespace ProjectClassLibrary.Services
         }
 
         /// <summary>
-        /// GetAll met
+        /// GetAll method for retrieving all events
         /// </summary>
         /// <returns></returns>
         public List<IEvent> GetAllEvents()
@@ -58,6 +66,10 @@ namespace ProjectClassLibrary.Services
             //return _events;
         }
 
+        /// <summary>
+        /// Method for removing events
+        /// </summary>
+
         public void RemoveEvent(IEvent theEvent)
         {
             for (int i = 0; i < _events.Count; i++) //Vi løber vores liste igennem
@@ -70,6 +82,10 @@ namespace ProjectClassLibrary.Services
             }
             Console.WriteLine("Fejl. Ordren findes ikke."); //Hvis ordren ikke findes gives en fejlmeddelelse
         }
+
+        /// <summary>
+        /// Method for printing all events
+        /// </summary>
 
         public void PrintAll() //Jeg lavede en PrintAll metode for at teste, at min Add metode virkede (kan det testes uden en print all?)
         {
