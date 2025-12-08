@@ -44,6 +44,19 @@ namespace ProjectClassLibrary.Services
             return _bookings;
         }
 
+        public void UpdateBooking(int id, IBooking newBooking)
+        {
+            for (int i = 0; i < _bookings.Count; i++)
+            {
+                if (_bookings[i].Id == id)
+                {
+                    newBooking.Id = _bookings[i].Id;
+                    _bookings[i] = newBooking;
+                    return;
+                }
+            }
+        }
+
         public void PrintAll()
         {
             foreach(IBooking b in _bookings)
@@ -51,6 +64,7 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(b);
             }
         }
+
         #endregion
     }
 }

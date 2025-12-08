@@ -12,5 +12,6 @@ namespace ProjectClassLibrary.Interfaces
         void RemoveBlog(IBlog b);
         List<IBlog> GetAllBlogs();
         void PrintAll();
+        void UpdateBlog(int id, IBlog newBlog);
     }
 }

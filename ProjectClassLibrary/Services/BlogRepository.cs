@@ -39,6 +39,19 @@ namespace ProjectClassLibrary.Services
             _blogs.Remove(blog);
         }
 
+        public void UpdateBlog(int id, IBlog newBlog)
+        {
+            for (int i = 0; i < _blogs.Count; i++)
+            {
+                if (_blogs[i].Id == id)
+                {
+                    newBlog.Id = _blogs[i].Id;
+                    _blogs[i] = newBlog;
+                    return;
+                }
+            }
+        }
+
         public List<IBlog> GetAllBlogs()
         {
             return _blogs;
