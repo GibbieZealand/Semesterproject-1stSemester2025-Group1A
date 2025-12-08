@@ -14,8 +14,6 @@ namespace ProjectClassLibrary.Models
     {
         #region Instance Fields
         private static int _counter = 0;
-        private List<IBooking> _bookings;
-        private List<IEvent> _events;
         #endregion
      
         #region Properties
@@ -34,14 +32,6 @@ namespace ProjectClassLibrary.Models
         /// <summary>
         /// Konstruktøren bruges til at oprette nye objekter af Memberklassen
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="surName"></param>
-        /// <param name="phoneNumber"></param>
-        /// <param name="address"></param>
-        /// <param name="city"></param>
-        /// <param name="mail"></param>
-        /// <param name="theMemberType"></param>
-        /// <param name="theMemberRole"></param>
         public Member(string name, string surName, string phoneNumber, string address, string city, string mail, MemberType theMemberType, MemberRole theMemberRole)
         {
             Name = name;
@@ -53,8 +43,6 @@ namespace ProjectClassLibrary.Models
             TheMemberType = theMemberType;
             TheMemberRole = theMemberRole;
             Id = _counter++;
-            _bookings = new List<IBooking>();
-            _events = new List<IEvent>();
         }
         #endregion
        
@@ -66,7 +54,7 @@ namespace ProjectClassLibrary.Models
         {
             return $"Medlem nummer: {Id}\nFornavn: {Name}\nEfternavn: {SurName}\nTelefonnummer: {PhoneNumber}\n" +
                 $"Adresse: {Address}\nBy: {City}\nEmail: {Mail}\nType: {TheMemberType}\n" +
-                $"Rolle: {TheMemberRole}\n {_bookings}\n {_events}";
+                $"Rolle: {TheMemberRole}";
         }
         #endregion 
     }
