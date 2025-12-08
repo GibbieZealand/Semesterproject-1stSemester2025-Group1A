@@ -8,8 +8,10 @@ namespace ProjectClassLibrary.Models
 {
     public class Admin : Member
     {
+        #region Constructor
         public Admin(string name, string surName, string phoneNumber, string address, string city, string mail, MemberType theMemberType, MemberRole theMemberRole) : base(name, surName, phoneNumber, address, city, mail, theMemberType, theMemberRole)
         {
         }
+        #endregion
     }
 }

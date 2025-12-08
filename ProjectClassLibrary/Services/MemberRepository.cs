@@ -59,8 +59,7 @@ namespace ProjectClassLibrary.Services
         // Formål:
         // Opdatere Medlem
         // if-statement:
-        // Hvis _members indholder Telefonnummeret argumentet, så overskrider de nye værdier de nuværende med samme telefonnummer
-    
+        // Hvis _members indholder Telefonnummeret argumentet, så overskrider de nye værdier de nuværende med samme telefonnummer.
         public void UpdateMember(IMember updatedMember)
         {
             if (_members.ContainsKey(updatedMember.PhoneNumber))
@@ -75,8 +74,7 @@ namespace ProjectClassLibrary.Services
                 existingMember.TheMemberType = updatedMember.TheMemberType;
                 existingMember.TheMemberRole = updatedMember.TheMemberRole;
             }
-
-        }
+        }  
         public void PrintAll() 
         {
             foreach (IMember member in _members.Values)
@@ -84,7 +82,6 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(member);
                 Console.WriteLine();
             }
-            
         }
         #endregion
     }
