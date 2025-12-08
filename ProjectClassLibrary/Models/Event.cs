@@ -15,7 +15,6 @@ namespace ProjectClassLibrary.Models
     public class Event : IEvent
     {
         #region instance fields
-
         /// <summary>
         /// Static counter set to 0
         /// New instance field list called _members
@@ -25,11 +24,12 @@ namespace ProjectClassLibrary.Models
         private List<IMember> _members;
 
         #endregion
+
+        #region properties
         /// <summary>
         /// Properties for the event class
         /// </summary>
 
-        #region properties
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
@@ -39,7 +39,6 @@ namespace ProjectClassLibrary.Models
         #endregion
 
         #region constructor
-
         /// <summary>
         /// Constructor for making a new event with parameters name, description, startDate and endDate
         /// </summary>
@@ -60,7 +59,6 @@ namespace ProjectClassLibrary.Models
         /// <summary>
         /// Assigns a member to an Event
         /// </summary>
-        /// <param name="member"></param>
         public void AssignMember(IMember member)
         {
             foreach (IMember m in _members)
