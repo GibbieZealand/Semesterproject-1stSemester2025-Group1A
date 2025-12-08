@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//-- Lavet af Maria -- //
+
 namespace ProjectClassLibrary.Models
 {
     /// <summary>
@@ -14,10 +16,18 @@ namespace ProjectClassLibrary.Models
     {
         #region instance fields
 
+        /// <summary>
+        /// Static counter set to 0
+        /// New instance field list called _members
+        /// </summary>
+
         private static int _counter = 0;
         private List<IMember> _members;
 
         #endregion
+        /// <summary>
+        /// Properties for the event class
+        /// </summary>
 
         #region properties
         public int Id { get; set; }
@@ -29,6 +39,10 @@ namespace ProjectClassLibrary.Models
         #endregion
 
         #region constructor
+
+        /// <summary>
+        /// Constructor for making a new event with parameters name, description, startDate and endDate
+        /// </summary>
 
         public Event(string name, string description, DateTime startDate, DateTime endDate)
         {
@@ -57,7 +71,6 @@ namespace ProjectClassLibrary.Models
                 }
             }
             _members.Add(member);
-
         }
         /// <summary>
         /// Retrieves all members registered to an event
@@ -71,6 +84,9 @@ namespace ProjectClassLibrary.Models
             }
             return s;
         }
+        /// <summary>
+        /// Prints out all the information about an event
+        /// </summary>
         public override string ToString()
         {
             return $"Event ID: {Id}" +
