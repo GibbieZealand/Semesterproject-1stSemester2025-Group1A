@@ -16,10 +16,16 @@ namespace ProjectClassLibrary.Services
         #endregion
      
         #region Properties
+        /// <summary>
+        /// Count som bruges til at tælle members i Repository
+        /// </summary>
         public int Count { get { return _members.Count; } }
         #endregion
 
         #region Constructor
+        /// <summary>
+        /// MemberRepository constructor bruges når vi laver et nyt dictionary af med navnet MemberRepository, med en string som key og en IMember som value
+        /// </summary>
         public MemberRepository()
         {
             _members = new Dictionary<string, IMember>();
@@ -33,6 +39,10 @@ namespace ProjectClassLibrary.Services
         // Hvis Dictionary _members ikke indeholder Telefonnummer på det Medlem man vil tilføje. Tilføjes Medlemmet
         // Else if:
         //Medlem bliver ikke tilføjet
+        /// <summary>
+        /// Metode som bruges til at tilføje members til repository, den tjekker for om telefonnummeret findes allerede
+        /// </summary>
+    
         public void AddMember(IMember member)
         {
             if (!_members.ContainsKey(member.PhoneNumber))
@@ -45,6 +55,9 @@ namespace ProjectClassLibrary.Services
         // Formål:
         // At få fat på en list med alle medlemmer/objekter
         // Metoden returnere via en indbygget metode som hedder ToList(); som henter liste med _members Values
+        /// <summary>
+        /// Metoden bruges til at få en liste med medlemmere
+        /// </summary>
         public List<IMember> GetAllMembers()
         {
             return _members.Values.ToList();
@@ -52,6 +65,9 @@ namespace ProjectClassLibrary.Services
         // Formål:
         // Fjerne Medlem
         // Metoden sletter via metoden Remove, og sletter telefonnummeret fra _members
+        /// <summary>
+        /// Metoden bruges til at fjerne medlemmere fra dictionary
+        /// </summary>
         public void RemoveMember(IMember member)
         {
             _members.Remove(member.PhoneNumber);
@@ -60,6 +76,9 @@ namespace ProjectClassLibrary.Services
         // Opdatere Medlem
         // if-statement:
         // Hvis _members indholder Telefonnummeret argumentet, så overskrider de nye værdier de nuværende med samme telefonnummer.
+        /// <summary>
+        /// Metoden bruges til at opdatere medlemmere via deres telefonnummeret, så man kan redigere oplysninger, fx. et medlem skifter adresse
+        /// </summary>
         public void UpdateMember(IMember updatedMember)
         {
             if (_members.ContainsKey(updatedMember.PhoneNumber))
@@ -75,6 +94,9 @@ namespace ProjectClassLibrary.Services
                 existingMember.TheMemberRole = updatedMember.TheMemberRole;
             }
         }  
+        /// <summary>
+        /// Metoden bruges til at printe alle instanser af typen member som findes i memberRpository ud
+        /// </summary>
         public void PrintAll() 
         {
             foreach (IMember member in _members.Values)
