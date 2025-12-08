@@ -16,7 +16,6 @@ IMember member1 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "N�
 Console.WriteLine("Kalder og printer Count property");
 Console.WriteLine($"Antallet af Medlemmer er {memberRepo.Count}");
 Console.WriteLine();
-
 #endregion
 #region AddMember metode
 Console.WriteLine("Kalder AddMember metode på member1 og for den tilføjet til memberRepo");

@@ -74,7 +74,7 @@ namespace ProjectClassLibrary.Services
                 existingMember.TheMemberType = updatedMember.TheMemberType;
                 existingMember.TheMemberRole = updatedMember.TheMemberRole;
             }
-        }
+        }  
         public void PrintAll() 
         {
             foreach (IMember member in _members.Values)
