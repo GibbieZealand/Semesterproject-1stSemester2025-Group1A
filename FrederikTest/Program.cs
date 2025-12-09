@@ -17,12 +17,12 @@ IBooking booking2 = new Booking(now, now.AddHours(12), isBooked: true, "Destinat
 bookingRepository.UpdateBooking(booking.Id, booking2);
 bookingRepository.PrintAll();
 
-Blog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, "AuthorA", "Picture.png");
+Blog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, member1, "Picture.png");
 //Console.WriteLine("Blog: " + blog);
 IBlogRepository blogRepository = new BlogRepository();
 blogRepository.AddBlog(blog);
 blogRepository.PrintAll();
-Blog blog2 = new Blog("HeaderB", "DescriptionB", DateTime.Now, "AuthorB", "Picture2.png");
+Blog blog2 = new Blog("HeaderB", "DescriptionB", DateTime.Now, member1, "Picture2.png");
 blogRepository.UpdateBlog(blog.Id, blog2);
 blogRepository.PrintAll();
 

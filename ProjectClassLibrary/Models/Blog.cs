@@ -19,17 +19,17 @@ namespace ProjectClassLibrary.Models
         public string Description { get; set; }
         public DateTime Date { get; set; }
         //TODO: Change Author from string to Member
-        public string Author { get; set; }
+        public IMember Author { get; set; }
         public string Picture { get; set; }
         #endregion
 
         #region Constructors
-        public Blog(string headline, string description, DateTime date, string author, string picture)
+        public Blog(string headline, string description, DateTime date, IMember member, string picture)
         {
             Headline = headline;
             Description = description;
             Date = date;
-            Author = author;
+            Author = member;
             Picture = picture;
             Id = _counter++;
         }
@@ -38,7 +38,7 @@ namespace ProjectClassLibrary.Models
         #region Methods
         public override string ToString()
         {
-            return $"Id: {Id}, \nOverskrift: {Headline}, \nBeskrivelse: {Description}, \nDato: {Date}, \nForfatter: {Author}, \nBillede: {Picture}";
+            return $"Id: {Id} \nOverskrift: {Headline} \nBeskrivelse: {Description} \nDato: {Date} \nForfatter: {Author.Name + " " + Author.SurName} \nBillede: {Picture}";
         }
         #endregion
     }
