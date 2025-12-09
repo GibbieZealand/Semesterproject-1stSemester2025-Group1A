@@ -57,9 +57,33 @@ namespace ProjectClassLibrary.Services
             }
         }
 
+        public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
+        {
+            if (startDate >= endDate)
+            {
+                Console.WriteLine("Startdato skal være før slutdato.");
+                return;
+            }
+            foreach (IBooking existingBooking in _bookings)
+            {
+                if (existingBooking.TheBoat.SailNumber == boat.SailNumber)
+                {
+                    bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
+                    if (overlaps)
+                    {
+                        Console.WriteLine("Booking dato er ugyldig");
+                        return;
+                    }
+                }
+            }
+            IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
+            AddBooking(booking);
+            Console.WriteLine("Båden er hermed blevet booket");
+        }
+
         public void PrintAll()
         {
-            foreach(IBooking b in _bookings)
+            foreach (IBooking b in _bookings)
             {
                 Console.WriteLine(b);
             }

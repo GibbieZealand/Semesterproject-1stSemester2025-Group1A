@@ -10,8 +10,8 @@ namespace ProjectClassLibrary.Models
     public class Booking : IBooking
     {
         #region Instance Fields
-        private IMember _member;
-        private IBoat _boat;
+        //private IMember _member;
+        //private IBoat _boat;
         private static int _counter;
         #endregion
         #region Properties
@@ -20,6 +20,8 @@ namespace ProjectClassLibrary.Models
         public DateTime EndDate { get; set; }
         public bool IsBooked { get; set; }
         public string Destination { get; set; }
+        public IMember TheMember { get; set; }
+        public IBoat TheBoat { get; set; }
         #endregion
         #region Constructor
         public Booking(DateTime startDate, DateTime endDate, bool isBooked, string destination,IMember member,IBoat boat)
@@ -29,8 +31,8 @@ namespace ProjectClassLibrary.Models
             IsBooked = isBooked;
             Destination = destination;
             Id = _counter++;
-            _member = member;
-            _boat = boat;
+            TheMember = member;
+            TheBoat = boat;
         }
         #endregion
         #region Methods
@@ -40,7 +42,7 @@ namespace ProjectClassLibrary.Models
                 $"\nStart Dato: {StartDate} \nSlut Dato: {EndDate} " +
                 $"\nEr Booked: {IsBooked} " +
                 $"\nDestination: {Destination} " +
-                $"\n{_member} \n{_boat}";
+                $"\n{TheMember} \n{TheBoat}";
         }
         #endregion
     }

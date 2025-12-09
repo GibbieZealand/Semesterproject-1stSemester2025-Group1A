@@ -1,4 +1,5 @@
 ﻿using ProjectClassLibrary.Interfaces;
+using ProjectClassLibrary.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,6 +48,27 @@ namespace ProjectClassLibrary.Models
         #endregion
        
         #region Methods
+        //public void BookBoat(IBoat boat, DateTime startDate, DateTime endDate)
+        //{
+        //    IBoatRepository boatRepository = new BoatRepository();
+        //    IBookingRepository bookingRepository = new BookingRepository();
+        //    List<DateTime> startDates = [];
+        //    List<DateTime> endDates = [];
+        //    foreach(IBooking b in bookingRepository.GetAllBookings())
+        //    {
+        //        startDates.Add(b.StartDate);
+        //        endDates.Add(b.EndDate);
+        //        bool overlaps = startDate < b.EndDate && b.StartDate < endDate;
+        //        if(overlaps)
+        //        {
+        //            Console.WriteLine("Booking dato er ugyldig");
+        //            return;
+        //        }
+        //    }
+        //    boatRepository.AddBoat(boat);
+        //    boatRepository.BookBoat();
+        //}
+
         /// <summary>
         /// Metoden printer et instance af typen member 
         /// </summary>
