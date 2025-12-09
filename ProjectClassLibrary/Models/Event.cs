@@ -35,6 +35,7 @@ namespace ProjectClassLibrary.Models
         public string Description { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
+        public IMember Author { get; set; }
 
         #endregion
 
@@ -43,16 +44,16 @@ namespace ProjectClassLibrary.Models
         /// Constructor for making a new event with parameters name, description, startDate and endDate
         /// </summary>
 
-        public Event(string name, string description, DateTime startDate, DateTime endDate)
+        public Event(string name, string description, DateTime startDate, DateTime endDate, IMember member)
         {
             Id = _counter++;
             Name = name;
             Description = description;
             StartDate = startDate;
             EndDate = endDate;
+            Author = member;
             _members = [];
         }
-
         #endregion
 
         #region methods
@@ -92,6 +93,7 @@ namespace ProjectClassLibrary.Models
                 $"\nBeskrivelse: {Description}" +
                 $"\nStarttidspunkt: {StartDate}" +
                 $"\nSluttidspunkt: {EndDate}" +
+                $"\nOprettet af: {Author.Name + " " + Author.SurName}" +
                 $"\nMedlemsnavne: {GetAllEventMemberNames()}";
         }
         #endregion
