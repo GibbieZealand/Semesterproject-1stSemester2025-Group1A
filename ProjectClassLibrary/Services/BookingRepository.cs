@@ -59,6 +59,10 @@ namespace ProjectClassLibrary.Services
 
         public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         {
+            if (boat == null || member == null)
+            {
+                return;
+            }
             if (startDate >= endDate)
             {
                 Console.WriteLine("Startdato skal være før slutdato.");
@@ -66,7 +70,9 @@ namespace ProjectClassLibrary.Services
             }
             foreach (IBooking existingBooking in _bookings)
             {
-                if (existingBooking.TheBoat.SailNumber == boat.SailNumber)
+                IBoat existingBoat = existingBooking.TheBoat;
+                bool matchingSailNum = existingBoat.SailNumber == boat.SailNumber;
+                if (matchingSailNum)
                 {
                     bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
                     if (overlaps)
