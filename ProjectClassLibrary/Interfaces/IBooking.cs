@@ -13,5 +13,7 @@ namespace ProjectClassLibrary.Interfaces
         DateTime EndDate { get; set; }
         bool IsBooked { get; set; }
         string Destination { get; set; }
+        IBoat TheBoat { get; set; }
+        IMember TheMember { get; set; }
     }
 }

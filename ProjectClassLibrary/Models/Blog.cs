@@ -18,6 +18,7 @@ namespace ProjectClassLibrary.Models
         public string Headline { get; set; }
         public string Description { get; set; }
         public DateTime Date { get; set; }
+        //TODO: Change Author from string to Member
         public string Author { get; set; }
         public string Picture { get; set; }
         #endregion

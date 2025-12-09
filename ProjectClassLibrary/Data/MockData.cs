@@ -21,7 +21,7 @@ namespace ProjectClassLibrary.Data
         private static Dictionary<string, IBoat> _boatData =
               new Dictionary<string, IBoat>()
               {
-            { "16-3335", new Boat(SailBoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982")},
+            { "16-3335", new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982")},
 
               };
         #endregion
