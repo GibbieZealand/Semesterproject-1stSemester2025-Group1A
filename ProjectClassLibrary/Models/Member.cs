@@ -52,7 +52,7 @@ namespace ProjectClassLibrary.Models
         /// </summary>
         public override string ToString()
         {
-            return $"Medlem nummer: {Id}\nFornavn: {Name}\nEfternavn: {SurName}\nTelefonnummer: {PhoneNumber}\n" +
+            return $"Medlemsnummer: {Id}\nFornavn: {Name}\nEfternavn: {SurName}\nTelefonnummer: {PhoneNumber}\n" +
                 $"Adresse: {Address}\nBy: {City}\nEmail: {Mail}\nType: {TheMemberType}\n" +
                 $"Rolle: {TheMemberRole}";
         }
