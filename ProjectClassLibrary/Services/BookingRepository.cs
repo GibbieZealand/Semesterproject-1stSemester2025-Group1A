@@ -27,7 +27,7 @@ namespace ProjectClassLibrary.Services
             foreach (IBooking b in _bookings)
             {
                 if (b.Id == booking.Id)
-                {
+                { 
                     return;
                 }
             }
