@@ -68,21 +68,24 @@ namespace ProjectClassLibrary.Services
                 //}
                 CheckMissingInput(boat, member);
                 CheckIncorrectDateTime(startDate, endDate);
-                CheckExistingBooking(boat, member, startDate, endDate);
-                foreach (IBooking existingBooking in _bookings)
+                if (!CheckExistingBooking(boat, member, startDate, endDate))
                 {
-                    IBoat existingBoat = existingBooking.TheBoat;
-                    bool matchingSailNum = existingBoat.SailNumber == boat.SailNumber;
-                    if (matchingSailNum)
-                    {
-                        bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
-                        if (overlaps)
-                        {
-                            Console.WriteLine("Booking dato er ugyldig");
-                            return;
-                        }
-                    }
+                    return;
                 }
+                //foreach (IBooking existingBooking in _bookings)
+                //{
+                //    IBoat existingBoat = existingBooking.TheBoat;
+                //    bool matchingSailNum = existingBoat.SailNumber == boat.SailNumber;
+                //    if (matchingSailNum)
+                //    {
+                //        bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
+                //        if (overlaps)
+                //        {
+                //            Console.WriteLine("Booking dato er ugyldig");
+                //            return;
+                //        }
+                //    }
+                //}
             }
             catch (NullReferenceException nRex)
             {
@@ -111,8 +114,6 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(b);
             }
         }
-        #endregion
-
         #region Exceptions
         void CheckIncorrectDateTime(DateTime startDate, DateTime endDate)
         {
@@ -121,7 +122,7 @@ namespace ProjectClassLibrary.Services
                 throw new InvalidDateException("Startdato skal være før slutdato.");
             }
         }
-        void CheckExistingBooking(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
+        bool CheckExistingBooking(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         {
             foreach (IBooking existingBooking in _bookings)
             {
@@ -129,13 +130,18 @@ namespace ProjectClassLibrary.Services
                 bool matchingSailNum = existingBoat.SailNumber == boat.SailNumber;
                 if (matchingSailNum)
                 {
-                    bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
+                    // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
+                    bool overlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
+                        (startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
                     if (overlaps)
                     {
-                        throw new InvalidBookingException("Båden er allerede blevet booket til given tid");
+                        // throw new InvalidBookingException("Båden er allerede blevet booket til given tid");
+                        //Console.WriteLine("It didn't work, dummy");
+                        return false;
                     }
                 }
             }
+            return true;
         }
         void CheckMissingInput(IBoat boat, IMember member)
         {
@@ -145,5 +151,7 @@ namespace ProjectClassLibrary.Services
             }
         }
         #endregion
+        #endregion
+
     }
 }
