@@ -12,7 +12,7 @@ namespace ProjectClassLibrary.Interfaces
         string Headline { get; set; }
         string Description { get; set; }
         DateTime Date { get; set; }
-        string Author { get; set; }
+        IMember Author { get; set; }
         string Picture { get; set; }
     }
 }
