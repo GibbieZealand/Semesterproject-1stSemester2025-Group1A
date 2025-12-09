@@ -66,7 +66,7 @@ namespace ProjectClassLibrary.Services
         public void RemoveBoat(string sailNumber)
         {
             _boats.Remove(sailNumber);
-            Console.WriteLine($"Boat Nr.{sailNumber} has been removed");
+            Console.WriteLine($"Båden med sejlnummer {sailNumber} er blevet fjernet.");
         }
 
         /// <summary>

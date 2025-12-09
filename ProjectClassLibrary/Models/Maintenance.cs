@@ -53,11 +53,11 @@ namespace ProjectClassLibrary.Models
         public override string ToString()
         {
             return "ID: " + Id +
-                "\nDescription: " + Description +
-                "\nTime: " + TimeOfMaintenance +
-                "\nIsFixed: " + (IsFixed ? "Completed" : "Pending")+
-                "\nBoat: " + _boat.SailNumber + 
-                "\nMember: " + _member.Name + " " + _member.SurName + " " + _member.PhoneNumber ;
+                "\nBeskrivelse: " + Description +
+                "\nTid: " + TimeOfMaintenance +
+                "\nStatus: " + (IsFixed ? "Er Repareret" : "Afventer Reparation")+
+                "\nBåd: " + _boat.SailNumber + 
+                "\nMedlem: " + _member.Name + " " + _member.SurName + " " + _member.PhoneNumber ;
         }
 
         #endregion

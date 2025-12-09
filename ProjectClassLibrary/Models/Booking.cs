@@ -36,7 +36,11 @@ namespace ProjectClassLibrary.Models
         #region Methods
         public override string ToString()
         {
-            return $"Id: {Id} \nStartDate: {StartDate} \nEndDate: {EndDate} \nIsBooked: {IsBooked} \nDestination: {Destination} \n{_member} \n{_boat}";
+            return $"Id: {Id} " +
+                $"\nStart Dato: {StartDate} \nSlut Dato: {EndDate} " +
+                $"\nEr Booked: {IsBooked} " +
+                $"\nDestination: {Destination} " +
+                $"\n{_member} \n{_boat}";
         }
         #endregion
     }

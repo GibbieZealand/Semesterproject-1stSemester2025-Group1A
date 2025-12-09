@@ -87,12 +87,12 @@ namespace ProjectClassLibrary.Models
         /// </summary>
         public override string ToString()
         {
-            return $"Event ID: {Id}" +
+            return $"Begivenheds ID: {Id}" +
                 $"\nNavn: {Name}" +
                 $"\nBeskrivelse: {Description}" +
                 $"\nStarttidspunkt: {StartDate}" +
                 $"\nSluttidspunkt: {EndDate}" +
-                $"\nMember Names: {GetAllEventMemberNames()}";
+                $"\nMedlemsnavne: {GetAllEventMemberNames()}";
         }
         #endregion
     }
