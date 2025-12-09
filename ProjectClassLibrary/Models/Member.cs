@@ -47,7 +47,7 @@ namespace ProjectClassLibrary.Models
         #endregion
        
         #region Methods
-        /// <summary>
+        /// <summary> 
         /// Metoden printer et instance af typen member 
         /// </summary>
         public override string ToString()
