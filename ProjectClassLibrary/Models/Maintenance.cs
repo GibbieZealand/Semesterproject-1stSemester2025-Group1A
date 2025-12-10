@@ -1,4 +1,5 @@
-﻿using ProjectClassLibrary.Interfaces;
+﻿using ProjectClassLibrary.Exceptions;
+using ProjectClassLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,7 +48,12 @@ namespace ProjectClassLibrary.Models
         /// </summary>
         public void Fixed()
         {
-            IsFixed = true;
+            if (!IsFixed)
+            {
+                IsFixed = true;
+                return;
+            }
+            throw new BoatAlreadyFixedException("Båden er Allerede fikset");
         }
 
         public override string ToString()
