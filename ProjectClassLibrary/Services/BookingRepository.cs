@@ -60,14 +60,22 @@ namespace ProjectClassLibrary.Services
 
         public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         {
+            //TO-DO: Exceptions og try/catch skal flyttes til program.cs
             try
             {
-                CheckMissingInput(boat, member);
-                CheckIncorrectDateTime(startDate, endDate);
-                if (CheckBookingOverlaps(boat, member, startDate, endDate))
+                if ((boat == null || member == null))
                 {
-                    Console.WriteLine("Booking tiderne overlapper");
-                    return;
+                    throw new NullReferenceException("Mangler input");
+                }
+    
+                if ((startDate >= endDate))
+                {
+                    throw new InvalidDateException("Startdato skal være før slutdato.");
+                }
+
+                if (CheckBookingOverlaps(boat, startDate, endDate))
+                {
+                    throw new OverlappingDateException("Bookingen overlapper med en anden.");
                 }
             }
             catch (NullReferenceException nRex)
@@ -83,6 +91,11 @@ namespace ProjectClassLibrary.Services
             catch (InvalidBookingException iBex)
             {
                 Console.WriteLine(iBex.Message);
+                return;
+            }
+            catch (OverlappingDateException oex)
+            {
+                Console.WriteLine(oex.Message);
                 return;
             }
             IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
@@ -103,6 +116,8 @@ namespace ProjectClassLibrary.Services
             }
             return count;
         }
+
+        //TO-DO: FIX THIS @!?#
 
         //public List<int> GetAllBookingsForMembers()
         //{
@@ -130,49 +145,29 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(b);
             }
         }
-        void CheckIncorrectDateTime(DateTime startDate, DateTime endDate)
-        {
-            if (startDate >= endDate)
-            {
-                throw new InvalidDateException("Startdato skal være før slutdato.");
-            }
-        }
-        bool CheckBookingOverlaps(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
+
+        bool CheckBookingOverlaps(IBoat boat, DateTime startDate, DateTime endDate)
         {
             foreach (IBooking existingBooking in _bookings)
             {
                 IBoat existingBoat = existingBooking.TheBoat;
                 if(existingBoat == null)
                 {
-                    continue; // Skip null boats
+                    continue; //Skip null boats
                 }
                 bool matchingSailNum = existingBoat.SailNumber == boat.SailNumber;
                 if (matchingSailNum)
                 {
-                    // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
-                    //bool noOverlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
-                    //(startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
-                    //bool overlaps = startDate <= existingBooking.EndDate && existingBooking.StartDate <= endDate;
                     bool startsBeforeExistingEnds = startDate < existingBooking.EndDate;
                     bool endsAfterExistingStarts = endDate > existingBooking.StartDate;
                     bool overlaps = startsBeforeExistingEnds && endsAfterExistingStarts;
-                    //if (!overlaps)
                     if (overlaps)
                     {
-                        // throw new InvalidBookingException("Båden er allerede blevet booket til given tid");
-                        //Console.WriteLine("It didn't work, dummy");
                         return true; 
                     }
                 }
             }
             return false;
-        }
-        void CheckMissingInput(IBoat boat, IMember member)
-        {
-            if (boat == null || member == null)
-            {
-                throw new NullReferenceException("Mangler input");
-            }
         }
 
         public List<IBooking> GetAllActiveBookings()
