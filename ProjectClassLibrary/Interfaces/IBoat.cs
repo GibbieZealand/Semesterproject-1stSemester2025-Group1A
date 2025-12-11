@@ -23,6 +23,7 @@ namespace ProjectClassLibrary.Interfaces
         double Width { get; set; }
         double Length { get; set; }
         string YearOfConstruction { get; set; }
+        int BookedNrOfTimes { get; set; }
         #endregion
 
         #region Methods

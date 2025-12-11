@@ -33,6 +33,7 @@ namespace ProjectClassLibrary.Models
             Id = _counter++;
             TheMember = member;
             TheBoat = boat;
+            boat.BookedNrOfTimes++;
         }
         #endregion
         #region Methods

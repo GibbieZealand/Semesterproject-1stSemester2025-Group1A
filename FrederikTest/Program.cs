@@ -8,7 +8,7 @@ using ProjectClassLibrary.Services;
 DateTime now = DateTime.Now;
 IMember member1 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
 IBoat jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
-IBooking booking = new Booking(now, now.AddHours(8), isBooked: true, "DestinationA",member1,jolle1);
+//IBooking booking = new Booking(now, now.AddHours(8), isBooked: true, "DestinationA",member1,jolle1);
 
 //Console.WriteLine("Booking: " + booking);
 IBookingRepository bookingRepository = new BookingRepository();
@@ -30,8 +30,8 @@ Console.WriteLine();
 
 IBoat jolle2 = new Boat(BoatType.TERA, "Model", "19-4325", "Is very good :3", 32, 23, 33, "1982");
 IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusvej", "Roskilde", "mail@gmail.com", MemberType.Adult, MemberRole.Member);
-IBooking booking3 = new Booking(now.AddHours(3), now.AddHours(8), isBooked: true, "DestinationB", member2, jolle2);
-bookingRepository.AddBooking(booking3);
+//IBooking booking3 = new Booking(now.AddHours(3), now.AddHours(8), isBooked: true, "DestinationB", member2, jolle2);
+//bookingRepository.AddBooking(booking3);
 
 
 
@@ -49,3 +49,30 @@ bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
 
 Console.WriteLine("\nadding booking for jolle2 after first booking");
 bookingRepository.BookBoat(jolle2, member1, now.AddHours(4), now.AddHours(6));
+
+Console.WriteLine();
+Console.WriteLine("Jolle1 er blevet booked " + jolle1.BookedNrOfTimes + " gange");
+Console.WriteLine("Jolle2 er blevet booked " + jolle2.BookedNrOfTimes + " gange");
+Console.WriteLine();
+//STATISTIC TEST
+IBoat b1 = new Boat(BoatType.TERA, "TEST-MODEL", "TEST-01", "TEST-ENGINEINFO", 30, 30, 30, "2011");
+IBoat b2 = new Boat(BoatType.FEVA, "TEST-MODEL", "TEST-02", "TEST-ENGINEINFO", 30, 30, 30, "2011");
+IBoat b3 = new Boat(BoatType.LASERJOLLE, "TEST-MODEL", "TEST-03", "TEST-ENGINEINFO", 30, 30, 30, "2011");
+IBoat b4 = new Boat(BoatType.EUROPAJOLLE, "TEST-MODEL", "TEST-04", "TEST-ENGINEINFO", 30, 30, 30, "2011");
+IBoat b5 = new Boat(BoatType.SNIPEJOLLE, "TEST-MODEL", "TEST-05", "TEST-ENGINEINFO", 30, 30, 30, "2011");
+IBoat b6 = new Boat(BoatType.WAYFARER, "TEST-MODEL", "TEST-06", "TEST-ENGINEINFO", 30, 30, 30, "2011");
+IBoat b7 = new Boat(BoatType.LYNÆS, "TEST-MODEL", "TEST-07", "TEST-ENGINEINFO", 30, 30, 30, "2011");
+
+IBoatRepository bRepo = new BoatRepository();
+bRepo.AddBoat(b1);
+bRepo.AddBoat(b2);
+bRepo.AddBoat(b3);
+bRepo.AddBoat(b4);
+bRepo.AddBoat(b5);
+bRepo.AddBoat(b6);
+bRepo.AddBoat(b7);
+Console.WriteLine();
+foreach (Boat b in bRepo.GetAll())
+{
+    Console.WriteLine(b.SailNumber + " Er blevet booket: " + b.BookedNrOfTimes + " gange");
+}

@@ -70,6 +70,7 @@ namespace ProjectClassLibrary.Services
                 CheckIncorrectDateTime(startDate, endDate);
                 if (!CheckExistingBooking(boat, member, startDate, endDate))
                 {
+                    Console.WriteLine("Booking tiderne overlapper");
                     return;
                 }
                 //foreach (IBooking existingBooking in _bookings)
@@ -133,7 +134,7 @@ namespace ProjectClassLibrary.Services
                     // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
                     bool overlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
                         (startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
-                    if (overlaps)
+                    if (!overlaps)
                     {
                         // throw new InvalidBookingException("Båden er allerede blevet booket til given tid");
                         //Console.WriteLine("It didn't work, dummy");

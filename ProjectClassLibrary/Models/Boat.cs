@@ -28,7 +28,8 @@ namespace ProjectClassLibrary.Models
         public double Width { get; set; }
         public double Length { get; set; }
         public string YearOfConstruction { get; set; }
-        public IMaintenance Maintenance { get; set; }   
+        public IMaintenance Maintenance { get; set; }
+        public int BookedNrOfTimes { get; set; }
         #endregion
 
         #region Constructor
