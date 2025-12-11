@@ -19,5 +19,6 @@ namespace ProjectClassLibrary.Interfaces
         MemberType TheMemberType { get; set; }
         MemberRole TheMemberRole { get; set; }
         int Id { get; set; }
+        int NumberOfBookings { get; set; }
     }
 }

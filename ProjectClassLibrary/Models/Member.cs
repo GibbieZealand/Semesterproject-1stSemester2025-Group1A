@@ -27,6 +27,7 @@ namespace ProjectClassLibrary.Models
         public MemberType TheMemberType { get; set; }
         public MemberRole TheMemberRole { get; set; }
         public int Id { get; set; }
+        public int NumberOfBookings { get; set; }
         #endregion
         
         #region Constructor
@@ -44,6 +45,7 @@ namespace ProjectClassLibrary.Models
             TheMemberType = theMemberType;
             TheMemberRole = theMemberRole;
             Id = _counter++;
+            NumberOfBookings++;
         }
         #endregion
        
