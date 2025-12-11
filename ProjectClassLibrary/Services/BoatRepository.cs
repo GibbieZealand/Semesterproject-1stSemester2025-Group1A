@@ -44,18 +44,9 @@ namespace ProjectClassLibrary.Services
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        public void BookBoat()
-        {
-            //TODO - Implement Booking Method
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
         /// Collects all the Boats Objects in the Dictionary and files them into a list
         /// </summary>
-        public List<IBoat> GetAll()
+        public List<IBoat> GetAllBoats()
         {
             return _boats.Values.ToList();
         }

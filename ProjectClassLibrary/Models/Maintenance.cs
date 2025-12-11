@@ -53,7 +53,7 @@ namespace ProjectClassLibrary.Models
                 IsFixed = true;
                 return;
             }
-            throw new BoatAlreadyFixedException("Båden er Allerede fikset");
+            throw new BoatAlreadyFixedException("Båden er allerede fikset");
         }
 
         public override string ToString()

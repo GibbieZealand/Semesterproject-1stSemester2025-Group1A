@@ -62,6 +62,13 @@ Console.WriteLine($"{member1.Name} booking count: {bookingCount1}");
 Console.WriteLine($"{member2.Name} booking count: {bookingCount2}");
 Console.WriteLine();
 
+//List<int> bookings = bookingRepository.GetAllBookingsForMembers();
+//foreach(var o in bookings)
+//{
+    //Console.WriteLine(o);
+//}
+//Console.WriteLine(bookings);
+
 //STATISTIC TEST
 IBoat b1 = new Boat(BoatType.TERA, "TEST-MODEL", "TEST-01", "TEST-ENGINEINFO", 30, 30, 30, "2011");
 IBoat b2 = new Boat(BoatType.FEVA, "TEST-MODEL", "TEST-02", "TEST-ENGINEINFO", 30, 30, 30, "2011");
@@ -81,7 +88,7 @@ bRepo.AddBoat(b6);
 bRepo.AddBoat(b7);
 bookingRepository.BookBoat(b2, member1, now, now.AddHours(2));
 Console.WriteLine();
-foreach (Boat b in bRepo.GetAll())
+foreach (Boat b in bRepo.GetAllBoats())
 {
     Console.WriteLine(b.SailNumber + " Er blevet booket: " + b.BookedNrOfTimes + " gange");
 }

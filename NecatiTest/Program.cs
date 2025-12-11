@@ -1,4 +1,5 @@
-﻿using ProjectClassLibrary.Interfaces;
+﻿using ProjectClassLibrary.Exceptions;
+using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
 
@@ -17,3 +18,11 @@ m2.Fixed();
 
 mRepo.PrintAll();
 
+try
+{
+    m2.Fixed();
+}
+catch (BoatAlreadyFixedException ex)
+{
+    Console.WriteLine(ex.Message);
+}

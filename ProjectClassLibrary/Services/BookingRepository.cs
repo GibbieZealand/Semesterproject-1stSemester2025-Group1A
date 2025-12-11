@@ -122,6 +122,25 @@ namespace ProjectClassLibrary.Services
             return count;
         }
 
+        //public List<int> GetAllBookingsForMembers()
+        //{
+        //    List<IMember> members = [];
+        //    foreach (IBooking existingBooking in _bookings)
+        //    {
+        //        IMember member = existingBooking.TheMember;
+        //        if (member != null)
+        //        {
+        //            members.Add(member);
+        //        }
+        //    }
+        //    List<int> bookingCounts = [];
+        //    foreach(IMember m in members)
+        //    {
+        //        bookingCounts.Add(GetBookingCountForMember(m));
+        //    }
+        //    return bookingCounts;
+        //}
+
         public void PrintAll()
         {
             foreach (IBooking b in _bookings)
@@ -141,6 +160,10 @@ namespace ProjectClassLibrary.Services
             foreach (IBooking existingBooking in _bookings)
             {
                 IBoat existingBoat = existingBooking.TheBoat;
+                if(existingBoat == null)
+                {
+                    continue; // Skip null boats
+                }
                 bool matchingSailNum = existingBoat.SailNumber == boat.SailNumber;
                 if (matchingSailNum)
                 {
@@ -165,6 +188,19 @@ namespace ProjectClassLibrary.Services
             {
                 throw new NullReferenceException("Mangler input");
             }
+        }
+
+        public List<IBooking> GetAllActiveBookings()
+        {
+            List<IBooking> activeList = [];
+            foreach (IBooking b in _bookings)
+            {
+                if (b.IsActive)
+                {
+                    activeList.Add(b);
+                }
+            }
+            return activeList;
         }
         #endregion
 
