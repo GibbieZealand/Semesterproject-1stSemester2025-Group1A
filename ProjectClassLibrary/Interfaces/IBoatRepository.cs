@@ -18,7 +18,7 @@ namespace ProjectClassLibrary.Interfaces
         #endregion
 
         #region Methods
-        List<IBoat> GetAll();
+        List<IBoat> GetAllBoats();
         void AddBoat(IBoat boat);
         void RemoveBoat(string sailNumber);
         void UpdateBoat(IBoat boat);
