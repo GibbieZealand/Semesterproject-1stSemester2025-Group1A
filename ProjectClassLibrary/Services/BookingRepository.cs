@@ -152,8 +152,10 @@ namespace ProjectClassLibrary.Services
                     // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
                     //bool noOverlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
                     //(startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
-                    bool overlaps = startDate <= existingBooking.EndDate && existingBooking.StartDate <= endDate;
-
+                    //bool overlaps = startDate <= existingBooking.EndDate && existingBooking.StartDate <= endDate;
+                    bool startsBeforeExistingEnds = startDate < existingBooking.EndDate;
+                    bool endsAfterExistingStarts = endDate > existingBooking.StartDate;
+                    bool overlaps = startsBeforeExistingEnds && endsAfterExistingStarts;
                     //if (!overlaps)
                     if (overlaps)
                     {
