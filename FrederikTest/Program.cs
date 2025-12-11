@@ -42,7 +42,7 @@ Console.WriteLine("\nadding booking for jolle2");
 bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3));
 
 Console.WriteLine("\ntesting invalid booking");
-bookingRepository.BookBoat(jolle2, member1, now.AddHours(2), now.AddHours(4));
+bookingRepository.BookBoat(jolle1, member2, now.AddHours(2), now.AddHours(4));
 
 Console.WriteLine("\ntesting invalid time");
 bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));

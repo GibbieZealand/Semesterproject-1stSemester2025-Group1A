@@ -44,7 +44,6 @@ namespace ProjectClassLibrary.Services
                 if (_events[i].Id == theEvent.Id) //Hvis den allerede findes i systemet / hvis dens ID er det samme som det argument den får
                 {
                     throw new EventIdExistsException($"Event med ID'et {theEvent.Id} findes allerede.");
-                    return;
                 }
             }
             _events.Add(theEvent); //Hvis eventet IKKE findes, tilføjes den.

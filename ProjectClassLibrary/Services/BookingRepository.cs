@@ -68,7 +68,7 @@ namespace ProjectClassLibrary.Services
                 //}
                 CheckMissingInput(boat, member);
                 CheckIncorrectDateTime(startDate, endDate);
-                if (!CheckExistingBooking(boat, member, startDate, endDate))
+                if (CheckBookingOverlaps(boat, member, startDate, endDate))
                 {
                     Console.WriteLine("Booking tiderne overlapper");
                     return;
@@ -136,7 +136,7 @@ namespace ProjectClassLibrary.Services
                 throw new InvalidDateException("Startdato skal være før slutdato.");
             }
         }
-        bool CheckExistingBooking(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
+        bool CheckBookingOverlaps(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         {
             foreach (IBooking existingBooking in _bookings)
             {
@@ -145,19 +145,19 @@ namespace ProjectClassLibrary.Services
                 if (matchingSailNum)
                 {
                     // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
-                    //bool overlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
-                    //(startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
-                    bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
+                    bool noOverlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
+                    (startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
+                    //bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
                     //if (!overlaps)
-                    if (overlaps)
+                    if (noOverlaps)
                     {
                         // throw new InvalidBookingException("Båden er allerede blevet booket til given tid");
                         //Console.WriteLine("It didn't work, dummy");
-                        return false;
+                        return true;
                     }
                 }
             }
-            return true;
+            return false;
         }
         void CheckMissingInput(IBoat boat, IMember member)
         {
