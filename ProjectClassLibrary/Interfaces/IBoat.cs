@@ -26,8 +26,5 @@ namespace ProjectClassLibrary.Interfaces
         int BookedNrOfTimes { get; set; }
         #endregion
 
-        #region Methods
-        string ToString();
-        #endregion
     }
 }
