@@ -14,5 +14,6 @@ namespace ProjectClassLibrary.Interfaces
         void UpdateBooking(int id, IBooking newBooking);
         void PrintAll();
         void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate);
+        int GetBookingCountForMember(IMember member);
     }
 }

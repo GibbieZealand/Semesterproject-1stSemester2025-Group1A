@@ -28,7 +28,7 @@ namespace ProjectClassLibrary.Services
             foreach (IBooking b in _bookings)
             {
                 if (b.Id == booking.Id)
-                { 
+                {
                     return;
                 }
             }
@@ -108,6 +108,20 @@ namespace ProjectClassLibrary.Services
             Console.WriteLine("Båden er hermed blevet booket");
         }
 
+        public int GetBookingCountForMember(IMember member)
+        {
+            int count = 0;
+            foreach (IBooking existingBooking in _bookings)
+            {
+                bool validMember = existingBooking.TheMember != null && existingBooking.TheMember.Id == member.Id;
+                if (validMember)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
+
         public void PrintAll()
         {
             foreach (IBooking b in _bookings)
@@ -133,7 +147,7 @@ namespace ProjectClassLibrary.Services
                 {
                     // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
                     //bool overlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
-                        //(startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
+                    //(startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
                     bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
                     //if (!overlaps)
                     if (overlaps)

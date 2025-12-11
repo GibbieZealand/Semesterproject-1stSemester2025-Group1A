@@ -54,6 +54,14 @@ Console.WriteLine();
 Console.WriteLine("Jolle1 er blevet booked " + jolle1.BookedNrOfTimes + " gange");
 Console.WriteLine("Jolle2 er blevet booked " + jolle2.BookedNrOfTimes + " gange");
 Console.WriteLine();
+
+// GetBookingCountForMember test
+int bookingCount1 = bookingRepository.GetBookingCountForMember(member1);
+int bookingCount2 = bookingRepository.GetBookingCountForMember(member2);
+Console.WriteLine($"{member1.Name} booking count: {bookingCount1}");
+Console.WriteLine($"{member2.Name} booking count: {bookingCount2}");
+Console.WriteLine();
+
 //STATISTIC TEST
 IBoat b1 = new Boat(BoatType.TERA, "TEST-MODEL", "TEST-01", "TEST-ENGINEINFO", 30, 30, 30, "2011");
 IBoat b2 = new Boat(BoatType.FEVA, "TEST-MODEL", "TEST-02", "TEST-ENGINEINFO", 30, 30, 30, "2011");
