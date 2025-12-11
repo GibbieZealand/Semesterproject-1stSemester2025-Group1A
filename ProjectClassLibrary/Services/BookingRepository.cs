@@ -132,9 +132,11 @@ namespace ProjectClassLibrary.Services
                 if (matchingSailNum)
                 {
                     // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
-                    bool overlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
-                        (startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
-                    if (!overlaps)
+                    //bool overlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
+                        //(startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
+                    bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
+                    //if (!overlaps)
+                    if (overlaps)
                     {
                         // throw new InvalidBookingException("Båden er allerede blevet booket til given tid");
                         //Console.WriteLine("It didn't work, dummy");
