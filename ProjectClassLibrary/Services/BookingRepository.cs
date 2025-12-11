@@ -62,10 +62,6 @@ namespace ProjectClassLibrary.Services
         {
             try
             {
-                //if (boat == null || member == null)
-                //{
-                //    return;
-                //}
                 CheckMissingInput(boat, member);
                 CheckIncorrectDateTime(startDate, endDate);
                 if (CheckBookingOverlaps(boat, member, startDate, endDate))
@@ -73,20 +69,6 @@ namespace ProjectClassLibrary.Services
                     Console.WriteLine("Booking tiderne overlapper");
                     return;
                 }
-                //foreach (IBooking existingBooking in _bookings)
-                //{
-                //    IBoat existingBoat = existingBooking.TheBoat;
-                //    bool matchingSailNum = existingBoat.SailNumber == boat.SailNumber;
-                //    if (matchingSailNum)
-                //    {
-                //        bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
-                //        if (overlaps)
-                //        {
-                //            Console.WriteLine("Booking dato er ugyldig");
-                //            return;
-                //        }
-                //    }
-                //}
             }
             catch (NullReferenceException nRex)
             {
@@ -168,15 +150,16 @@ namespace ProjectClassLibrary.Services
                 if (matchingSailNum)
                 {
                     // TODO - Debug: funktion virker ikke ordenligt - tilføjer ikke til booking
-                    bool noOverlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
-                    (startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
-                    //bool overlaps = startDate < existingBooking.EndDate && existingBooking.StartDate < endDate;
+                    //bool noOverlaps = (startDate < existingBooking.StartDate && endDate < existingBooking.StartDate) || 
+                    //(startDate > existingBooking.EndDate && endDate > existingBooking.EndDate);
+                    bool overlaps = startDate <= existingBooking.EndDate && existingBooking.StartDate <= endDate;
+
                     //if (!overlaps)
-                    if (noOverlaps)
+                    if (overlaps)
                     {
                         // throw new InvalidBookingException("Båden er allerede blevet booket til given tid");
                         //Console.WriteLine("It didn't work, dummy");
-                        return true;
+                        return true; 
                     }
                 }
             }
