@@ -86,6 +86,7 @@ bRepo.AddBoat(b4);
 bRepo.AddBoat(b5);
 bRepo.AddBoat(b6);
 bRepo.AddBoat(b7);
+bookingRepository.BookBoat(b2, member1, now, now.AddHours(2));
 Console.WriteLine();
 foreach (Boat b in bRepo.GetAll())
 {

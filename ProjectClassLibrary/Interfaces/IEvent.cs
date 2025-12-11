@@ -15,6 +15,5 @@ namespace ProjectClassLibrary.Interfaces
         DateTime EndDate { get; set; }
 
         void AssignMember(IMember member);
-        string ToString();
     }
 }
