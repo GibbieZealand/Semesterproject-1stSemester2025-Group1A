@@ -189,6 +189,19 @@ namespace ProjectClassLibrary.Services
                 throw new NullReferenceException("Mangler input");
             }
         }
+
+        public List<IBooking> GetAllActiveBookings()
+        {
+            List<IBooking> activeList = [];
+            foreach (IBooking b in _bookings)
+            {
+                if (b.IsActive)
+                {
+                    activeList.Add(b);
+                }
+            }
+            return activeList;
+        }
         #endregion
 
     }

@@ -19,6 +19,14 @@ namespace ProjectClassLibrary.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public bool IsBooked { get; set; }
+        public bool IsActive
+        {
+            get
+            {
+                return StartDate <= DateTime.Now && DateTime.Now <= EndDate;
+            }
+            
+        }
         public string Destination { get; set; }
         public IMember TheMember { get; set; }
         public IBoat TheBoat { get; set; }
