@@ -129,7 +129,6 @@ namespace ProjectClassLibrary.Services
                 Console.WriteLine(b);
             }
         }
-        #region Exceptions
         void CheckIncorrectDateTime(DateTime startDate, DateTime endDate)
         {
             if (startDate >= endDate)
@@ -167,7 +166,6 @@ namespace ProjectClassLibrary.Services
                 throw new NullReferenceException("Mangler input");
             }
         }
-        #endregion
         #endregion
 
     }
