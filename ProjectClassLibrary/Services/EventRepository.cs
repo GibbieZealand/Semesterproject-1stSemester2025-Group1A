@@ -1,4 +1,5 @@
-﻿using ProjectClassLibrary.Interfaces;
+﻿using ProjectClassLibrary.Exceptions;
+using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -42,12 +43,11 @@ namespace ProjectClassLibrary.Services
             {
                 if (_events[i].Id == theEvent.Id) //Hvis den allerede findes i systemet / hvis dens ID er det samme som det argument den får
                 {
-                    Console.WriteLine("Fejl. Ordren findes allerede."); //Den bliver ikke tilføjet, hvis den allerede findes, og der udskrives en fejl
+                    throw new EventIdExistsException($"Event med ID'et {theEvent.Id} findes allerede.");
                     return;
-                    //Kan laves til en exception i stedet?
                 }
             }
-            _events.Add(theEvent); //Hvis ordren IKKE findes, tilføjes den.
+            _events.Add(theEvent); //Hvis eventet IKKE findes, tilføjes den.
         }
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace ProjectClassLibrary.Services
                     return;
                 }
             }
-            Console.WriteLine("Fejl. Ordren findes ikke."); //Hvis eventet ikke findes gives en fejlmeddelelse
+            Console.WriteLine("Fejl. Eventet findes ikke."); //Hvis eventet ikke findes gives en fejlmeddelelse - jeg laver en console.writeline for nemmere at kunne teste det ude i min program.cs
         }
 
         /// <summary>
@@ -91,20 +91,20 @@ namespace ProjectClassLibrary.Services
         {
             for (int i = 0; i < _events.Count; i++) //Vi løber vores liste igennem
             {
-                if (_events[i].Id == theEvent.Id) //Vi går ind og tjekker, om ordren er på listen ved at tjekke, om ordren er identisk. Hvis OrderID på en given index plads er lig med orderNumber, fjernes ordren, altså hvis de er identiske
+                if (_events[i].Id == theEvent.Id) //Vi går ind og tjekker, om eventet er på listen ved at tjekke, om eventet er identisk. Hvis eventets Id på en given index plads er lig med theEvent.Id, fjernes eventet, altså hvis de er identiske
                 {
                     _events.Remove(_events[i]);
                     return;
                 }
             }
-            Console.WriteLine("Fejl. Ordren findes ikke."); //Hvis ordren ikke findes gives en fejlmeddelelse
+            Console.WriteLine("Fejl. Eventet findes ikke."); //Hvis eventet ikke findes gives en fejlmeddelelse - jeg laver en console.writeline for nemmere at kunne teste det ude i min program.cs
         }
 
         /// <summary>
         /// Method for printing all events
         /// </summary>
 
-        public void PrintAll() //Jeg lavede en PrintAll metode for at teste, at min Add metode virkede (kan det testes uden en print all?)
+        public void PrintAll()
         {
             foreach (IEvent e in _events)
             {

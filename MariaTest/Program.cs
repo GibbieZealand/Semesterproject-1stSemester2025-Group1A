@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ProjectClassLibrary.Exceptions;
 using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
@@ -51,10 +52,26 @@ Console.WriteLine("");
 Console.WriteLine("-----------------------Test af UpdateEvent metoden---------------------");
 Console.WriteLine("--Vi ændrer tidspunktet for event e3 ved at erstatte det med et nyt event e4--");
 Console.WriteLine("");
-IEvent e3 = new Event("Standerhejsning", "Flaget bliver hejst og der åbnes for sejlads.", new DateTime(2025, 12, 05, 10, 00, 00), new DateTime(2025, 12, 05, 10, 00, 00), member1);
-IEvent e4 = new Event("Standerhejsning", "Flaget bliver hejst og der åbnes for sejlads.", new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00), member2);
+IEvent e3 = new Event("Kaffe og kage", "Vi drikker kaffe og spiser kage inden sejlads.", new DateTime(2025, 12, 05, 10, 00, 00), new DateTime(2025, 12, 05, 10, 00, 00), member2);
+IEvent e4 = new Event("Kaffe og kage", "Vi drikker kaffe og spiser kage inden sejlads.", new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00), member2);
 eventList1.AddEvent(e3);
 eventList1.AddEvent(e4);
 eventList1.UpdateEvent(2, e4);
+Console.WriteLine(e3);
+Console.WriteLine("");
 Console.WriteLine(e4);
+Console.WriteLine("");
+Console.WriteLine("-----------------------Test af AddEvent Exception---------------------");
+Console.WriteLine("");
+//Vi tester om vores AddEvent Exception virker
+
+try
+{
+    eventList1.AddEvent(e4);
+}
+catch (EventIdExistsException eex)
+{
+    Console.WriteLine(eex.Message);
+}
+
 
