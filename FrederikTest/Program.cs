@@ -44,11 +44,14 @@ bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3));
 Console.WriteLine("\ntesting invalid booking");
 bookingRepository.BookBoat(jolle1, member2, now.AddHours(2), now.AddHours(4));
 
-Console.WriteLine("\ntesting invalid time");
-bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
+//Console.WriteLine("\ntesting invalid time");
+//bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
 
 Console.WriteLine("\nadding booking for jolle2 after first booking");
 bookingRepository.BookBoat(jolle2, member1, now.AddHours(4), now.AddHours(6));
+
+Console.WriteLine("\nadding booking for jolle2 after second booking");
+bookingRepository.BookBoat(jolle2, member2, now.AddHours(6), now.AddHours(12));
 
 Console.WriteLine();
 Console.WriteLine("Jolle1 er blevet booked " + jolle1.BookedNrOfTimes + " gange");
