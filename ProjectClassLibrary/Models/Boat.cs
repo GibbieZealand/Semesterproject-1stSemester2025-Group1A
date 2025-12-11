@@ -15,7 +15,6 @@ namespace ProjectClassLibrary.Models
     {
         #region Instance Fields
         private static int _counter = 0;
-        private IMaintenance _maintenance;
         #endregion
 
         #region Properties

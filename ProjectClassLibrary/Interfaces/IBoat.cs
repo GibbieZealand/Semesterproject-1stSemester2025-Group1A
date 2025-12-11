@@ -24,6 +24,7 @@ namespace ProjectClassLibrary.Interfaces
         double Length { get; set; }
         string YearOfConstruction { get; set; }
         int BookedNrOfTimes { get; set; }
+        IMaintenance Maintenance { get; set; }
         #endregion
 
     }
