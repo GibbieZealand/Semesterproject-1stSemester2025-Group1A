@@ -44,7 +44,8 @@ IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusve
 Console.WriteLine("\nadding booking for jolle1");
 try
 {
-    bookingRepository.BookBoat(jolle1, member1, now, now.AddHours(6), "Helsingør");
+    IBooking booking1 = new Booking(now, now.AddHours(6), "Helsingør", member1, jolle1);
+    bookingRepository.BookBoat(booking1);
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
     bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3), "Helsingør");
@@ -143,4 +144,11 @@ foreach (IBoat b in bRepo.GetAllBoats())
 
 //Test af SailCompleted metode
 
+IMember member6 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
+IBoat jolle6 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
+IBooking booking2 = new Booking(now, now.AddHours(12), "DestinationB", member1, jolle1);
+bookingRepository.AddBooking(booking2);
+
+booking2.SailCompleted = true;
+Console.WriteLine(booking2);
 
