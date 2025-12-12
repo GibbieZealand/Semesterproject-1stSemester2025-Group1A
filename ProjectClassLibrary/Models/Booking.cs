@@ -19,7 +19,7 @@ namespace ProjectClassLibrary.Models
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public bool IsBooked { get; set; }
+        //public bool IsBooked { get; set; }
         public bool IsActive
         {
             get
@@ -35,11 +35,11 @@ namespace ProjectClassLibrary.Models
         public IBoat TheBoat { get; set; }
         #endregion
         #region Constructor
-        public Booking(DateTime startDate, DateTime endDate, bool isBooked, string destination,IMember member,IBoat boat)
+        public Booking(DateTime startDate, DateTime endDate, string destination,IMember member,IBoat boat)
         {
             StartDate = startDate;
             EndDate = endDate;
-            IsBooked = isBooked;
+            //IsBooked = isBooked;
             Destination = destination;
             Id = _counter++;
             TheMember = member;
@@ -52,7 +52,7 @@ namespace ProjectClassLibrary.Models
         {
             return $"Id: {Id} " +
                 $"\nStart Dato: {StartDate} \nSlut Dato: {EndDate} " +
-                $"\nEr Booked: {IsBooked} " +
+                //$"\nEr Booked: {IsBooked} " +
                 $"\nDestination: {Destination} " +
                 $"\nBåden med sejlnummeret: {TheBoat.SailNumber} \nBooket af: {TheMember.Name}" +
                 $"\nBåden er kommet i havn: {SailCompleted}";
