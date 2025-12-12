@@ -68,9 +68,17 @@ Console.WriteLine();
 //List<int> bookings = bookingRepository.GetAllBookingsForMembers();
 //foreach(var o in bookings)
 //{
-    //Console.WriteLine(o);
+//Console.WriteLine(o);
 //}
 //Console.WriteLine(bookings);
+
+// Print booking counts for each member test
+Dictionary<string, int> memberBookings = bookingRepository.GetAllBookingsForMembers();
+foreach(KeyValuePair<string, int> kvp in memberBookings)
+{
+    Console.WriteLine($"Name: {kvp.Key} \nBookings: {kvp.Value}");
+}
+Console.WriteLine();
 
 //STATISTIC TEST
 IBoat b1 = new Boat(BoatType.TERA, "TEST-MODEL", "TEST-01", "TEST-ENGINEINFO", 30, 30, 30, "2011");

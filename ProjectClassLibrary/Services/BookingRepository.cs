@@ -67,7 +67,7 @@ namespace ProjectClassLibrary.Services
                 {
                     throw new NullReferenceException("Mangler input");
                 }
-    
+
                 if ((startDate >= endDate))
                 {
                     throw new InvalidDateException("Startdato skal være før slutdato.");
@@ -138,6 +138,29 @@ namespace ProjectClassLibrary.Services
         //    return bookingCounts;
         //}
 
+        public Dictionary<string, int> GetAllBookingsForMembers()
+        {
+            Dictionary<IMember, int> memberCounts = [];
+            foreach (IBooking existingBooking in _bookings)
+            {
+                IMember member = existingBooking.TheMember;
+                if (member != null)
+                {
+                    if (!memberCounts.ContainsKey(member))
+                    {
+                        memberCounts[member] = 0;
+                    }
+                    memberCounts[member]++;
+                }
+            }
+            Dictionary<string, int> result = [];
+            foreach (KeyValuePair<IMember, int> kvp in memberCounts)
+            {
+                result[kvp.Key.Name] = kvp.Value;
+            }
+            return result;
+        }
+
         public void PrintAll()
         {
             foreach (IBooking b in _bookings)
@@ -151,7 +174,7 @@ namespace ProjectClassLibrary.Services
             foreach (IBooking existingBooking in _bookings)
             {
                 IBoat existingBoat = existingBooking.TheBoat;
-                if(existingBoat == null)
+                if (existingBoat == null)
                 {
                     continue; //Skip null boats
                 }
@@ -163,7 +186,7 @@ namespace ProjectClassLibrary.Services
                     bool overlaps = startsBeforeExistingEnds && endsAfterExistingStarts;
                     if (overlaps)
                     {
-                        return true; 
+                        return true;
                     }
                 }
             }
