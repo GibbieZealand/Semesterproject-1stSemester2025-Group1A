@@ -52,10 +52,9 @@ namespace ProjectClassLibrary.Services
         {
             for (int i = 0; i < _blogs.Count; i++)
             {
-                int existingId = _blogs[i].Id;
-                if (existingId == id)
+                if (_blogs[i].Id == id)
                 {
-                    newBlog.Id = existingId;
+                    newBlog.Id = id;
                     _blogs[i] = newBlog;
                     return;
                 }
