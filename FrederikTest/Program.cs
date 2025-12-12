@@ -36,14 +36,23 @@ IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusve
 //bookingRepository.AddBooking(booking3);
 
 
-
+// Test af BookBoat og overlapning af bookingtider
 Console.WriteLine("\nadding booking for jolle1");
 try
 {
     bookingRepository.BookBoat(jolle1, member1, now, now.AddHours(6));
 
-    Console.WriteLine("\nadding booking for jolle2");
+    Console.WriteLine("\nadding booking for jolle2 by member2");
     bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3));
+
+    Console.WriteLine("\nadding booking for jolle2 by member2");
+    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00));
+
+    Console.WriteLine("\nadding booking for jolle2 by member2");
+    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 04, 12, 00, 00), new DateTime(2025, 12, 04, 13, 00, 00));
+
+    Console.WriteLine("\nadding booking for jolle1 by member2");
+    bookingRepository.BookBoat(jolle1, member2, new DateTime(2025, 12, 03, 12, 00, 00), new DateTime(2025, 12, 03, 13, 00, 00));
 
     Console.WriteLine("\ntesting invalid booking");
     bookingRepository.BookBoat(jolle1, member2, now.AddHours(2), now.AddHours(4));
