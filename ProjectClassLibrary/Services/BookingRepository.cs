@@ -118,6 +118,29 @@ namespace ProjectClassLibrary.Services
         //    return bookingCounts;
         //}
 
+        public Dictionary<string, int> GetAllBookingsForMembers()
+        {
+            Dictionary<IMember, int> memberCounts = [];
+            foreach (IBooking existingBooking in _bookings)
+            {
+                IMember member = existingBooking.TheMember;
+                if (member != null)
+                {
+                    if (!memberCounts.ContainsKey(member))
+                    {
+                        memberCounts[member] = 0;
+                    }
+                    memberCounts[member]++;
+                }
+            }
+            Dictionary<string, int> result = [];
+            foreach (KeyValuePair<IMember, int> kvp in memberCounts)
+            {
+                result[kvp.Key.Name] = kvp.Value;
+            }
+            return result;
+        }
+
         public void PrintAll()
         {
             foreach (IBooking b in _bookings)

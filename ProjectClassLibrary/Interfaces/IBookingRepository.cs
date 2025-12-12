@@ -15,6 +15,7 @@ namespace ProjectClassLibrary.Interfaces
         void PrintAll();
         void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate);
         int GetBookingCountForMember(IMember member);
+        Dictionary<string, int> GetAllBookingsForMembers();
         //List<int> GetAllBookingsForMembers();
     }
 }
