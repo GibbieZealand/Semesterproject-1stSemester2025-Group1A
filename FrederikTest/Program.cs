@@ -11,14 +11,18 @@ DateTime now = DateTime.Now;
 IMember member1 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
 IBoat jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
 //IBooking booking = new Booking(now, now.AddHours(8), isBooked: true, "DestinationA",member1,jolle1);
+//Console.WriteLine(booking);
+Console.WriteLine("");
 
 //Console.WriteLine("Booking: " + booking);
 IBookingRepository bookingRepository = new BookingRepository();
 //bookingRepository.AddBooking(booking);
-//bookingRepository.PrintAll();
+////bookingRepository.PrintAll();
 //IBooking booking2 = new Booking(now, now.AddHours(12), isBooked: true, "DestinationB", member1, jolle1);
-//bookingRepository.UpdateBooking(booking.Id, booking2);
+////Test af UpdateBooking
+////bookingRepository.UpdateBooking(booking.Id, booking2);
 //bookingRepository.PrintAll();
+
 
 Blog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, member1, "Picture.png");
 //Console.WriteLine("Blog: " + blog);
@@ -40,31 +44,34 @@ IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusve
 Console.WriteLine("\nadding booking for jolle1");
 try
 {
-    bookingRepository.BookBoat(jolle1, member1, now, now.AddHours(6));
+    bookingRepository.BookBoat(jolle1, member1, now, now.AddHours(6), "Helsingør");
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
-    bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3));
+    bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3), "Helsingør");
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
-    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00));
+    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00), "Roskilde");
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
-    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 04, 12, 00, 00), new DateTime(2025, 12, 04, 13, 00, 00));
+    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 04, 12, 00, 00), new DateTime(2025, 12, 04, 13, 00, 00), "Holbæk");
 
     Console.WriteLine("\nadding booking for jolle1 by member2");
-    bookingRepository.BookBoat(jolle1, member2, new DateTime(2025, 12, 03, 12, 00, 00), new DateTime(2025, 12, 03, 13, 00, 00));
+    bookingRepository.BookBoat(jolle1, member2, new DateTime(2025, 12, 03, 12, 00, 00), new DateTime(2025, 12, 03, 13, 00, 00), "Aarhus");
 
     Console.WriteLine("\ntesting invalid booking");
-    bookingRepository.BookBoat(jolle1, member2, now.AddHours(2), now.AddHours(4));
+    bookingRepository.BookBoat(jolle1, member2, now.AddHours(2), now.AddHours(4), "Stockholm");
 
     //Console.WriteLine("\ntesting invalid time");
     //bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
 
     Console.WriteLine("\nadding booking for jolle2 after first booking");
-    bookingRepository.BookBoat(jolle2, member1, now.AddHours(4), now.AddHours(6));
+    bookingRepository.BookBoat(jolle2, member1, now.AddHours(4), now.AddHours(6), "Bornholm");
 
     Console.WriteLine("\nadding booking for jolle2 after second booking");
-    bookingRepository.BookBoat(jolle2, member2, now.AddHours(6), now.AddHours(12));
+    bookingRepository.BookBoat(jolle2, member2, now.AddHours(6), now.AddHours(12), "Dublin");
+
+    Console.WriteLine("\nPrinting all bookings");
+    bookingRepository.PrintAll();
 }
 catch (NullReferenceException nRex)
 {
@@ -127,30 +134,13 @@ bRepo.AddBoat(b4);
 bRepo.AddBoat(b5);
 bRepo.AddBoat(b6);
 bRepo.AddBoat(b7);
-bookingRepository.BookBoat(b2, member1, now, now.AddHours(2));
+bookingRepository.BookBoat(b2, member1, now, now.AddHours(2), "Sydafrika");
 Console.WriteLine();
 foreach (Boat b in bRepo.GetAllBoats())
 {
     Console.WriteLine(b.SailNumber + " Er blevet booket: " + b.BookedNrOfTimes + " gange");
 }
 
-//catch (NullReferenceException nRex)
-//{
-//    Console.WriteLine(nRex.Message);
-//    return;
-//}
-//catch (InvalidDateException iDex)
-//{
-//    Console.WriteLine(iDex.Message);
-//    return;
-//}
-//catch (InvalidBookingException iBex)
-//{
-//    Console.WriteLine(iBex.Message);
-//    return;
-//}
-//catch (OverlappingDateException oex)
-//{
-//    Console.WriteLine(oex.Message);
-//    return;
-//}
+//Test af SailCompleted metode
+
+

@@ -60,7 +60,6 @@ namespace ProjectClassLibrary.Services
                 }
             }
         }
-
         /// <summary>
         /// Returns our blog list
         /// </summary>
