@@ -54,7 +54,7 @@ namespace ProjectClassLibrary.Models
                 $"\nStart Dato: {StartDate} \nSlut Dato: {EndDate} " +
                 //$"\nEr Booked: {IsBooked} " +
                 $"\nDestination: {Destination} " +
-                $"\nBåden med sejlnummeret: {TheBoat.SailNumber} \nBooket af: {TheMember.Name}" +
+                $"\nBåden med sejlnummeret: {TheBoat.SailNumber} \nBooket af: {TheMember.FirstName}" +
                 $"\nBåden er kommet i havn: {SailCompleted}";
         }
         #endregion

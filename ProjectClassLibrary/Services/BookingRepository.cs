@@ -145,7 +145,7 @@ namespace ProjectClassLibrary.Services
             Dictionary<string, int> result = [];
             foreach (KeyValuePair<IMember, int> kvp in memberCounts)
             {
-                result[kvp.Key.Name] = kvp.Value;
+                result[kvp.Key.FirstName] = kvp.Value;
             }
             return result;
         }

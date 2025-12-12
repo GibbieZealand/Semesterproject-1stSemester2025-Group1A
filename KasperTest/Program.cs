@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ProjectClassLibrary.Exceptions;
+using ProjectClassLibrary.Helpers;
 using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
@@ -53,8 +54,14 @@ Console.WriteLine();
 Console.WriteLine("Tilføjer to nye medlemmer");
 IMember member2 = new Member("Maria", "Strauss", "12123445", "Vej 34", "Glostrup", "Maria@gmail.com", MemberType.Adult, MemberRole.Admin);
 IMember member3 = new Member("Frederik", "Carlsen", "34958272", "Fredevej 23", "Roskilde", "Frederik@gmail.com", MemberType.Adult, MemberRole.Member);
+IMember member4 = new Member("Gibbie", "Carlsen", "34958274", "Fredevej 23", "Roskilde", "Frederik@gmail.com", MemberType.Adult, MemberRole.Member);
+IMember member5 = new Member("Necati", "Carlsen", "34958273", "Fredevej 23", "Roskilde", "Frederik@gmail.com", MemberType.Adult, MemberRole.Member);
+IMember member6 = new Member("Mario", "Carlsen", "34958276", "Fredevej 23", "Roskilde", "Frederik@gmail.com", MemberType.Adult, MemberRole.Member);
 memberRepo.AddMember(member2);
 memberRepo.AddMember(member3);
+memberRepo.AddMember(member4);
+memberRepo.AddMember(member5);
+memberRepo.AddMember(member6);
 
 Console.WriteLine("Kalder GetAllMembers metoden og for printet dem ud på en liste i konsollen");
 List<IMember> allmembers1 = memberRepo.GetAllMembers();
@@ -63,9 +70,9 @@ foreach(IMember m in allmembers1)
     Console.WriteLine(m.ToString());
 }
 
-Console.WriteLine("Kalder RemoveMember metoden og sletter objektet fra Repo");
-memberRepo.RemoveMember(member1);
-Console.WriteLine();
+//Console.WriteLine("Kalder RemoveMember metoden og sletter objektet fra Repo");
+//memberRepo.RemoveMember(member2);
+//Console.WriteLine();
 
 
 Console.WriteLine("Kalder GetAllMembers metoden og for printet dem ud på en liste i konsollen");
@@ -93,6 +100,26 @@ catch(Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
+#endregion
+#region Test af Sort
+
+List<IMember> members1 = memberRepo.GetAllMembers();
+string[] names = new string[members1.Count];
+for (int i = 0; i < members1.Count; i++)
+{
+    IMember m = members1[i];
+    names[i] = m.FirstName + " " + m.SurName;
+}
+
+var sorted = Sorter.InsertionSort(names);
+Console.WriteLine("");
+Console.WriteLine("Alfabetisk sorteret liste af members:");
+foreach(var v in sorted)
+{
+    Console.WriteLine(v);
+}
+
+
 #endregion
 //-------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------

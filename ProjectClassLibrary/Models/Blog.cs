@@ -38,7 +38,7 @@ namespace ProjectClassLibrary.Models
         #region Methods
         public override string ToString()
         {
-            return $"Id: {Id} \nOverskrift: {Headline} \nBeskrivelse: {Description} \nDato: {Date} \nForfatter: {Author.Name + " " + Author.SurName} \nBillede: {Picture}";
+            return $"Id: {Id} \nOverskrift: {Headline} \nBeskrivelse: {Description} \nDato: {Date} \nForfatter: {Author.FirstName + " " + Author.SurName} \nBillede: {Picture}";
         }
         #endregion
     }

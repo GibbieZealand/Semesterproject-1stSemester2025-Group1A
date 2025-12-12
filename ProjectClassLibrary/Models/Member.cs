@@ -18,7 +18,7 @@ namespace ProjectClassLibrary.Models
         #endregion
      
         #region Properties
-        public string Name { get; set; }
+        public string FirstName { get; set; }
         public string SurName { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
@@ -35,7 +35,7 @@ namespace ProjectClassLibrary.Models
         /// </summary>
         public Member(string name, string surName, string phoneNumber, string address, string city, string mail, MemberType theMemberType, MemberRole theMemberRole)
         {
-            Name = name;
+            FirstName = name;
             SurName = surName;
             PhoneNumber = phoneNumber;
             Address = address;
@@ -53,7 +53,7 @@ namespace ProjectClassLibrary.Models
         /// </summary>
         public override string ToString()
         {
-            return $"Medlemsnummer: {Id}\nFornavn: {Name}\nEfternavn: {SurName}\nTelefonnummer: {PhoneNumber}\n" +
+            return $"Medlemsnummer: {Id}\nFornavn: {FirstName}\nEfternavn: {SurName}\nTelefonnummer: {PhoneNumber}\n" +
                 $"Adresse: {Address}\nBy: {City}\nEmail: {Mail}\nType: {TheMemberType}\n" +
                 $"Rolle: {TheMemberRole}";
         }

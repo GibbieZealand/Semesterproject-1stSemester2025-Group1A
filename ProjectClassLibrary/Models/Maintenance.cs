@@ -63,7 +63,7 @@ namespace ProjectClassLibrary.Models
                 "\nTid: " + TimeOfMaintenance +
                 "\nStatus: " + (IsFixed ? "Er Repareret" : "Afventer Reparation")+
                 "\nBåd: " + _boat.SailNumber + 
-                "\nMedlem: " + _member.Name + " " + _member.SurName + " " + _member.PhoneNumber ;
+                "\nMedlem: " + _member.FirstName + " " + _member.SurName + " " + _member.PhoneNumber ;
         }
 
         #endregion

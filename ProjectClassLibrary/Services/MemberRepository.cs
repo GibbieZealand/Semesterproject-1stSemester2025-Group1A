@@ -85,7 +85,7 @@ namespace ProjectClassLibrary.Services
             {
                 IMember existingMember = _members[updatedMember.PhoneNumber];
 
-                existingMember.Name = updatedMember.Name;
+                existingMember.FirstName = updatedMember.FirstName;
                 existingMember.SurName = updatedMember.SurName;
                 existingMember.Address = updatedMember.Address;
                 existingMember.City = updatedMember.City;

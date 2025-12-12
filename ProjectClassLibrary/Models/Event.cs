@@ -79,7 +79,7 @@ namespace ProjectClassLibrary.Models
             string s = "";
             foreach (IMember m in _members)
             {
-                s += "\n" + m.Name + " " + m.SurName;
+                s += "\n" + m.FirstName + " " + m.SurName;
             }
             return s;
         }
@@ -93,7 +93,7 @@ namespace ProjectClassLibrary.Models
                 $"\nBeskrivelse: {Description}" +
                 $"\nStarttidspunkt: {StartDate}" +
                 $"\nSluttidspunkt: {EndDate}" +
-                $"\nOprettet af: {Author.Name + " " + Author.SurName}" +
+                $"\nOprettet af: {Author.FirstName + " " + Author.SurName}" +
                 $"\nMedlemsnavne: {GetAllEventMemberNames()}";
         }
         #endregion

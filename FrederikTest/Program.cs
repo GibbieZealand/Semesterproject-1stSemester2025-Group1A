@@ -48,8 +48,8 @@ try
     bookingRepository.BookBoat(booking1);
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
-    IBooking booking20 = new Booking(now, now.AddHours(3), "Helsingør", member2, jolle2);
-    bookingRepository.BookBoat(booking20);
+    IBooking booking2 = new Booking(now, now.AddHours(3), "Helsingør", member2, jolle2);
+    bookingRepository.BookBoat(booking2);
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
     IBooking booking3 = new Booking(new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00), "Roskilde", member2, jolle2);
@@ -150,13 +150,7 @@ foreach (IBoat b in bRepo.GetAllBoats())
     Console.WriteLine(b.SailNumber + " Er blevet booket: " + b.BookedNrOfTimes + " gange");
 }
 
-//Test af SailCompleted metode
-
-IMember member6 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
-IBoat jolle6 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
-IBooking booking2 = new Booking(now, now.AddHours(12), "DestinationB", member1, jolle1);
-bookingRepository.AddBooking(booking2);
-
-booking2.SailCompleted = true;
-Console.WriteLine(booking2);
+//Test af SailCompleted property
+b9.SailCompleted = true;
+Console.WriteLine(b9);
 
