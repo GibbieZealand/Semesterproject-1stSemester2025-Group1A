@@ -23,6 +23,10 @@ namespace ProjectClassLibrary.Services
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Adds a booking to the booking list, 
+        /// if one with the same id doesn't already exist
+        /// </summary>
         public void AddBooking(IBooking booking)
         {
             foreach (IBooking b in _bookings)
@@ -35,29 +39,43 @@ namespace ProjectClassLibrary.Services
             _bookings.Add(booking);
         }
 
+        /// <summary>
+        /// Removes a booking from the booking list
+        /// </summary>
         public void RemoveBooking(IBooking booking)
         {
             _bookings.Remove(booking);
         }
 
+        /// <summary>
+        /// Returns our booking list
+        /// </summary>
         public List<IBooking> GetAllBookings()
         {
             return _bookings;
         }
 
+        /// <summary>
+        /// "Updates" a booking in the booking list,
+        /// by replacing it with a new booking, but keeping the old id
+        /// </summary>
         public void UpdateBooking(int id, IBooking newBooking)
         {
             for (int i = 0; i < _bookings.Count; i++)
             {
                 if (_bookings[i].Id == id)
                 {
-                    newBooking.Id = _bookings[i].Id;
+                    newBooking.Id = id;
                     _bookings[i] = newBooking;
                     return;
                 }
             }
         }
 
+        /// <summary>
+        /// Books a boat if all checks are passed,
+        /// otherwise an exception is thrown.
+        /// </summary>
         public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         {
             //TO-DO: Exceptions og try/catch skal flyttes til program.cs
@@ -83,6 +101,9 @@ namespace ProjectClassLibrary.Services
             Console.WriteLine("Båden er hermed blevet booket");
         }
 
+        /// <summary>
+        /// Returns the number of bookings a member currently has, if any
+        /// </summary>
         public int GetBookingCountForMember(IMember member)
         {
             int count = 0;
@@ -97,6 +118,10 @@ namespace ProjectClassLibrary.Services
             return count;
         }
 
+        /// <summary>
+        /// Returns a dictionary with key being the member name
+        /// and the value being their amount of current bookings
+        /// </summary>
         public Dictionary<string, int> GetAllBookingsForMembers()
         {
             Dictionary<IMember, int> memberCounts = [];
@@ -120,6 +145,9 @@ namespace ProjectClassLibrary.Services
             return result;
         }
 
+        /// <summary>
+        /// Prints all bookings in our booking list
+        /// </summary>
         public void PrintAll()
         {
             foreach (IBooking b in _bookings)
@@ -128,7 +156,11 @@ namespace ProjectClassLibrary.Services
             }
         }
 
-        bool CheckBookingOverlaps(IBoat boat, DateTime startDate, DateTime endDate)
+        /// <summary>
+        /// Checks if a new boat booking date overlaps with an existing booking date
+        /// of the same boat
+        /// </summary>
+        public bool CheckBookingOverlaps(IBoat boat, DateTime startDate, DateTime endDate)
         {
             foreach (IBooking existingBooking in _bookings)
             {
