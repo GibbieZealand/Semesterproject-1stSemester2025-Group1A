@@ -61,43 +61,23 @@ namespace ProjectClassLibrary.Services
         public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         {
             //TO-DO: Exceptions og try/catch skal flyttes til program.cs
-            try
-            {
-                if ((boat == null || member == null))
-                {
-                    throw new NullReferenceException("Mangler input");
-                }
+            //Try/Catch Rykket til FrederikTest
 
-                if ((startDate >= endDate))
-                {
-                    throw new InvalidDateException("Startdato skal være før slutdato.");
-                }
+            if ((boat == null || member == null))
+            {
+                throw new NullReferenceException("Mangler input");
+            }
 
-                if (CheckBookingOverlaps(boat, startDate, endDate))
-                {
-                    throw new OverlappingDateException("Bookingen overlapper med en anden.");
-                }
-            }
-            catch (NullReferenceException nRex)
+            if ((startDate >= endDate))
             {
-                Console.WriteLine(nRex.Message);
-                return;
+                throw new InvalidDateException("Startdato skal være før slutdato.");
             }
-            catch (InvalidDateException iDex)
+
+            if (CheckBookingOverlaps(boat, startDate, endDate))
             {
-                Console.WriteLine(iDex.Message);
-                return;
+                throw new OverlappingDateException("Bookingen overlapper med en anden.");
             }
-            catch (InvalidBookingException iBex)
-            {
-                Console.WriteLine(iBex.Message);
-                return;
-            }
-            catch (OverlappingDateException oex)
-            {
-                Console.WriteLine(oex.Message);
-                return;
-            }
+
             IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
             AddBooking(booking);
             Console.WriteLine("Båden er hermed blevet booket");
@@ -116,27 +96,6 @@ namespace ProjectClassLibrary.Services
             }
             return count;
         }
-
-        //TO-DO: FIX THIS @!?#
-
-        //public List<int> GetAllBookingsForMembers()
-        //{
-        //    List<IMember> members = [];
-        //    foreach (IBooking existingBooking in _bookings)
-        //    {
-        //        IMember member = existingBooking.TheMember;
-        //        if (member != null)
-        //        {
-        //            members.Add(member);
-        //        }
-        //    }
-        //    List<int> bookingCounts = [];
-        //    foreach(IMember m in members)
-        //    {
-        //        bookingCounts.Add(GetBookingCountForMember(m));
-        //    }
-        //    return bookingCounts;
-        //}
 
         public Dictionary<string, int> GetAllBookingsForMembers()
         {

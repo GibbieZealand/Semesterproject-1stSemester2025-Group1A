@@ -1,7 +1,9 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ProjectClassLibrary.Exceptions;
 using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
+using System;
 
 //Console.WriteLine("Hello, World!");
 
@@ -34,36 +36,64 @@ IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusve
 //bookingRepository.AddBooking(booking3);
 
 
-
+// Test af BookBoat og overlapning af bookingtider
 Console.WriteLine("\nadding booking for jolle1");
-bookingRepository.BookBoat(jolle1, member1, now, now.AddHours(6));
+try
+{
+    bookingRepository.BookBoat(jolle1, member1, now, now.AddHours(6));
 
-Console.WriteLine("\nadding booking for jolle2");
-bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3));
+    Console.WriteLine("\nadding booking for jolle2 by member2");
+    bookingRepository.BookBoat(jolle2, member2, now, now.AddHours(3));
 
-Console.WriteLine("\ntesting invalid booking");
-bookingRepository.BookBoat(jolle1, member2, now.AddHours(2), now.AddHours(4));
+    Console.WriteLine("\nadding booking for jolle2 by member2");
+    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00));
 
-//Console.WriteLine("\ntesting invalid time");
-//bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
+    Console.WriteLine("\nadding booking for jolle2 by member2");
+    bookingRepository.BookBoat(jolle2, member2, new DateTime(2025, 12, 04, 12, 00, 00), new DateTime(2025, 12, 04, 13, 00, 00));
 
-Console.WriteLine("\nadding booking for jolle2 after first booking");
-bookingRepository.BookBoat(jolle2, member1, now.AddHours(4), now.AddHours(6));
+    Console.WriteLine("\nadding booking for jolle1 by member2");
+    bookingRepository.BookBoat(jolle1, member2, new DateTime(2025, 12, 03, 12, 00, 00), new DateTime(2025, 12, 03, 13, 00, 00));
 
-Console.WriteLine("\nadding booking for jolle2 after second booking");
-bookingRepository.BookBoat(jolle2, member2, now.AddHours(6), now.AddHours(12));
+    Console.WriteLine("\ntesting invalid booking");
+    bookingRepository.BookBoat(jolle1, member2, now.AddHours(2), now.AddHours(4));
+
+    //Console.WriteLine("\ntesting invalid time");
+    //bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
+
+    Console.WriteLine("\nadding booking for jolle2 after first booking");
+    bookingRepository.BookBoat(jolle2, member1, now.AddHours(4), now.AddHours(6));
+
+    Console.WriteLine("\nadding booking for jolle2 after second booking");
+    bookingRepository.BookBoat(jolle2, member2, now.AddHours(6), now.AddHours(12));
+}
+catch (NullReferenceException nRex)
+{
+    Console.WriteLine(nRex.Message);
+}
+catch (InvalidDateException iDex)
+{
+    Console.WriteLine(iDex.Message);
+}
+catch (InvalidBookingException iBex)
+{
+    Console.WriteLine(iBex.Message);
+}
+catch (OverlappingDateException oex)
+{
+    Console.WriteLine(oex.Message);
+}
 
 Console.WriteLine();
 Console.WriteLine("Jolle1 er blevet booked " + jolle1.BookedNrOfTimes + " gange");
 Console.WriteLine("Jolle2 er blevet booked " + jolle2.BookedNrOfTimes + " gange");
 Console.WriteLine();
 
-// GetBookingCountForMember test
-int bookingCount1 = bookingRepository.GetBookingCountForMember(member1);
-int bookingCount2 = bookingRepository.GetBookingCountForMember(member2);
-Console.WriteLine($"{member1.Name} booking count: {bookingCount1}");
-Console.WriteLine($"{member2.Name} booking count: {bookingCount2}");
-Console.WriteLine();
+// GetBookingCountForMember test - OLD
+//int bookingCount1 = bookingRepository.GetBookingCountForMember(member1);
+//int bookingCount2 = bookingRepository.GetBookingCountForMember(member2);
+//Console.WriteLine($"{member1.Name} booking count: {bookingCount1}");
+//Console.WriteLine($"{member2.Name} booking count: {bookingCount2}");
+//Console.WriteLine();
 
 //List<int> bookings = bookingRepository.GetAllBookingsForMembers();
 //foreach(var o in bookings)
@@ -76,7 +106,7 @@ Console.WriteLine();
 Dictionary<string, int> memberBookings = bookingRepository.GetAllBookingsForMembers();
 foreach(KeyValuePair<string, int> kvp in memberBookings)
 {
-    Console.WriteLine($"Name: {kvp.Key} \nBookings: {kvp.Value}");
+    Console.WriteLine($"Name: {kvp.Key} - Bookings: {kvp.Value}");
 }
 Console.WriteLine();
 
@@ -103,3 +133,24 @@ foreach (Boat b in bRepo.GetAllBoats())
 {
     Console.WriteLine(b.SailNumber + " Er blevet booket: " + b.BookedNrOfTimes + " gange");
 }
+
+//catch (NullReferenceException nRex)
+//{
+//    Console.WriteLine(nRex.Message);
+//    return;
+//}
+//catch (InvalidDateException iDex)
+//{
+//    Console.WriteLine(iDex.Message);
+//    return;
+//}
+//catch (InvalidBookingException iBex)
+//{
+//    Console.WriteLine(iBex.Message);
+//    return;
+//}
+//catch (OverlappingDateException oex)
+//{
+//    Console.WriteLine(oex.Message);
+//    return;
+//}
