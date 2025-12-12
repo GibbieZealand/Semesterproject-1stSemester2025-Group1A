@@ -16,5 +16,6 @@ namespace ProjectClassLibrary.Interfaces
         string Destination { get; set; }
         IBoat TheBoat { get; set; }
         IMember TheMember { get; set; }
+        bool SailCompleted { get; set; }
     }
 }
