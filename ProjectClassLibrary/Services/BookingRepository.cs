@@ -97,27 +97,6 @@ namespace ProjectClassLibrary.Services
             return count;
         }
 
-        //TO-DO: FIX THIS @!?#
-
-        //public List<int> GetAllBookingsForMembers()
-        //{
-        //    List<IMember> members = [];
-        //    foreach (IBooking existingBooking in _bookings)
-        //    {
-        //        IMember member = existingBooking.TheMember;
-        //        if (member != null)
-        //        {
-        //            members.Add(member);
-        //        }
-        //    }
-        //    List<int> bookingCounts = [];
-        //    foreach(IMember m in members)
-        //    {
-        //        bookingCounts.Add(GetBookingCountForMember(m));
-        //    }
-        //    return bookingCounts;
-        //}
-
         public Dictionary<string, int> GetAllBookingsForMembers()
         {
             Dictionary<IMember, int> memberCounts = [];
