@@ -5,14 +5,14 @@ using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
 using System;
 
-//Console.WriteLine("Hello, World!");
 
+#region Region 1
 DateTime now = DateTime.Now;
 IMember member1 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
 IBoat jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
 //IBooking booking = new Booking(now, now.AddHours(8), isBooked: true, "DestinationA",member1,jolle1);
 //Console.WriteLine(booking);
-Console.WriteLine("");
+//Console.WriteLine("");
 
 //Console.WriteLine("Booking: " + booking);
 IBookingRepository bookingRepository = new BookingRepository();
@@ -24,16 +24,16 @@ IBookingRepository bookingRepository = new BookingRepository();
 //bookingRepository.PrintAll();
 
 
-Blog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, member1, "Picture.png");
+IBlog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, member1, "Picture.png");
 //Console.WriteLine("Blog: " + blog);
 IBlogRepository blogRepository = new BlogRepository();
 blogRepository.AddBlog(blog);
 blogRepository.PrintAll();
-Blog blog2 = new Blog("HeaderB", "DescriptionB", DateTime.Now, member1, "Picture2.png");
+IBlog blog2 = new Blog("HeaderB", "DescriptionB", DateTime.Now, member1, "Picture2.png");
 blogRepository.UpdateBlog(blog.Id, blog2);
 blogRepository.PrintAll();
 Console.WriteLine();
-
+#endregion
 IBoat jolle2 = new Boat(BoatType.TERA, "Model", "19-4325", "Is very good :3", 32, 23, 33, "1982");
 IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusvej", "Roskilde", "mail@gmail.com", MemberType.Adult, MemberRole.Member);
 //IBooking booking3 = new Booking(now.AddHours(3), now.AddHours(8), isBooked: true, "DestinationB", member2, jolle2);
@@ -136,7 +136,7 @@ bRepo.AddBoat(b6);
 bRepo.AddBoat(b7);
 bookingRepository.BookBoat(b2, member1, now, now.AddHours(2), "Sydafrika");
 Console.WriteLine();
-foreach (Boat b in bRepo.GetAllBoats())
+foreach (IBoat b in bRepo.GetAllBoats())
 {
     Console.WriteLine(b.SailNumber + " Er blevet booket: " + b.BookedNrOfTimes + " gange");
 }
