@@ -25,7 +25,6 @@ namespace ProjectClassLibrary.Models
             {
                 return StartDate <= DateTime.Now && DateTime.Now <= EndDate;
             }
-            
         }
         public string Destination { get; set; }
         public IMember TheMember { get; set; }
