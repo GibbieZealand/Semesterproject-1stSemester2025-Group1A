@@ -79,12 +79,12 @@ Console.WriteLine("Jolle1 er blevet booked " + jolle1.BookedNrOfTimes + " gange"
 Console.WriteLine("Jolle2 er blevet booked " + jolle2.BookedNrOfTimes + " gange");
 Console.WriteLine();
 
-// GetBookingCountForMember test
-int bookingCount1 = bookingRepository.GetBookingCountForMember(member1);
-int bookingCount2 = bookingRepository.GetBookingCountForMember(member2);
-Console.WriteLine($"{member1.Name} booking count: {bookingCount1}");
-Console.WriteLine($"{member2.Name} booking count: {bookingCount2}");
-Console.WriteLine();
+// GetBookingCountForMember test - OLD
+//int bookingCount1 = bookingRepository.GetBookingCountForMember(member1);
+//int bookingCount2 = bookingRepository.GetBookingCountForMember(member2);
+//Console.WriteLine($"{member1.Name} booking count: {bookingCount1}");
+//Console.WriteLine($"{member2.Name} booking count: {bookingCount2}");
+//Console.WriteLine();
 
 //List<int> bookings = bookingRepository.GetAllBookingsForMembers();
 //foreach(var o in bookings)
@@ -97,7 +97,7 @@ Console.WriteLine();
 Dictionary<string, int> memberBookings = bookingRepository.GetAllBookingsForMembers();
 foreach(KeyValuePair<string, int> kvp in memberBookings)
 {
-    Console.WriteLine($"Name: {kvp.Key} \nBookings: {kvp.Value}");
+    Console.WriteLine($"Name: {kvp.Key} - Bookings: {kvp.Value}");
 }
 Console.WriteLine();
 
