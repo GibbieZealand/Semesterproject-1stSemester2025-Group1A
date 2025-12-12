@@ -13,6 +13,7 @@ namespace ProjectClassLibrary.Models
         //private IMember _member;
         //private IBoat _boat;
         private static int _counter;
+        private bool _isActive;
         #endregion
         #region Properties
         public int Id { get; set; }
@@ -25,8 +26,10 @@ namespace ProjectClassLibrary.Models
             {
                 return StartDate <= DateTime.Now && DateTime.Now <= EndDate;
             }
-            
         }
+
+        public bool SailCompleted { get; set; }
+
         public string Destination { get; set; }
         public IMember TheMember { get; set; }
         public IBoat TheBoat { get; set; }
@@ -51,7 +54,8 @@ namespace ProjectClassLibrary.Models
                 $"\nStart Dato: {StartDate} \nSlut Dato: {EndDate} " +
                 $"\nEr Booked: {IsBooked} " +
                 $"\nDestination: {Destination} " +
-                $"\n{TheMember} \n{TheBoat}";
+                $"\nBåden med sejlnummeret: {TheBoat.SailNumber} \nBooket af: {TheMember.Name}" +
+                $"\nBåden er kommet i havn: {SailCompleted}";
         }
         #endregion
     }

@@ -65,7 +65,7 @@ namespace ProjectClassLibrary.Services
         /// Returns a maintenance object by Id 
         /// </summary>
         /// <param name="id"></param>
-        public IMaintenance GetMaintenanceById(int id)
+        public IMaintenance? GetMaintenanceById(int id)
         {
             foreach (IMaintenance m in _maintenanceTasks)
             {
