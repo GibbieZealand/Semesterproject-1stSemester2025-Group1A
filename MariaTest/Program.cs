@@ -4,19 +4,23 @@ using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using ProjectClassLibrary.Services;
 using System.ComponentModel;
-
+#region Nye Objekter
 IMember member1 = new Member("Maria", "Strauss", "23328120", "Glostrupvej 111", "Glostrup", "Maria@hotmail.com", MemberType.Adult, MemberRole.Member);
 IMember member2 = new Member("Frederik", "Holm", "11111111", "Grevevej 2E", "Greve", "Frederik@gmail.com", MemberType.Adult, MemberRole.Member);
 
 IEvent e1 = new Event("Standerhejsning", "Flaget bliver hejst og der åbnes for sejlads.", new DateTime(2025,12,05,10,00,00), new DateTime(2025, 12, 05, 10, 00, 00), member1);
 IEvent e2 = new Event("Julefrokost", "Vi afholder den årlige julefrokost. Alle medbringer en ret.", new DateTime(2025, 12, 10, 13, 00, 00), new DateTime(2025, 12, 10, 18, 00, 00), member2);
 IEvent e6 = new Event("Ny", "Ny event", DateTime.Now, DateTime.Now.AddHours(6), member1);
+#endregion
+#region Test af nyt Event objekt 
 Console.WriteLine("----------------------Test af nyt Event objekt----------------------");
 Console.WriteLine("");
 Console.WriteLine(e1);
 Console.WriteLine("--------------------------------------------");
 Console.WriteLine(e2);
 Console.WriteLine("");
+#endregion
+#region Test af AddEvent og PrintAll metoderne 
 Console.WriteLine("-----------------------Test af AddEvent og PrintAll metoderne---------------------");
 Console.WriteLine("");
 
@@ -32,6 +36,8 @@ eventList1.PrintAll();
 List<IEvent> events = eventList1.GetAllEvents();
 
 Console.WriteLine("");
+#endregion
+#region Test af RemoveEvent metoden
 Console.WriteLine("-----------------------Test af RemoveEvent metoden---------------------");
 Console.WriteLine("");
 //Vi tester om vores Remove metode virker
@@ -39,6 +45,8 @@ eventList1.RemoveEvent(e2);
 eventList1.PrintAll();
 
 Console.WriteLine("");
+#endregion
+#region Test af AssignMember metoden
 Console.WriteLine("-----------------------Test af AssignMember metoden---------------------");
 Console.WriteLine("");
 IMember member3 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
@@ -49,6 +57,8 @@ e1.AssignMember(member3);
 Console.WriteLine(e1);
 
 Console.WriteLine("");
+#endregion
+#region Test af UpdateEvent metoden
 Console.WriteLine("-----------------------Test af UpdateEvent metoden---------------------");
 Console.WriteLine("--Vi ændrer tidspunktet for event e3 ved at erstatte det med et nyt event e4--");
 Console.WriteLine("");
@@ -61,6 +71,8 @@ Console.WriteLine(e3);
 Console.WriteLine("");
 Console.WriteLine(e4);
 Console.WriteLine("");
+#endregion
+#region Test af AddEvent Exception
 Console.WriteLine("-----------------------Test af AddEvent Exception---------------------");
 Console.WriteLine("");
 //Vi tester om vores AddEvent Exception virker
@@ -73,5 +85,5 @@ catch (EventIdExistsException eex)
 {
     Console.WriteLine(eex.Message);
 }
-
+#endregion
 
