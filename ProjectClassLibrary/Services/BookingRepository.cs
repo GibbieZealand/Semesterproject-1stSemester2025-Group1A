@@ -76,10 +76,15 @@ namespace ProjectClassLibrary.Services
         /// Books a boat if all checks are passed,
         /// otherwise an exception is thrown.
         /// </summary>
-        public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
+        //public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
+        public void BookBoat(IBooking booking)
         {
             //TO-DO: Exceptions og try/catch skal flyttes til program.cs
             //Try/Catch Rykket til FrederikTest
+            IBoat boat = booking.TheBoat;
+            IMember member = booking.TheMember;
+            DateTime startDate = booking.StartDate;
+            DateTime endDate = booking.EndDate;
 
             if ((boat == null || member == null))
             {
@@ -96,7 +101,7 @@ namespace ProjectClassLibrary.Services
                 throw new OverlappingDateException("Bookingen overlapper med en anden.");
             }
 
-            IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
+            //IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
             AddBooking(booking);
             Console.WriteLine("Båden er hermed blevet booket");
         }
