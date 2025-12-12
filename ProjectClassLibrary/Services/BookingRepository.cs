@@ -61,43 +61,23 @@ namespace ProjectClassLibrary.Services
         public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         {
             //TO-DO: Exceptions og try/catch skal flyttes til program.cs
-            try
-            {
-                if ((boat == null || member == null))
-                {
-                    throw new NullReferenceException("Mangler input");
-                }
-    
-                if ((startDate >= endDate))
-                {
-                    throw new InvalidDateException("Startdato skal være før slutdato.");
-                }
+            //Try/Catch Rykket til FrederikTest
 
-                if (CheckBookingOverlaps(boat, startDate, endDate))
-                {
-                    throw new OverlappingDateException("Bookingen overlapper med en anden.");
-                }
-            }
-            catch (NullReferenceException nRex)
+            if ((boat == null || member == null))
             {
-                Console.WriteLine(nRex.Message);
-                return;
+                throw new NullReferenceException("Mangler input");
             }
-            catch (InvalidDateException iDex)
+
+            if ((startDate >= endDate))
             {
-                Console.WriteLine(iDex.Message);
-                return;
+                throw new InvalidDateException("Startdato skal være før slutdato.");
             }
-            catch (InvalidBookingException iBex)
+
+            if (CheckBookingOverlaps(boat, startDate, endDate))
             {
-                Console.WriteLine(iBex.Message);
-                return;
+                throw new OverlappingDateException("Bookingen overlapper med en anden.");
             }
-            catch (OverlappingDateException oex)
-            {
-                Console.WriteLine(oex.Message);
-                return;
-            }
+
             IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
             AddBooking(booking);
             Console.WriteLine("Båden er hermed blevet booket");
@@ -151,7 +131,7 @@ namespace ProjectClassLibrary.Services
             foreach (IBooking existingBooking in _bookings)
             {
                 IBoat existingBoat = existingBooking.TheBoat;
-                if(existingBoat == null)
+                if (existingBoat == null)
                 {
                     continue; //Skip null boats
                 }
@@ -163,7 +143,7 @@ namespace ProjectClassLibrary.Services
                     bool overlaps = startsBeforeExistingEnds && endsAfterExistingStarts;
                     if (overlaps)
                     {
-                        return true; 
+                        return true;
                     }
                 }
             }
