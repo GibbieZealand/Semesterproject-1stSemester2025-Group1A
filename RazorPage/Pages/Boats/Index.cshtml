@@ -8,20 +8,24 @@
 <h1>Vores Både</h1>
 <h2>Vi har @Model.Boats.Count  både tilgængelige</h2>
 
+<p>
+    <a as asp-page="CreateBoat">Opret en ny båd</a>
+</p>
+
 <table class="table">
     <thead>
 
         <tr>
-            <th>Id</th>
-            <th>YearOfConstruction</th>
+            <th>ID</th>
+            <th>Byggeår</th>
             <th>Model</th>
-            <th>TheBoatType</th>
-            <th>SailNumber</th>
-            <th>EngineInfo</th>
-            <th>Draft</th>
-            <th>Width</th>
-            <th>Length</th>
-            <th>Maintenance</th>
+            <th>Bådtype</th>
+            <th>Sejlnummer</th>
+            <th>Motorinfo</th>
+            <th>Dybgang</th>
+            <th>Bredde</th>
+            <th>Længde</th>
+            <th>Vedligeholdesesstatus</th>
         </tr>
     </thead>
     <tbody>

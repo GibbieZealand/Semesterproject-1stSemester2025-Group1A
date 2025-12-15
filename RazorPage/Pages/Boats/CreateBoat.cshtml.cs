@@ -11,8 +11,5 @@ namespace RazorPage.Pages.Boats
     public class CreateModel : PageModel
     {
         private IBoatRepository _repo;
-        public void OnGet()
-        {
-        }
     }
 }

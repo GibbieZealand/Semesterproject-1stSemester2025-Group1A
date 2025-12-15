@@ -10,6 +10,8 @@ builder.Services.AddSingleton<IEventRepository, EventRepository>();
 
 builder.Services.AddSingleton<IMemberRepository, MemberRepository>();
 
+builder.Services.AddSingleton<IBoatRepository, BoatRepository>();
+
 
 var app = builder.Build();
 
