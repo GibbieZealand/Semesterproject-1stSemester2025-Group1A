@@ -93,7 +93,19 @@ namespace ProjectClassLibrary.Services
                 existingMember.TheMemberType = updatedMember.TheMemberType;
                 existingMember.TheMemberRole = updatedMember.TheMemberRole;
             }
-        }  
+        }
+
+        /// <summary>
+        /// Searches through the boat dictionary and returns the boat with the given sailnumber. 
+        /// </summary>
+        public IMember? SearchMember(string phoneNumber) //Vi søger efter en båd. HVIS dictionariet indeholder det angivne sejlnummer, returnerer den båden. Hvis ikke, returneres null
+        {
+            if (_members.ContainsKey(phoneNumber))
+            {
+                return _members[phoneNumber];
+            }
+            return null;
+        }
         /// <summary>
         /// Metoden bruges til at printe alle instanser af typen member som findes i memberRpository ud
         /// </summary>

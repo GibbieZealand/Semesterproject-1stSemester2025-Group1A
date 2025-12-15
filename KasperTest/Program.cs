@@ -121,5 +121,10 @@ foreach(var v in sorted)
 
 
 #endregion
+#region Test af SearchMember metode
+Console.WriteLine("\nTest af SearchMember metode af medlemmet med telefonnummeret 12123445 ...");
+Console.WriteLine(memberRepo.SearchMember("12123445"));
+
+#endregion
 //-------------------------------------------------------------------------------------------------------------
 //-------------------------------------------------------------------------------------------------------------
