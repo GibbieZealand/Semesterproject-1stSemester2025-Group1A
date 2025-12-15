@@ -52,7 +52,6 @@ namespace ProjectClassLibrary.Services
             }
         }
 
-
         /// <summary>
         /// Prints all maintenance objects in the list 
         /// </summary>
@@ -79,7 +78,6 @@ namespace ProjectClassLibrary.Services
             }
             return null;
         }
-
 
         /// <summary>
         /// Returns a list of pending maintenance tasks 
@@ -112,7 +110,6 @@ namespace ProjectClassLibrary.Services
             }
             return completedList;
         }
-
 
         /// <summary>
         /// Returns the list of all maintenance tasks

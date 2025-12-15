@@ -31,7 +31,7 @@ namespace ProjectClassLibrary.Models
         
         #region Constructor
         /// <summary>
-        /// Konstruktøren bruges til at oprette nye objekter af Memberklassen
+        /// Constructor used for creating new member objects
         /// </summary>
         public Member(string name, string surName, string phoneNumber, string address, string city, string mail, MemberType theMemberType, MemberRole theMemberRole)
         {
@@ -49,7 +49,7 @@ namespace ProjectClassLibrary.Models
        
         #region Methods
         /// <summary>
-        /// Metoden printer et instance af typen member
+        /// ToString method used for printing out member information
         /// </summary>
         public override string ToString()
         {

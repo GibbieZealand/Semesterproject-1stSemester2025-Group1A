@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Models
 {
-    // ExampleClass for inheritance
+    /// <summary>
+    /// Example class for inheritance
+    /// </summary>
     public class SailBoat : Boat
     {
         #region Properties

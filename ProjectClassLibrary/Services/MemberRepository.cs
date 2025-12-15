@@ -20,14 +20,14 @@ namespace ProjectClassLibrary.Services
      
         #region Properties
         /// <summary>
-        /// Count som bruges til at tælle members i Repository
+        /// Count used for counting members in _members repository
         /// </summary>
         public int Count { get { return _members.Count; } }
         #endregion
 
         #region Constructor
         /// <summary>
-        /// MemberRepository constructor bruges når vi laver et nyt dictionary af med navnet MemberRepository, med en string som key og en IMember som value
+        /// MemberRepository constructor used for making a new member repository called _members with string as key and IMember as value
         /// </summary>
         public MemberRepository()
         {
