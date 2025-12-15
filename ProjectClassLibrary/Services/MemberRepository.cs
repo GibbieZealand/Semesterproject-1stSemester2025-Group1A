@@ -102,7 +102,7 @@ namespace ProjectClassLibrary.Services
         }
 
         /// <summary>
-        /// Searches through the boat dictionary and returns the boat with the given sailnumber. 
+        /// Searches through the member dictionary and returns the member with the given phonenumber. 
         /// </summary>
         public IMember? SearchMember(string phoneNumber) //Vi søger efter en båd. HVIS dictionariet indeholder det angivne sejlnummer, returnerer den båden. Hvis ikke, returneres null
         {
