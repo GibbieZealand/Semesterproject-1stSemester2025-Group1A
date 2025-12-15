@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ProjectClassLibrary.Models
 {
     /// <summary>
-    /// Generic Class for Constructing Boat Objects
+    /// Generic Class for Constructing Boat Objects using the interface
     /// </summary>
     public class Boat : IBoat
     {
@@ -46,10 +46,14 @@ namespace ProjectClassLibrary.Models
             YearOfConstruction = yearOfConstruction;
          
         }
-       
+
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Returns a writeline featuring the contents of the object
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return ($"\nBåd Nr.{Id}: " +

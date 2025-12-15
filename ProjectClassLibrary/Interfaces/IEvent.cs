@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the Event Class
+    /// </summary>
     public interface IEvent
     {
         int Id { get; set; }

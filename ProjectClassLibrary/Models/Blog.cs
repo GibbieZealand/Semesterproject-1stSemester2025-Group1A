@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Models
 {
+    /// <summary>
+    /// Generic Class for Constructing Blog Objects using the interface
+    /// </summary>
     public class Blog : IBlog
     {
         #region Fields
@@ -36,9 +39,18 @@ namespace ProjectClassLibrary.Models
         #endregion
 
         #region Methods
+        /// <summary>
+        /// Returns a writeline featuring the contents of the object
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return $"Id: {Id} \nOverskrift: {Headline} \nBeskrivelse: {Description} \nDato: {Date} \nForfatter: {Author.FirstName + " " + Author.SurName} \nBillede: {Picture}";
+            return $"Id: {Id} " +
+                $"\nOverskrift: {Headline} " +
+                $"\nBeskrivelse: {Description} " +
+                $"\nDato: {Date} " +
+                $"\nForfatter: {Author.FirstName + " " + Author.SurName} " +
+                $"\nBillede: {Picture}";
         }
         #endregion
     }

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the BookingRepository class
+    /// </summary>
     public interface IBookingRepository
     {
         void AddBooking(IBooking b);

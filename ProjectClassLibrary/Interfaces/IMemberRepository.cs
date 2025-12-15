@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 // - Lavet af Kasper - 
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the MemberRepository class
+    /// </summary>
     public interface IMemberRepository
     {
         int Count { get; }

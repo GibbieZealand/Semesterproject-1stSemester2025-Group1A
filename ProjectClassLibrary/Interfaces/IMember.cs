@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 // - Lavet af Kasper -
 namespace ProjectClassLibrary.Interfaces
 {
-    
+    /// <summary>
+    /// Interface for the Member class
+    /// </summary>
     public interface IMember
     {
         string FirstName { get; set; }   

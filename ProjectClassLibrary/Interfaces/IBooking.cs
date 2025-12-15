@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the Booking class
+    /// </summary>
     public interface IBooking
     {
         int Id { get; set; }

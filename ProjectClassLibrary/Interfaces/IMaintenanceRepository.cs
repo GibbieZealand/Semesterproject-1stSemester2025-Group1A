@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 //--Lavet af Necati--
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the MaintenanceRepository class
+    /// </summary>
     public interface IMaintenanceRepository
     {
          

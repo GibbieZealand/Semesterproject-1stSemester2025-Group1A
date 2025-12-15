@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ProjectClassLibrary.Models
 {
     /// <summary>
-    /// Class for creating new event objects
+    /// Generic Class for Constructing Event Objects using the interface
     /// </summary>
     public class Event : IEvent
     {
