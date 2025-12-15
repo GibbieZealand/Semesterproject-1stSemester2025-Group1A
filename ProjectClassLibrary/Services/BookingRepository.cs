@@ -191,7 +191,10 @@ namespace ProjectClassLibrary.Services
             }
             return false;
         }
-
+        /// <summary>
+        /// Returns all active bookings when called
+        /// </summary>
+        /// <returns></returns>
         public List<IBooking> GetAllActiveBookings()
         {
             List<IBooking> activeList = [];
