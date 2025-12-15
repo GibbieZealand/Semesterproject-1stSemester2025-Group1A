@@ -12,6 +12,7 @@
     <Folder Include="Pages\Members\" />
     <Folder Include="Pages\Blogs\" />
     <Folder Include="Pages\Maintenances\" />
+    <Folder Include="Pages\Test\" />
   </ItemGroup>
 
 </Project>
