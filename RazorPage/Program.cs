@@ -8,6 +8,9 @@ builder.Services.AddRazorPages();
 //Dependency injection - skaber et enkelt objekt af EventRepository
 builder.Services.AddSingleton<IEventRepository, EventRepository>();
 
+builder.Services.AddSingleton<IMemberRepository, MemberRepository>();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
