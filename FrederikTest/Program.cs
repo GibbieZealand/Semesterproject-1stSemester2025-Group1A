@@ -6,10 +6,9 @@ using ProjectClassLibrary.Services;
 using System;
 
 
-#region Region 1
+#region Test af blog metoder
 DateTime now = DateTime.Now;
 IMember member1 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
-IBoat jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
 //IBooking booking = new Booking(now, now.AddHours(8), isBooked: true, "DestinationA",member1,jolle1);
 //Console.WriteLine(booking);
 //Console.WriteLine("");
@@ -34,12 +33,16 @@ blogRepository.UpdateBlog(blog.Id, blog2);
 blogRepository.PrintAll();
 Console.WriteLine();
 #endregion
+
+#region Nye båd- og memberobjekter skabes
+IBoat jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
 IBoat jolle2 = new Boat(BoatType.TERA, "Model", "19-4325", "Is very good :3", 32, 23, 33, "1982");
 IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusvej", "Roskilde", "mail@gmail.com", MemberType.Adult, MemberRole.Member);
 //IBooking booking3 = new Booking(now.AddHours(3), now.AddHours(8), isBooked: true, "DestinationB", member2, jolle2);
 //bookingRepository.AddBooking(booking3);
+#endregion
 
-
+#region Test af BookBoat og overlapning af bookingtider
 // Test af BookBoat og overlapning af bookingtider
 Console.WriteLine("\nadding booking for jolle1");
 try
@@ -116,7 +119,9 @@ Console.WriteLine();
 //Console.WriteLine(o);
 //}
 //Console.WriteLine(bookings);
+#endregion
 
+#region Print booking counts for each member test
 // Print booking counts for each member test
 Dictionary<string, int> memberBookings = bookingRepository.GetAllBookingsForMembers();
 foreach (KeyValuePair<string, int> kvp in memberBookings)
@@ -124,7 +129,9 @@ foreach (KeyValuePair<string, int> kvp in memberBookings)
     Console.WriteLine($"Name: {kvp.Key} - Bookings: {kvp.Value}");
 }
 Console.WriteLine();
+#endregion
 
+#region Test af statistik over, hvilken båd der har været booket flest gange
 //STATISTIC TEST
 IBoat b1 = new Boat(BoatType.TERA, "TEST-MODEL", "TEST-01", "TEST-ENGINEINFO", 30, 30, 30, "2011");
 IBoat b2 = new Boat(BoatType.FEVA, "TEST-MODEL", "TEST-02", "TEST-ENGINEINFO", 30, 30, 30, "2011");
@@ -149,8 +156,10 @@ foreach (IBoat b in bRepo.GetAllBoats())
 {
     Console.WriteLine(b.SailNumber + " Er blevet booket: " + b.BookedNrOfTimes + " gange");
 }
+#endregion
 
+#region Test af SailCompleted property
 //Test af SailCompleted property
 b9.SailCompleted = true;
 Console.WriteLine(b9);
-
+#endregion
