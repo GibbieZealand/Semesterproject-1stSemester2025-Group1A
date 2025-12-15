@@ -1,0 +1,34 @@
+﻿@page
+@model RazorPage.Pages.Events.CreateEventModel
+@{
+    ViewData["Title"] = "Create Event";
+}
+
+<h1>Opret ny begivenhed</h1>
+
+<form method="post">
+    @* Alt der skal sendes tilbage skal lige i en form *@
+    <div class="form-group">
+        <label asp-for="@Model.NewEvent.Name">Navn</label>
+        <input class="form-control" asp-for="@Model.NewEvent.Name" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewEvent.Description">Beskrivelse</label>
+        <input class="form-control" asp-for="@Model.NewEvent.Description" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewEvent.StartDate">Starttidspunkt</label>
+        <input class="form-control" asp-for="@Model.NewEvent.StartDate" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewEvent.EndDate">Sluttidspunkt</label>
+        <input class="form-control" asp-for="@Model.NewEvent.EndDate" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewEvent.Author">Oprettet af</label>
+        <input class="form-control" asp-for="@Model.NewEvent.Author" />
+    </div>
+    <div>
+        <input type="submit" value="Opret begivenhed" class="btn btn-primary" />
+    </div>
+</form>

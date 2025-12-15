@@ -1,4 +1,67 @@
 ﻿@page
+@using ProjectClassLibrary.Models
 @model RazorPage.Pages.Members.IndexModel
 @{
+    ViewData["Title"] = "List of members";
 }
+<h1>Liste af Medlemmer</h1>
+<h2>Der er @Model.Members.Count Medlemmer</h2>
+
+@* Der skal bygges en tabel til præsentation af alle events *@
+<p>
+    <a as asp-page="CreateMember">Opret et nyt medlem</a>
+</p>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Fornavn</th>
+            <th>Efternavn</th>
+            <th>Telefonnummer</th>
+            <th>Adresse</th>
+            <th>By</th>
+            <th>Email</th>
+            <th>Medlemsrolle</th>
+            <th>Medlemstype</th>
+        </tr>
+
+
+    </thead>
+    <tbody>
+        @foreach (Member item in Model.Members)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.SurName
+                </td>
+                <td>
+                    @item.PhoneNumber
+                </td>
+                <td>
+                    @item.Address
+                </td>
+                <td>
+                    @item.City
+                </td>
+                <td>
+                    @item.Mail
+                </td>
+                <td>
+                    @item.TheMemberType
+                </td>
+                <td>
+                    @item.TheMemberRole
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

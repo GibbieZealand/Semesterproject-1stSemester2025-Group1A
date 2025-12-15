@@ -1,7 +1,12 @@
+using ProjectClassLibrary.Interfaces;
+using ProjectClassLibrary.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+//Dependency injection - skaber et enkelt objekt af EventRepository
+builder.Services.AddSingleton<IEventRepository, EventRepository>();
 
 var app = builder.Build();
 

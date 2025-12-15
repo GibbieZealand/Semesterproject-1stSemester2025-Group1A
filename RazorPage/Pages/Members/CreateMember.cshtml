@@ -1,0 +1,50 @@
+﻿@page
+@model RazorPage.Pages.Members.CreateMemberModel
+@{
+    ViewData["Title"] = "Create Member";
+} 
+
+<h1>Opret Medlem</h1>
+
+<form method="post">
+    @*  Alt der skal sendes tilbage skal lige i en form *@
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.FirstName">Fornavn</label>
+        <input asp-for="@Model.NewMember.FirstName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.SurName">Efternavn</label>
+        <input asp-for="@Model.NewMember.SurName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.PhoneNumber">Telefonnummer</label>
+        <input asp-for="@Model.NewMember.PhoneNumber" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.Address">Adresse</label>
+        <input asp-for="@Model.NewMember.Address" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.City">By</label>
+        <input asp-for="@Model.NewMember.City" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.Mail">Email</label>
+        <input asp-for="@Model.NewMember.Mail" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.TheMemberType">Medlemstype</label>
+        <input asp-for="@Model.NewMember.TheMemberType" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model.NewMember.TheMemberRole">Medlemsrolle</label>
+        <input asp-for="@Model.NewMember.TheMemberRole" class="form-control" />
+    </div>
+
+
+    <div>
+        <input type="submit" value="Opret Medlem" class="btn btn-primary" />
+
+    </div>
+
+</form>
