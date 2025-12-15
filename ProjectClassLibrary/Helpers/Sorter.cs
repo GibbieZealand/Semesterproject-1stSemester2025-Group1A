@@ -9,8 +9,9 @@ namespace ProjectClassLibrary.Helpers
     public class Sorter
     {
         /// <summary>
-        /// Når vi kalder den i program.cs med en liste, skal vi huske at konvertere til toArray
+        /// Insertion sort method for sorting member names alphabetically
         /// </summary>
+
         public static string[] InsertionSort(string[] names)
         {
             int n = names.Length;

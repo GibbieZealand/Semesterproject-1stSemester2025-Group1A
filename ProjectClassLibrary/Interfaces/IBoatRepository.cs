@@ -22,6 +22,7 @@ namespace ProjectClassLibrary.Interfaces
         void AddBoat(IBoat boat);
         void RemoveBoat(string sailNumber);
         void UpdateBoat(IBoat boat);
+        IBoat? SearchBoat(string sailNumber);
         #endregion
     }
 }

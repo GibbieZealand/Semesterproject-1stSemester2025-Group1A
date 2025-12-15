@@ -8,8 +8,8 @@ using ProjectClassLibrary.Services;
 
 #region Object Creation Test
 Console.WriteLine("----Boat Object Creation Test Start----");
-Boat Jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
-Boat Jolle2 = new Boat(BoatType.FEVA, "Model", "19-2225", "Is very bad :c", 32, 33, 23, "1985");
+IBoat Jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
+IBoat Jolle2 = new Boat(BoatType.FEVA, "Model", "19-2225", "Is very bad :c", 32, 33, 23, "1985");
 
 Console.WriteLine(Jolle1);
 Console.WriteLine(Jolle2);

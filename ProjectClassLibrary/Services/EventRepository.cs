@@ -20,7 +20,7 @@ namespace ProjectClassLibrary.Services
         /// <summary>
         /// New instance field _events
         /// </summary>
-        private List<IEvent> _events; //Vi laver et nyt instansfelt _events, som skal være en List af typen Event
+        private List<IEvent> _events;
 
         #endregion
 
@@ -28,7 +28,7 @@ namespace ProjectClassLibrary.Services
         /// <summary>
         /// Constructor for making a new list of events
         /// </summary>
-        public EventRepository() //Vi laver en konstruktor til at lave en ny liste af events, som kaldes _events
+        public EventRepository()
         {
             _events = new List<IEvent>();
         }
