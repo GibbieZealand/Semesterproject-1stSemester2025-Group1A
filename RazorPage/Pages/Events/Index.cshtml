@@ -1,4 +1,45 @@
 ﻿@page
+@using ProjectClassLibrary.Models
 @model RazorPage.Pages.Events.IndexModel
 @{
+    ViewData["Title"] = "Liste over begivenheder";
 }
+
+<h1>Liste over begivenheder</h1>
+<h2>Der er i øjeblikket @Model.Events.Count begivenheder</h2>
+
+
+@* Der skal bygges en table til præsentation af alle events i event repositoriet
+//Vi starter med at stille repositoriet til rådighed. Det gør vi ovre i vores Index.cshtml.cs *@
+
+<a href="/Events/CreateEvent" class="btn btn-primary" role="button">Opret ny begivenhed</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Navn</th>
+            <th>Beskrivelse</th>
+            <th>Starttidspunkt</th>
+            <th>Sluttidspunkt</th>
+            <th>Oprettet af</th>
+            <th>Redigér</th>
+            <th>Slet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(Event item in Model.Events)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>@item.StartDate</td>
+                <td>@item.EndDate</td>
+                <td>@item.Author</td>
+                <td><a asp-page="EditEvent" asp-route-id="@item.Id">Redigér</a></td>
+                <td><a asp-page="DeleteEvent" asp-route-id="@item.Id">Slet</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
