@@ -17,5 +17,6 @@ namespace ProjectClassLibrary.Interfaces
         void UpdateMember(IMember member);
         List<IMember> GetAllMembers();
         void PrintAll();
+        IMember? SearchMember(string phoneNumber);
     }
 }
