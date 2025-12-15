@@ -8,19 +8,11 @@ using ProjectClassLibrary.Helpers;
 
 namespace RazorPage.Pages.Boats
 {
-    public class IndexModel : PageModel
+    public class CreateModel : PageModel
     {
         private IBoatRepository _repo;
-        
-        public List<IBoat> Boats { get; set; }
-
-        public IndexModel(IBoatRepository boatRepository)
-        {
-            _repo = boatRepository;
-        }
         public void OnGet()
         {
-            Boats = _repo.GetAllBoats();
         }
     }
 }
