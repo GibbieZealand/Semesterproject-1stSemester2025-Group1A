@@ -7,12 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Pages\Boats\" />
-    <Folder Include="Pages\Bookings\" />
-    <Folder Include="Pages\Members\" />
-    <Folder Include="Pages\Blogs\" />
-    <Folder Include="Pages\Maintenances\" />
-    <Folder Include="Pages\Test\" />
+    <Compile Remove="Pages\Test\**" />
+    <Content Remove="Pages\Test\**" />
+    <EmbeddedResource Remove="Pages\Test\**" />
+    <None Remove="Pages\Test\**" />
   </ItemGroup>
 
 </Project>
