@@ -1,4 +1,5 @@
 ﻿using ProjectClassLibrary.Exceptions;
+using ProjectClassLibrary.Helpers;
 using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using System;
@@ -78,6 +79,21 @@ namespace ProjectClassLibrary.Services
                 existingBoat.YearOfConstruction = updatedBoat.YearOfConstruction;
             }
         }
+
+        /// <summary>
+        /// Searches through the boat dictionary and returns the boat with the given sailnumber. 
+        /// </summary>
+
+
+        public IBoat? SearchBoat(string sailNumber) //Vi søger efter en båd. HVIS dictionariet indeholder det angivne sejlnummer, returnerer den båden. Hvis ikke, returneres null
+        {
+            if (_boats.ContainsKey(sailNumber))
+            {
+                return _boats[sailNumber];
+            }
+            return null;
+        }
+
         /// <summary>
         /// Runs through the list and calls the toString() method of every index
         /// </summary>

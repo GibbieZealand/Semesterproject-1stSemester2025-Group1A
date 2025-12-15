@@ -43,7 +43,6 @@ IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusve
 #endregion
 
 #region Test af BookBoat og overlapning af bookingtider
-// Test af BookBoat og overlapning af bookingtider
 Console.WriteLine("\nadding booking for jolle1");
 try
 {
@@ -122,7 +121,6 @@ Console.WriteLine();
 #endregion
 
 #region Print booking counts for each member test
-// Print booking counts for each member test
 Dictionary<string, int> memberBookings = bookingRepository.GetAllBookingsForMembers();
 foreach (KeyValuePair<string, int> kvp in memberBookings)
 {
@@ -132,7 +130,6 @@ Console.WriteLine();
 #endregion
 
 #region Test af statistik over, hvilken båd der har været booket flest gange
-//STATISTIC TEST
 IBoat b1 = new Boat(BoatType.TERA, "TEST-MODEL", "TEST-01", "TEST-ENGINEINFO", 30, 30, 30, "2011");
 IBoat b2 = new Boat(BoatType.FEVA, "TEST-MODEL", "TEST-02", "TEST-ENGINEINFO", 30, 30, 30, "2011");
 IBoat b3 = new Boat(BoatType.LASERJOLLE, "TEST-MODEL", "TEST-03", "TEST-ENGINEINFO", 30, 30, 30, "2011");
@@ -159,7 +156,6 @@ foreach (IBoat b in bRepo.GetAllBoats())
 #endregion
 
 #region Test af SailCompleted property
-//Test af SailCompleted property
 b9.SailCompleted = true;
 Console.WriteLine(b9);
 #endregion

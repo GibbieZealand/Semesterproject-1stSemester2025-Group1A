@@ -65,4 +65,10 @@ catch (Exception ex)
     Console.WriteLine(ex.Message);
 }
 #endregion
+#region Test af SearchBoat metode'
+Console.WriteLine("\nTest af SearchBoat metode af båden med sejlnummeret 16-3335...");
+Console.WriteLine(repository.SearchBoat("16-3335"));
+
+#endregion
+
 Console.WriteLine("----Test End----");
