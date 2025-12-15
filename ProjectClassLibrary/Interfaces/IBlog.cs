@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the Blog class
+    /// </summary>
     public interface IBlog
     {
         int Id { get; set; }

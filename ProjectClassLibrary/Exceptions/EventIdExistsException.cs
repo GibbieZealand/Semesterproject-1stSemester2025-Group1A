@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Exceptions
 {
+    /// <summary>
+    /// Exception for when the ID for an event already exists
+    /// </summary>
     public class EventIdExistsException : Exception
     {
         public EventIdExistsException(string message) : base(message)

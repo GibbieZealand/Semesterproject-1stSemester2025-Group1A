@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 //--Lavet af Necati--
 namespace ProjectClassLibrary.Models
 {
+    /// <summary>
+    /// Generic Class for Constructing Maintenance Objects using the interface
+    /// </summary>
     public class Maintenance : IMaintenance
     {
         #region Instance fields

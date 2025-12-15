@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 // - Lavet af Kasper - 
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Member Repository Objects using the interface
+    /// </summary>
     public class MemberRepository : IMemberRepository
     {
         #region Instance Fields
@@ -39,10 +42,10 @@ namespace ProjectClassLibrary.Services
         // Hvis Dictionary _members ikke indeholder Telefonnummer på det Medlem man vil tilføje. Tilføjes Medlemmet
         // Else if:
         //Medlem bliver ikke tilføjet
+
         /// <summary>
-        /// Metode som bruges til at tilføje members til repository, den tjekker for om telefonnummeret findes allerede
+        /// Method for adding members to our repository, which runs a check to tell if the phone number is available
         /// </summary>
-    
         public void AddMember(IMember member)
         {
             if (!_members.ContainsKey(member.PhoneNumber))
@@ -55,8 +58,9 @@ namespace ProjectClassLibrary.Services
         // Formål:
         // At få fat på en list med alle medlemmer/objekter
         // Metoden returnere via en indbygget metode som hedder ToList(); som henter liste med _members Values
+
         /// <summary>
-        /// Metoden bruges til at få en liste med medlemmere
+        /// Method for returning a list of members
         /// </summary>
         public List<IMember> GetAllMembers()
         {
@@ -65,8 +69,9 @@ namespace ProjectClassLibrary.Services
         // Formål:
         // Fjerne Medlem
         // Metoden sletter via metoden Remove, og sletter telefonnummeret fra _members
+
         /// <summary>
-        /// Metoden bruges til at fjerne medlemmere fra dictionary
+        /// Method for removing a member from the dictionary, using their phone number
         /// </summary>
         public void RemoveMember(IMember member)
         {
@@ -76,8 +81,9 @@ namespace ProjectClassLibrary.Services
         // Opdatere Medlem
         // if-statement:
         // Hvis _members indholder Telefonnummeret argumentet, så overskrider de nye værdier de nuværende med samme telefonnummer.
+
         /// <summary>
-        /// Metoden bruges til at opdatere medlemmere via deres telefonnummeret, så man kan redigere oplysninger, fx. et medlem skifter adresse
+        /// Method to update a member's info, using their phone number to distinguish them
         /// </summary>
         public void UpdateMember(IMember updatedMember)
         {
@@ -93,9 +99,21 @@ namespace ProjectClassLibrary.Services
                 existingMember.TheMemberType = updatedMember.TheMemberType;
                 existingMember.TheMemberRole = updatedMember.TheMemberRole;
             }
-        }  
+        }
+
         /// <summary>
-        /// Metoden bruges til at printe alle instanser af typen member som findes i memberRpository ud
+        /// Searches through the boat dictionary and returns the boat with the given sailnumber. 
+        /// </summary>
+        public IMember? SearchMember(string phoneNumber) //Vi søger efter en båd. HVIS dictionariet indeholder det angivne sejlnummer, returnerer den båden. Hvis ikke, returneres null
+        {
+            if (_members.ContainsKey(phoneNumber))
+            {
+                return _members[phoneNumber];
+            }
+            return null;
+        }
+        /// <summary>
+        /// Method for printing the info of every member in the dictionary
         /// </summary>
         public void PrintAll() 
         {

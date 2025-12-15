@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 // - Lavet af Kasper - 
 namespace ProjectClassLibrary.Models
-{ 
+{
     /// <summary>
-    /// Member klassen implementere alle properties fra interfacet IMember
+    /// Generic Class for Constructing Member Objects using the interface
     /// </summary>
     public class Member : IMember
     {
@@ -49,7 +49,7 @@ namespace ProjectClassLibrary.Models
        
         #region Methods
         /// <summary>
-        /// Metoden printer et instance af typen member 
+        /// Metoden printer et instance af typen member
         /// </summary>
         public override string ToString()
         {

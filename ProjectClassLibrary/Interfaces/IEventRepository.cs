@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the EventRepository class
+    /// </summary>
     public interface IEventRepository
     {
         List<IEvent> GetAllEvents();

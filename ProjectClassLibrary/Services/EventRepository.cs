@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Event Repository Objects using the interface
+    /// </summary>
     public class EventRepository : IEventRepository
     {
         #region Instance field
@@ -68,7 +71,6 @@ namespace ProjectClassLibrary.Services
         /// <summary>
         /// Method for updating events by replacing the current event with a new event
         /// </summary>
- 
         public void UpdateEvent(int Id, IEvent upDatedEvent)
         {
             for (int i = 0; i < _events.Count; i++) //Vi løber vores liste igennem
@@ -85,7 +87,6 @@ namespace ProjectClassLibrary.Services
         /// <summary>
         /// Method for removing events
         /// </summary>
-
         public void RemoveEvent(IEvent theEvent)
         {
             for (int i = 0; i < _events.Count; i++) //Vi løber vores liste igennem
@@ -102,7 +103,6 @@ namespace ProjectClassLibrary.Services
         /// <summary>
         /// Method for printing all events
         /// </summary>
-
         public void PrintAll()
         {
             foreach (IEvent e in _events)

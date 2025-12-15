@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 //--Lavet af Necati--
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the Maintenance class
+    /// </summary>
     public interface IMaintenance
     {
         string Description { get; set; }

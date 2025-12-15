@@ -7,6 +7,11 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Models
 {
+    /// <summary>
+    /// /// <summary>
+    /// Generic Class for Constructing Booking Objects using the interface
+    /// </summary>
+    /// </summary>
     public class Booking : IBooking
     {
         #region Instance Fields

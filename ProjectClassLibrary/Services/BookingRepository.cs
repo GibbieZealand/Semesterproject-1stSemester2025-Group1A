@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Booking Repository Objects using the interface
+    /// </summary>
     public class BookingRepository : IBookingRepository
     {
         #region Fields
@@ -188,7 +191,10 @@ namespace ProjectClassLibrary.Services
             }
             return false;
         }
-
+        /// <summary>
+        /// Returns all active bookings when called
+        /// </summary>
+        /// <returns></returns>
         public List<IBooking> GetAllActiveBookings()
         {
             List<IBooking> activeList = [];

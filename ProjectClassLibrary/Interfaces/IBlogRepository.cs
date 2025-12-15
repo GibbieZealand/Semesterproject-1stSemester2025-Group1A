@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Interfaces
 {
+    /// <summary>
+    /// Interface for the BlogRepository class
+    /// </summary>
     public interface IBlogRepository
     {
         void AddBlog(IBlog b);

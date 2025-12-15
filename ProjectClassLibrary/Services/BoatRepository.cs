@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 // -- Lavet af: Gibbie --
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Boat Repository Objects using the interface
+    /// </summary>
     public class BoatRepository : IBoatRepository
     {
         #region Instance Field
@@ -83,7 +86,7 @@ namespace ProjectClassLibrary.Services
         /// <summary>
         /// Searches through the boat dictionary and returns the boat with the given sailnumber. 
         /// </summary>
-        public IBoat? SearchBoat(string sailNumber) //Vi søger efter en båd. HVIS dictionariet indeholder det angivne sejlnummer, returnerer den båden. Hvis ikke, returneres null
+        public IBoat? SearchBoat(string sailNumber) 
         {
             if (_boats.ContainsKey(sailNumber))
             {
