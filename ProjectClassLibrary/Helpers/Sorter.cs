@@ -8,6 +8,10 @@ namespace ProjectClassLibrary.Helpers
 {
     public class Sorter
     {
+        /// <summary>
+        /// Insertion sort method for sorting member names alphabetically
+        /// </summary>
+
         public static string[] InsertionSort(string[] names)
         {
             int n = names.Length;
