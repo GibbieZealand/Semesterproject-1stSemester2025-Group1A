@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Blog Repository Objects using the interface
+    /// </summary>
     public class BlogRepository : IBlogRepository
     {
         #region Fields

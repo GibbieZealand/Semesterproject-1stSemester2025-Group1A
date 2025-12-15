@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 //--Lavet af Necati--
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Maintenance Repository Objects using the interface
+    /// </summary>
     public class MaintenanceRepository : IMaintenanceRepository
     {
         #region Instance fields

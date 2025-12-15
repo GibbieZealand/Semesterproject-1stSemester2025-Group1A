@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 // -- Lavet af: Gibbie --
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Boat Repository Objects using the interface
+    /// </summary>
     public class BoatRepository : IBoatRepository
     {
         #region Instance Field

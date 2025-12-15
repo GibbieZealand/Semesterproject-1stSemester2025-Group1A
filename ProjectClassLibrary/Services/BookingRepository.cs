@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Booking Repository Objects using the interface
+    /// </summary>
     public class BookingRepository : IBookingRepository
     {
         #region Fields

@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Event Repository Objects using the interface
+    /// </summary>
     public class EventRepository : IEventRepository
     {
         #region Instance field

@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 // - Lavet af Kasper - 
 namespace ProjectClassLibrary.Services
 {
+    /// <summary>
+    /// Class for Constructing and calling Member Repository Objects using the interface
+    /// </summary>
     public class MemberRepository : IMemberRepository
     {
         #region Instance Fields
