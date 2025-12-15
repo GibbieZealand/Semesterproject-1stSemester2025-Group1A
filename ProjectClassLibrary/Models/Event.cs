@@ -54,6 +54,12 @@ namespace ProjectClassLibrary.Models
             Author = member;
             _members = [];
         }
+        
+        // For razorpages
+        public Event()
+        {
+
+        }
         #endregion
 
         #region methods
