@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//-- Lavet i fællesskab --//
+
 namespace ProjectClassLibrary.Helpers
 {
     public class Sorter

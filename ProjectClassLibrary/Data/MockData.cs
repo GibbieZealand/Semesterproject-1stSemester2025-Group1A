@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Ikke i brug
+
 namespace ProjectClassLibrary.Data
 {
     public class MockData
