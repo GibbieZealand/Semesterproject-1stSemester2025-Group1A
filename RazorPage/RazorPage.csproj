@@ -13,4 +13,8 @@
     <None Remove="Pages\Test\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectClassLibrary\ProjectClassLibrary.csproj" />
+  </ItemGroup>
+
 </Project>
