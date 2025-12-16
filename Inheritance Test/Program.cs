@@ -11,3 +11,8 @@ IBoatRepository bRepo = new BoatRepository();
 bRepo.AddBoat(motorBåd);
 bRepo.AddBoat(sejlBåd);
 bRepo.PrintAllBoats();
+IMember member = new Member("...", ",,,", "ggg", "ddd", "by", "gmsil,", MemberType.Junior, MemberRole.Chairman);
+IBooking booking = new Booking(DateTime.Now, DateTime.Now.AddHours(1), "Hilledrød",member,sejlBåd);
+IBookingRepository bookingRepository = new BookingRepository();
+bookingRepository.AddBooking(booking);
+bookingRepository.PrintAll();
