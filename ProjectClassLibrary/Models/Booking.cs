@@ -26,7 +26,6 @@ namespace ProjectClassLibrary.Models
         public int Id { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        //public bool IsBooked { get; set; }
         public bool IsActive
         {
             get
@@ -34,9 +33,7 @@ namespace ProjectClassLibrary.Models
                 return StartDate <= DateTime.Now && DateTime.Now <= EndDate;
             }
         }
-
         public bool SailCompleted { get; set; }
-
         public string Destination { get; set; }
         public IMember TheMember { get; set; }
         public IBoat TheBoat { get; set; }
@@ -46,7 +43,6 @@ namespace ProjectClassLibrary.Models
         {
             StartDate = startDate;
             EndDate = endDate;
-            //IsBooked = isBooked;
             Destination = destination;
             Id = _counter++;
             TheMember = member;
@@ -58,10 +54,11 @@ namespace ProjectClassLibrary.Models
         public override string ToString()
         {
             return $"Id: {Id} " +
-                $"\nStart Dato: {StartDate} \nSlut Dato: {EndDate} " +
-                //$"\nEr Booked: {IsBooked} " +
+                $"\nStart Dato: {StartDate} " +
+                $"\nSlut Dato: {EndDate} " +
                 $"\nDestination: {Destination} " +
-                $"\nBåden med sejlnummeret: {TheBoat.SailNumber} \nBooket af: {TheMember.FirstName}" +
+                $"\nBåden med sejlnummeret: {TheBoat.SailNumber}" +
+                $"\nBooket af: {TheMember.FirstName}" +
                 $"\nBåden er kommet i havn: {SailCompleted}";
         }
         #endregion
