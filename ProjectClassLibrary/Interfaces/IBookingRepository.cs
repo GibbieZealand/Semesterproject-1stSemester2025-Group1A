@@ -13,13 +13,13 @@ namespace ProjectClassLibrary.Interfaces
     /// </summary>
     public interface IBookingRepository
     {
-        void AddBooking(IBooking b);
+        void AddBooking(IBooking booking);
         void RemoveBooking(IBooking b);
         List<IBooking> GetAllBookings();
         void UpdateBooking(int id, IBooking newBooking);
         void PrintAll();
         //void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate, string destination);
-        void BookBoat(IBooking booking);
+        //void AddBooking(IBooking booking);
         int GetBookingCountForMember(IMember member);
         Dictionary<string, int> GetAllBookingsForMembers();
         //List<int> GetAllBookingsForMembers();

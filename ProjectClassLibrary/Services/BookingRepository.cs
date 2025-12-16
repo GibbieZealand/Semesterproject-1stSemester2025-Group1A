@@ -32,17 +32,17 @@ namespace ProjectClassLibrary.Services
         /// Adds a booking to the booking list, 
         /// if one with the same id doesn't already exist
         /// </summary>
-        public void AddBooking(IBooking booking)
-        {
-            foreach (IBooking b in _bookings)
-            {
-                if (b.Id == booking.Id)
-                {
-                    return;
-                }
-            }
-            _bookings.Add(booking);
-        }
+        //public void AddBooking(IBooking booking)
+        //{
+        //    foreach (IBooking b in _bookings)
+        //    {
+        //        if (b.Id == booking.Id)
+        //        {
+        //            return;
+        //        }
+        //    }
+        //    _bookings.Add(booking);
+        //}
 
         /// <summary>
         /// Removes a booking from the booking list
@@ -82,7 +82,7 @@ namespace ProjectClassLibrary.Services
         /// otherwise an exception is thrown.
         /// </summary>
         //public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
-        public void BookBoat(IBooking booking)
+        public void AddBooking(IBooking booking)
         {
             //TO-DO: Exceptions og try/catch skal flyttes til program.cs
             //Try/Catch Rykket til FrederikTest
@@ -107,7 +107,15 @@ namespace ProjectClassLibrary.Services
             }
 
             //IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
-            AddBooking(booking);
+            //AddBooking(booking);
+            foreach (IBooking b in _bookings)
+            {
+                if (b.Id == booking.Id)
+                {
+                    return;
+                }
+            }
+            _bookings.Add(booking);
             Console.WriteLine("Båden er hermed blevet booket");
         }
 

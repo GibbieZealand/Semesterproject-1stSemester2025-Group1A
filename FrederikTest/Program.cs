@@ -47,38 +47,38 @@ Console.WriteLine("\nadding booking for jolle1");
 try
 {
     IBooking booking1 = new Booking(now, now.AddHours(6), "Helsingør", member1, jolle1);
-    bookingRepository.BookBoat(booking1);
+    bookingRepository.AddBooking(booking1);
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
     IBooking booking2 = new Booking(now, now.AddHours(3), "Helsingør", member2, jolle2);
-    bookingRepository.BookBoat(booking2);
+    bookingRepository.AddBooking(booking2);
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
     IBooking booking3 = new Booking(new DateTime(2025, 12, 05, 12, 00, 00), new DateTime(2025, 12, 05, 13, 00, 00), "Roskilde", member2, jolle2);
-    bookingRepository.BookBoat(booking3);
+    bookingRepository.AddBooking(booking3);
 
     Console.WriteLine("\nadding booking for jolle2 by member2");
     IBooking booking4 = new Booking(new DateTime(2025, 12, 04, 12, 00, 00), new DateTime(2025, 12, 04, 13, 00, 00), "Holbæk", member2, jolle2);
-    bookingRepository.BookBoat(booking4);
+    bookingRepository.AddBooking(booking4);
 
     Console.WriteLine("\nadding booking for jolle1 by member2");
     IBooking booking5 = new Booking(new DateTime(2025, 12, 03, 12, 00, 00), new DateTime(2025, 12, 03, 13, 00, 00), "Aarhus", member2, jolle1);
-    bookingRepository.BookBoat(booking5);
+    bookingRepository.AddBooking(booking5);
 
     Console.WriteLine("\ntesting invalid booking");
     IBooking booking6 = new Booking(now.AddHours(2), now.AddHours(4), "Stockholm", member2, jolle1);
-    bookingRepository.BookBoat(booking6);
+    bookingRepository.AddBooking(booking6);
 
     //Console.WriteLine("\ntesting invalid time");
     //bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
 
     Console.WriteLine("\nadding booking for jolle2 after first booking");
     IBooking booking7 = new Booking(now.AddHours(4), now.AddHours(6), "Bornholm", member1, jolle2);
-    bookingRepository.BookBoat(booking7);
+    bookingRepository.AddBooking(booking7);
 
     Console.WriteLine("\nadding booking for jolle2 after second booking");
     IBooking booking8 = new Booking(now.AddHours(6), now.AddHours(12), "Dublin", member2, jolle2);
-    bookingRepository.BookBoat(booking8);
+    bookingRepository.AddBooking(booking8);
 
     Console.WriteLine("\nPrinting all bookings");
     bookingRepository.PrintAll();
@@ -147,7 +147,7 @@ bRepo.AddBoat(b5);
 bRepo.AddBoat(b6);
 bRepo.AddBoat(b7);
 IBooking b9 = new Booking(now, now.AddHours(2), "Sydafrika", member1, b2);
-bookingRepository.BookBoat(b9);
+bookingRepository.AddBooking(b9);
 Console.WriteLine();
 foreach (IBoat b in bRepo.GetAllBoats())
 {
