@@ -45,13 +45,11 @@ namespace ProjectClassLibrary.Models
             TheMemberRole = theMemberRole;
             Id = _counter++;
         }
-        #endregion
-
         public Member()
         {
 
         }
-       
+        #endregion
         #region Methods
         /// <summary>
         /// ToString method used for printing out member information
