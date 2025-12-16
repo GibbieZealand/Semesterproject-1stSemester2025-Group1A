@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Inheritance_Test.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,13 +15,20 @@ namespace ProjectClassLibrary.Models
     public class SailBoat : Boat
     {
         #region Properties
-        public string SailType { get; set; }
+        public SailType SailType { get; set; }
         #endregion
 
         #region Constructor
-        public SailBoat(BoatType boatType, string model, string sailNumber, string engineInfo, string sailType, double draft, double width, double length, string yearOfConstruction) : base(boatType, model, sailNumber, engineInfo, draft, width, length, yearOfConstruction)
+        public SailBoat(BoatType boatType, string model, string sailNumber, string engineInfo, double draft, double width, double length, string yearOfConstruction, SailType sailType) : base(boatType, model, sailNumber, engineInfo, draft, width, length, yearOfConstruction)
         {
             SailType = sailType;
+        }
+        #endregion
+
+        #region Methods
+        public override string ToString()
+        {
+            return base.ToString() + $"Sejltype: {SailType}";
         }
         #endregion
     }

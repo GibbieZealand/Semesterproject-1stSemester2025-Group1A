@@ -1,5 +1,4 @@
 ﻿using ProjectClassLibrary.Exceptions;
-using ProjectClassLibrary.Helpers;
 using ProjectClassLibrary.Interfaces;
 using ProjectClassLibrary.Models;
 using System;
@@ -45,6 +44,16 @@ namespace ProjectClassLibrary.Services
                 return;
             }
             throw new BoatSailnumberExistsException($"Båden med sejlnummeret {boat.SailNumber} findes allerede.");
+        }
+
+        public void AddSailBoat(IBoat sailBoat)
+        {
+
+        }
+
+        public void AddMotorBoat(IBoat motorBoat)
+        {
+
         }
 
         /// <summary>
