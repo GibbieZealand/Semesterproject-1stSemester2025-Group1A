@@ -46,6 +46,11 @@ namespace ProjectClassLibrary.Models
             Id = _counter++;
         }
         #endregion
+
+        public Member()
+        {
+
+        }
        
         #region Methods
         /// <summary>
