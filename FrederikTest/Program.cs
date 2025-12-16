@@ -9,22 +9,8 @@ using System;
 #region Test af blog metoder
 DateTime now = DateTime.Now;
 IMember member1 = new Member("Kasper", "Møller", "23456789", "Skovvej 111", "Næstved", "Kasper@hotmail.com", MemberType.Adult, MemberRole.Member);
-//IBooking booking = new Booking(now, now.AddHours(8), isBooked: true, "DestinationA",member1,jolle1);
-//Console.WriteLine(booking);
-//Console.WriteLine("");
-
-//Console.WriteLine("Booking: " + booking);
 IBookingRepository bookingRepository = new BookingRepository();
-//bookingRepository.AddBooking(booking);
-////bookingRepository.PrintAll();
-//IBooking booking2 = new Booking(now, now.AddHours(12), isBooked: true, "DestinationB", member1, jolle1);
-////Test af UpdateBooking
-////bookingRepository.UpdateBooking(booking.Id, booking2);
-//bookingRepository.PrintAll();
-
-
 IBlog blog = new Blog("HeaderA", "DescriptionA", DateTime.Now, member1, "Picture.png");
-//Console.WriteLine("Blog: " + blog);
 IBlogRepository blogRepository = new BlogRepository();
 blogRepository.AddBlog(blog);
 blogRepository.PrintAll();
@@ -38,8 +24,6 @@ Console.WriteLine();
 IBoat jolle1 = new Boat(BoatType.TERA, "Model", "16-3335", "Is very good :3", 32, 23, 33, "1982");
 IBoat jolle2 = new Boat(BoatType.TERA, "Model", "19-4325", "Is very good :3", 32, 23, 33, "1982");
 IMember member2 = new Member("Gibbie", "Lund Mølgaard", "53764901", "Kildehusvej", "Roskilde", "mail@gmail.com", MemberType.Adult, MemberRole.Member);
-//IBooking booking3 = new Booking(now.AddHours(3), now.AddHours(8), isBooked: true, "DestinationB", member2, jolle2);
-//bookingRepository.AddBooking(booking3);
 #endregion
 
 #region Test af BookBoat og overlapning af bookingtider
@@ -68,9 +52,6 @@ try
     Console.WriteLine("\ntesting invalid booking");
     IBooking booking6 = new Booking(now.AddHours(2), now.AddHours(4), "Stockholm", member2, jolle1);
     bookingRepository.AddBooking(booking6);
-
-    //Console.WriteLine("\ntesting invalid time");
-    //bookingRepository.BookBoat(jolle2, member1, now.AddHours(6), now.AddHours(4));
 
     Console.WriteLine("\nadding booking for jolle2 after first booking");
     IBooking booking7 = new Booking(now.AddHours(4), now.AddHours(6), "Bornholm", member1, jolle2);
@@ -104,20 +85,6 @@ Console.WriteLine();
 Console.WriteLine("Jolle1 er blevet booked " + jolle1.BookedNrOfTimes + " gange");
 Console.WriteLine("Jolle2 er blevet booked " + jolle2.BookedNrOfTimes + " gange");
 Console.WriteLine();
-
-// GetBookingCountForMember test - OLD
-//int bookingCount1 = bookingRepository.GetBookingCountForMember(member1);
-//int bookingCount2 = bookingRepository.GetBookingCountForMember(member2);
-//Console.WriteLine($"{member1.Name} booking count: {bookingCount1}");
-//Console.WriteLine($"{member2.Name} booking count: {bookingCount2}");
-//Console.WriteLine();
-
-//List<int> bookings = bookingRepository.GetAllBookingsForMembers();
-//foreach(var o in bookings)
-//{
-//Console.WriteLine(o);
-//}
-//Console.WriteLine(bookings);
 #endregion
 
 #region Print booking counts for each member test
