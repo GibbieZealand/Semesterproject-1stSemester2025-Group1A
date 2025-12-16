@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// -- ikke i brug - kun til inheritance eksempel
+
 namespace ProjectClassLibrary.Models
 {
     /// <summary>
