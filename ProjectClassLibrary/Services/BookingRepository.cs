@@ -29,22 +29,6 @@ namespace ProjectClassLibrary.Services
 
         #region Methods
         /// <summary>
-        /// Adds a booking to the booking list, 
-        /// if one with the same id doesn't already exist
-        /// </summary>
-        //public void AddBooking(IBooking booking)
-        //{
-        //    foreach (IBooking b in _bookings)
-        //    {
-        //        if (b.Id == booking.Id)
-        //        {
-        //            return;
-        //        }
-        //    }
-        //    _bookings.Add(booking);
-        //}
-
-        /// <summary>
         /// Removes a booking from the booking list
         /// </summary>
         public void RemoveBooking(IBooking booking)
@@ -81,7 +65,6 @@ namespace ProjectClassLibrary.Services
         /// Books a boat if all checks are passed,
         /// otherwise an exception is thrown.
         /// </summary>
-        //public void BookBoat(IBoat boat, IMember member, DateTime startDate, DateTime endDate)
         public void AddBooking(IBooking booking)
         {
             //TO-DO: Exceptions og try/catch skal flyttes til program.cs
@@ -106,8 +89,6 @@ namespace ProjectClassLibrary.Services
                 throw new OverlappingDateException("Bookingen overlapper med en anden.");
             }
 
-            //IBooking booking = new Booking(startDate, endDate, isBooked: true, "", member, boat);
-            //AddBooking(booking);
             foreach (IBooking b in _bookings)
             {
                 if (b.Id == booking.Id)
