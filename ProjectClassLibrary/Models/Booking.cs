@@ -17,8 +17,6 @@ namespace ProjectClassLibrary.Models
     public class Booking : IBooking
     {
         #region Instance Fields
-        //private IMember _member;
-        //private IBoat _boat;
         private static int _counter;
         private bool _isActive;
         #endregion
