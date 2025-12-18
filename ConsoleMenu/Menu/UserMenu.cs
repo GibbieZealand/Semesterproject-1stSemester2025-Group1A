@@ -108,7 +108,7 @@ namespace ConsoleMenu.Menu
         private void AddAndCreateMaintenance()
         {
             Console.WriteLine("Indtast beskrivelse");
-            string description = Console.ReadLine();
+            string description = ReadString();
             Console.WriteLine("Indtast dato");
             DateTime date = ReadDate();
             IBoat boat = AddAndCreateBoat();
@@ -120,9 +120,9 @@ namespace ConsoleMenu.Menu
         private void AddAndCreateEvent()
         {
             Console.WriteLine("Indtast navn");
-            string name = Console.ReadLine();
+            string name = ReadString();
             Console.WriteLine("Indtast beskrivelse");
-            string description = Console.ReadLine();
+            string description = ReadString();
             Console.WriteLine("Indtast startdato");
             DateTime startDate = ReadDate();
             Console.WriteLine("Indtast slutdato");
@@ -139,7 +139,7 @@ namespace ConsoleMenu.Menu
             Console.WriteLine("Indtast slutdato (dd-mm-yyyy-HH):");
             DateTime endDate = ReadDate();
             Console.WriteLine("Indtast destination");
-            string destination = Console.ReadLine();
+            string destination = ReadString();
             IMember member = AddAndCreateMember();
             IBoat boat = AddAndCreateBoat();
             IBooking booking = new Booking(startDate, endDate, destination, member, boat);
@@ -150,9 +150,9 @@ namespace ConsoleMenu.Menu
         private IBlog AddAndCreateBlog()
         {
             Console.WriteLine("Indtast overskrift");
-            string headline = Console.ReadLine();
+            string headline = ReadString();
             Console.WriteLine("Indtast beskrivelse");
-            string description = Console.ReadLine();
+            string description = ReadString();
             DateTime date = DateTime.Now;
             IMember member = AddAndCreateMember();
             IBlog blog = new Blog(headline, description, date, member, "");
@@ -163,11 +163,11 @@ namespace ConsoleMenu.Menu
         private IBoat AddAndCreateBoat()
         {
             Console.WriteLine("Indtast bådmodel");
-            string model = Console.ReadLine();
+            string model = ReadString();
             Console.WriteLine("Indtast sejlnummer");
-            string sailNumber = Console.ReadLine();
+            string sailNumber = ReadString();
             Console.WriteLine("Indtast motorinfo");
-            string engineInfo = Console.ReadLine();
+            string engineInfo = ReadString();
             Console.WriteLine("Indtast dybgang");
             double draft = ReadDouble();
             Console.WriteLine("Indtast bredde");
@@ -175,7 +175,7 @@ namespace ConsoleMenu.Menu
             Console.WriteLine("Indtast længde");
             double length = ReadDouble();
             Console.WriteLine("Indtast byggeår");
-            string yearOfConstruction = Console.ReadLine();
+            string yearOfConstruction = ReadString();
             IBoat boat = new Boat(BoatType.WAYFARER, model, sailNumber, engineInfo, draft, width, length, yearOfConstruction);
             _boatRepository.AddBoat(boat);
             return boat;
@@ -184,17 +184,17 @@ namespace ConsoleMenu.Menu
         private IMember AddAndCreateMember()
         {
             Console.WriteLine("Indtast medlemsnavn");
-            string name = Console.ReadLine();
+            string name = ReadString();
             Console.WriteLine("Indtast efternavn");
-            string surName = Console.ReadLine();
+            string surName = ReadString();
             Console.WriteLine("Indtast telefonnummer");
-            string phoneNumber = Console.ReadLine();
+            string phoneNumber = ReadString();
             Console.WriteLine("Indtast addresse");
-            string address = Console.ReadLine();
+            string address = ReadString();
             Console.WriteLine("Indtast by");
-            string city = Console.ReadLine();
+            string city = ReadString();
             Console.WriteLine("Indtast mail");
-            string mail = Console.ReadLine();
+            string mail = ReadString();
             MemberType memberType = MemberType.Adult;
             MemberRole memberRole = MemberRole.Member;
             IMember member = new Member(name, surName, phoneNumber, address, city, mail, memberType, memberRole);
@@ -221,6 +221,17 @@ namespace ConsoleMenu.Menu
                 Console.WriteLine("Indtast en gyldig dato (dd-mm-yyyy-HH)");
             }
             return date;
+        }
+
+        public string ReadString()
+        {
+            string s = Console.ReadLine();
+            while (string.IsNullOrWhiteSpace(s))
+            {
+                Console.WriteLine("Indtast en gyldig streng");
+                s = Console.ReadLine();
+            }
+            return s;
         }
     }
 }
