@@ -38,12 +38,6 @@ namespace ConsoleMenu.Menu
         private BookingRepository _bookingRepository = new BookingRepository();
         private EventRepository _eventRepository = new EventRepository();
         private MaintenanceRepository _maintenanceRepository = new MaintenanceRepository();
-        private List<IMember> _currentMembers = [];
-        private List<IBoat> _currentBoats = [];
-        private List<IBlog> _currentBlogs = [];
-        private List<IBooking> _currentBookings = [];
-        private List<IEvent> _currentEvents = [];
-        private List<IMaintenance> _currentMaintenances = [];
 
         private static string ReadChoice(string choices)
         {
