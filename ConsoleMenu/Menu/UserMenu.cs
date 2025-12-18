@@ -22,11 +22,13 @@ namespace ConsoleMenu.Menu
             "\n\t3.Vis Blogs" +
             "\n\t4.Vis Bookinger" +
             "\n\t5.Vis Events" +
-            "\n\t6.Tilføj Medlem" +
-            "\n\t7.Tilføj Båd" +
-            "\n\t8.Tilføj Blog" +
-            "\n\t9.Tilføj Booking" +
-            "\n\t10.Tilføj Event" +
+            "\n\t6.Vis Maintenance" +
+            "\n\t7.Tilføj Medlem" +
+            "\n\t8.Tilføj Båd" +
+            "\n\t9.Tilføj Blog" +
+            "\n\t10.Tilføj Booking" +
+            "\n\t11.Tilføj Event" +
+            "\n\t12.Tilføj Maintenance" +
             "\n\tQ.Afslut" +
             "\n\n\tIndtast valg:";
 
@@ -80,26 +82,44 @@ namespace ConsoleMenu.Menu
                         Console.ReadLine();
                         break;
                     case "6":
-                        AddAndCreateMember();
+                        _maintenanceRepository.PrintAll();
                         break;
                     case "7":
-                        AddAndCreateBoat();
+                        AddAndCreateMember();
                         break;
                     case "8":
-                        AddAndCreateBlog();
+                        AddAndCreateBoat();
                         break;
                     case "9":
-                        AddAndCreateBooking();
+                        AddAndCreateBlog();
                         break;
                     case "10":
+                        AddAndCreateBooking();
+                        break;
+                    case "11":
                         AddAndCreateEvent();
                         break;
+                    case "12":
+                        AddAndCreateMaintenance();
+                        break;
                     default:
-                        Console.WriteLine("Angiv et tal fra 1..10 eller q for afslut");
+                        Console.WriteLine("Angiv et tal fra 1..12 eller q for afslut");
                         break;
                 }
                 theChoice = ReadChoice(mainMenuChoices);
             }
+        }
+
+        private void AddAndCreateMaintenance()
+        {
+            Console.WriteLine("Indtast beskrivelse");
+            string description = Console.ReadLine();
+            Console.WriteLine("Indtast dato");
+            DateTime date = ReadDate();
+            IBoat boat = AddAndCreateBoat();
+            IMember member = AddAndCreateMember();
+            IMaintenance maintenance = new Maintenance(description, date, boat, member);
+            _maintenanceRepository.AddMaintenance(maintenance);
         }
 
         private void AddAndCreateEvent()
@@ -125,9 +145,9 @@ namespace ConsoleMenu.Menu
             DateTime endDate = ReadDate();
             Console.WriteLine("Indtast destination");
             string destination = Console.ReadLine();
-            IMember member2 = AddAndCreateMember();
-            IBoat boat2 = AddAndCreateBoat();
-            IBooking booking = new Booking(startDate, endDate, destination, member2, boat2);
+            IMember member = AddAndCreateMember();
+            IBoat boat = AddAndCreateBoat();
+            IBooking booking = new Booking(startDate, endDate, destination, member, boat);
             _bookingRepository.AddBooking(booking);
             return booking;
         }
@@ -139,8 +159,8 @@ namespace ConsoleMenu.Menu
             Console.WriteLine("Indtast beskrivelse");
             string description = Console.ReadLine();
             DateTime date = DateTime.Now;
-            IMember member1 = AddAndCreateMember();
-            IBlog blog = new Blog(headline, description, date, member1, "");
+            IMember member = AddAndCreateMember();
+            IBlog blog = new Blog(headline, description, date, member, "");
             _blogRepository.AddBlog(blog);
             return blog;
         }
@@ -166,17 +186,6 @@ namespace ConsoleMenu.Menu
             return boat;
         }
 
-        private static double ReadDouble()
-        {
-            double draft;
-            while (!double.TryParse(Console.ReadLine(), out draft))
-            {
-                Console.WriteLine("Indtast et tal");
-            }
-
-            return draft;
-        }
-
         private IMember AddAndCreateMember()
         {
             Console.WriteLine("Indtast medlemsnavn");
@@ -196,6 +205,17 @@ namespace ConsoleMenu.Menu
             IMember member = new Member(name, surName, phoneNumber, address, city, mail, memberType, memberRole);
             _memberRepository.AddMember(member);
             return member;
+        }
+
+        private static double ReadDouble()
+        {
+            double value;
+            while (!double.TryParse(Console.ReadLine(), out value))
+            {
+                Console.WriteLine("Indtast et tal");
+            }
+
+            return value;
         }
 
         public DateTime ReadDate()
