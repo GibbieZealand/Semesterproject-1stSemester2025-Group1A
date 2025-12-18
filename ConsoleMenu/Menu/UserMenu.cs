@@ -17,20 +17,20 @@ namespace ConsoleMenu.Menu
     {
 
         private static string mainMenuChoices =
-            "\t1.Vis Medlemmer" +
-            "\n\t2.Vis Både" +
-            "\n\t3.Vis Blogs" +
-            "\n\t4.Vis Bookinger" +
-            "\n\t5.Vis Events" +
-            "\n\t6.Vis Maintenance" +
-            "\n\t7.Tilføj Medlem" +
-            "\n\t8.Tilføj Båd" +
-            "\n\t9.Tilføj Blog" +
-            "\n\t10.Tilføj Booking" +
-            "\n\t11.Tilføj Event" +
-            "\n\t12.Tilføj Maintenance" +
-            "\n\tQ.Afslut" +
-            "\n\n\tIndtast valg:";
+            "1.Vis Medlemmer" +
+            "\n2.Vis Både" +
+            "\n3.Vis Blogs" +
+            "\n4.Vis Bookinger" +
+            "\n5.Vis Events" +
+            "\n6.Vis Maintenance" +
+            "\n7.Tilføj Medlem" +
+            "\n8.Tilføj Båd" +
+            "\n9.Tilføj Blog" +
+            "\n10.Tilføj Booking" +
+            "\n11.Tilføj Event" +
+            "\n12.Tilføj Maintenance" +
+            "\nQ.Afslut" +
+            "\n\nIndtast valg:";
 
         private MemberRepository _memberRepository = new MemberRepository();
         private BoatRepository _boatRepository = new BoatRepository();
