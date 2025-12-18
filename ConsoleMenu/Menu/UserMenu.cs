@@ -77,6 +77,7 @@ namespace ConsoleMenu.Menu
                         break;
                     case "6":
                         _maintenanceRepository.PrintAll();
+                        Console.ReadLine();
                         break;
                     case "7":
                         AddAndCreateMember();
