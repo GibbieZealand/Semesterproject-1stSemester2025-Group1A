@@ -9,8 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-// Ikke i brug
-
 namespace ConsoleMenu.Menu
 {
     public class UserMenu
