@@ -36,6 +36,12 @@ namespace ConsoleMenu.Menu
         private BookingRepository _bookingRepository = new BookingRepository();
         private EventRepository _eventRepository = new EventRepository();
         private MaintenanceRepository _maintenanceRepository = new MaintenanceRepository();
+        private List<IMember> _currentMembers = [];
+        private List<IBoat> _currentBoats = [];
+        private List<IBlog> _currentBlogs = [];
+        private List<IBooking> _currentBookings = [];
+        private List<IEvent> _currentEvents = [];
+        private List<IMaintenance> _currentMaintenances = [];
 
         private static string ReadChoice(string choices)
         {
@@ -113,10 +119,11 @@ namespace ConsoleMenu.Menu
 
         private IBooking AddAndCreateBooking()
         {
-            Console.WriteLine("Indtast startdato (dd-mm-yyyy):");
+            Console.WriteLine("Indtast startdato (dd-mm-yyyy-HH):");
             DateTime startDate = ReadDate();
-            Console.WriteLine("Indtast slutdato (dd-mm-yyyy):");
+            Console.WriteLine("Indtast slutdato (dd-mm-yyyy-HH):");
             DateTime endDate = ReadDate();
+            Console.WriteLine("Indtast destination");
             string destination = Console.ReadLine();
             IMember member2 = AddAndCreateMember();
             IBoat boat2 = AddAndCreateBoat();
@@ -194,9 +201,9 @@ namespace ConsoleMenu.Menu
         public DateTime ReadDate()
         {
             DateTime date;
-            while (!DateTime.TryParseExact(Console.ReadLine(), "dd-mm-yyyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+            while (!DateTime.TryParseExact(Console.ReadLine(), "dd-mm-yyyy-HH", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
             {
-                Console.WriteLine("Indtast en gyldig dato (dd-mm-yyyy)");
+                Console.WriteLine("Indtast en gyldig dato (dd-mm-yyyy-HH)");
             }
             return date;
         }
